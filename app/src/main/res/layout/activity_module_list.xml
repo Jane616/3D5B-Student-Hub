@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ModuleList">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="401dp"
+        android:layout_height="536dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="91dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/modulesTextView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EEU3E03 Probability and Statistics "
+                android:onClick="selectModule"/>
+
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EEU33C01 Signals and Systems "
+                android:onClick="selectModule"/>
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EEU33C02 Digital Circuits "
+                android:onClick="selectModule"/>
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MAU33E01 Engineering Mathematics V "
+                android:onClick="selectModule"/>
+
+            <CheckBox
+                android:id="@+id/checkBox5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EEU33C07 Digital Systems Design "
+                android:onClick="selectModule"/>
+
+            <CheckBox
+                android:id="@+id/checkBox6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CSU33D01 Microprocessor Systems I "
+                android:onClick="selectModule"/>
+
+            <CheckBox
+                android:id="@+id/checkBox7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CSU33D02 Microprocessor Systems II"
+                android:onClick="selectModule"/>
+
+            <CheckBox
+                android:id="@+id/checkBox8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CSU33D03Computer Networks"
+                android:onClick="selectModule"/>
+
+            <CheckBox
+                android:id="@+id/checkBox9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CSU33D04 Operating Systems and Concurrent Systems"
+                android:onClick="selectModule"/>
+
+            <CheckBox
+                android:id="@+id/checkBox10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CSU333D05 Data Structures"
+                android:onClick="selectModule"/>
+
+            <CheckBox
+                android:id="@+id/checkBox11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CSU33D06 Software Design Analysis"
+                android:onClick="selectModule"/>
+
+            <CheckBox
+                android:id="@+id/checkBox12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CEU33E04 Innovation+Entrepreneurship for Engineers"
+                android:onClick="selectModule"/>
+
+            <CheckBox
+                android:id="@+id/checkBox13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EEU33C05 Telecommunications "
+                android:onClick="selectModule"/>
+
+            <CheckBox
+                android:id="@+id/checkBox14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EEU33C07 Digital Systems Design "
+                android:onClick="selectModule"/>
+
+            <CheckBox
+                android:id="@+id/checkBox15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EEU33C08 Digital Circuits Design "
+                android:onClick="selectModule"/>
+
+            <CheckBox
+                android:id="@+id/checkBox16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EEU33C05 Telecommunications "
+                android:onClick="selectModule"/>
+
+            <CheckBox
+                android:id="@+id/checkBox17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CSU33D06 Software Design and Implementation "
+                android:onClick="selectModule"/>
+
+            <CheckBox
+                android:id="@+id/checkBox18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="selectModule"
+                android:text="MAU33E02 Engineering Mathematics VI" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/modulesTextView"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="186dp"
+        android:layout_marginLeft="186dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginRight="97dp"
+        android:layout_marginBottom="8dp"
+        android:background="#DBB781"
+        android:clickable="false"
+        android:padding="4dp"
+        android:text="Year-3 Modules List"
+        android:textSize="28sp"
+        android:textStyle="bold|italic"
+        android:typeface="serif"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.736"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.02"
+        tools:text="Year-3 Modules List" />
+
+    <Button
+        android:id="@+id/proceedButton"
+        android:layout_width="136dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="137dp"
+        android:layout_marginLeft="137dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="138dp"
+        android:layout_marginRight="138dp"
+        android:layout_marginBottom="29dp"
+        android:onClick="proceedButton"
+        android:text="Proceed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
