@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:background="#009688"
                 android:padding="5dp"
-                android:text="EEU3E03 Probability"
+                android:text="EEU3E03 Probability and Statistics"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
