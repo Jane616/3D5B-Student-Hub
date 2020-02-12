@@ -29,5 +29,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, Review.class));
             }
         });
+
+        Button LoginBtn = (Button) findViewById(R.id.Loginbutton);
+        LoginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Login.class));
+            }
+        });
     }
 }
