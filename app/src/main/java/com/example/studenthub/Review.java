@@ -2,12 +2,16 @@ package com.example.studenthub;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 public class Review extends AppCompatActivity {
     RatingBar ratingBar;
@@ -17,6 +21,15 @@ public class Review extends AppCompatActivity {
     int rating_sum = 0;
     int number_of_ratings = 0;
     int average_rating = 0;
+
+    Button postCommentButton;
+    EditText postCommentText;
+    ListView commentThread;
+    ArrayList<String> comments = new ArrayList<String>();
+    ArrayAdapter myAdapter1;
+    Integer indexVal;
+    String item;
+    String activeUser = "Admin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +41,28 @@ public class Review extends AppCompatActivity {
         submitRatingButton = (Button) findViewById(R.id.submitRatingButton);
         ratingBar.setRating(0);
         ratingInfo = (EditText) findViewById(R.id.ratingInfo);
+        commentThread = (ListView) findViewById(R.id.commentThread);
+        postCommentButton = (Button) findViewById(R.id.postCommentButton);
+        postCommentText = (EditText) findViewById(R.id.postCommentText);
+
+        //Set up list view
+        comments.add("Comment Section:");
+
+        myAdapter1 = new ArrayAdapter<String>(
+                this, android.R.layout.simple_list_item_1, comments);
+        commentThread.setAdapter(myAdapter1);
+
+        postCommentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String commentContent = postCommentText.getText().toString();
+                Toast.makeText(Review.this, commentContent, Toast.LENGTH_SHORT).show();
+                comments.add(activeUser + ": " + commentContent);
+                myAdapter1.notifyDataSetChanged();
+
+                postCommentText.setText("");
+            }
+        });
 
         submitRatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
