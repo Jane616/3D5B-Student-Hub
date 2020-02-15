@@ -30,11 +30,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="7dp"
         android:ems="10"
         android:hint="Enter rating for module"
         android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/submitRatingButton"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingInfo" />
 
     <Button
         android:id="@+id/submitRatingButton"

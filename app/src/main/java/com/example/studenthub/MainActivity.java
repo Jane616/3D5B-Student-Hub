@@ -18,7 +18,9 @@ public class MainActivity extends AppCompatActivity {
         HomeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ModuleList.class));
+                Intent jumpToHome = new Intent(MainActivity.this, ModuleList.class);
+                jumpToHome.putExtra("username", "admin");
+                startActivity(jumpToHome);
             }
         });
 

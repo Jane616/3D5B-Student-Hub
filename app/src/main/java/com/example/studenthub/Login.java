@@ -23,7 +23,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         b1 = (Button)findViewById(R.id.button);
-        ed1 = (EditText)findViewById(R.id.editText);
+        ed1 = (EditText)findViewById(R.id.ModuleNameText);
         ed2 = (EditText)findViewById(R.id.editText2);
 
         b2 = (Button)findViewById(R.id.button2);
