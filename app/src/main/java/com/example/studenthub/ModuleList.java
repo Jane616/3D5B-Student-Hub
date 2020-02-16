@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class ModuleList extends AppCompatActivity {
     private Button module1;
     private Button module2;
@@ -33,8 +36,11 @@ public class ModuleList extends AppCompatActivity {
         setContentView(R.layout.activity_module_list);
 
         TextView topMsg = findViewById(R.id.modulesTextView);
-        Bundle bn = getIntent().getExtras();
-        String username = bn.getString("username");
+        String username = "no username";
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null){
+            username = user.getDisplayName();
+        }
         topMsg.setText(username + "'s Modules");
 
         module1 = findViewById(R.id.button2);
