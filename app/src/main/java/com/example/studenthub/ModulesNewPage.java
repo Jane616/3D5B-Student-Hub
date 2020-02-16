@@ -19,7 +19,7 @@ public class ModulesNewPage extends AppCompatActivity {
 
         TextView Display = findViewById(R.id.textView2);
         Bundle bn = getIntent().getExtras();
-        final String name = bn.getString("abc");
+        String name = bn.getString("abc");
         Display.setText(String.valueOf(name));
 
         review = findViewById(R.id.ReviewBtn);
@@ -32,14 +32,6 @@ public class ModulesNewPage extends AppCompatActivity {
         });
 
         attendance = findViewById(R.id.AttendanceBtn);
-        attendance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent jumpToAttendance = new Intent(ModulesNewPage.this, Attendance.class);
-                jumpToAttendance.putExtra("modulename",name);
-                startActivity(jumpToAttendance);
-                finish();
-            }
-        });
+
     }
 }
