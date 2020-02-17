@@ -18,8 +18,8 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="244dp"
-        android:layout_height="51dp"
+        android:layout_width="392dp"
+        android:layout_height="56dp"
         android:foregroundGravity="center_horizontal"
         android:gravity="center_horizontal|center_vertical"
         android:padding="10dp"
