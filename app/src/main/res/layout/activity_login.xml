@@ -16,7 +16,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="30dp"
-        android:text="Student HUB"
+        android:text="Student Hub"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#009688"
         android:textColorHighlight="#00FFFFFF"
