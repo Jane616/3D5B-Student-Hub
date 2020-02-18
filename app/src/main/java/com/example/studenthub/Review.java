@@ -18,9 +18,9 @@ public class Review extends AppCompatActivity {
     EditText enterRatingText;
     EditText ratingInfo;
     Button submitRatingButton;
-    int rating_sum = 0;
-    int number_of_ratings = 0;
-    int average_rating = 0;
+    float rating_sum = 0;
+    float number_of_ratings = 0;
+    float average_rating = 0;
 
     Button postCommentButton;
     EditText postCommentText;
@@ -69,14 +69,18 @@ public class Review extends AppCompatActivity {
             public void onClick(View v) {
                 String rating_value = enterRatingText.getText().toString();
                 Toast.makeText(Review.this, "Stars: " + rating_value, Toast.LENGTH_SHORT).show();
-                int star_value = Integer.parseInt(rating_value);
-                rating_sum = rating_sum + star_value;
-                number_of_ratings++;
-                average_rating = rating_sum / number_of_ratings;
-                ratingBar.setRating(average_rating);
-                ratingInfo.setText("Overall Rating:" + average_rating);
-
-
+                float star_value = Float.parseFloat(rating_value);
+                if(star_value < 0 || star_value > 5){
+                    Toast.makeText(Review.this, "Error: Rating must be between 0 and 5", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    rating_sum = rating_sum + star_value;
+                    number_of_ratings++;
+                    average_rating = rating_sum / number_of_ratings;
+                    ratingBar.setRating(average_rating);
+                    String string_rating = String.format("%.02f", average_rating);
+                    ratingInfo.setText("Overall Rating:" + string_rating);
+                }
             }
         });
 
