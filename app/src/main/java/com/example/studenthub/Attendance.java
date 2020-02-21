@@ -20,7 +20,7 @@ public class Attendance extends AppCompatActivity {
 
         moduleName = findViewById(R.id.ModuleNameText);
         Bundle bn = getIntent().getExtras();
-        String modulename = bn.getString("modulename");
+        String modulename = bn.getString("modu  lename");
         moduleName.setText(String.valueOf(modulename));
 
 
