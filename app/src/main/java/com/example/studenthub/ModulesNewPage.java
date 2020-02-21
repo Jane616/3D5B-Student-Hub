@@ -32,6 +32,16 @@ public class ModulesNewPage extends AppCompatActivity {
         });
 
         attendance = findViewById(R.id.AttendanceBtn);
+        
+        attendance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent jumpToAttendance = new Intent(ModulesNewPage.this, Attendance.class);
+                jumpToAttendance.putExtra("modulename",name);
+                startActivity(jumpToAttendance);
+                finish();
+            }
+        });
 
     }
 }
