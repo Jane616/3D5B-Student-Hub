@@ -8,8 +8,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
+
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -21,20 +24,24 @@ public class Review extends AppCompatActivity {
     float rating_sum = 0;
     float number_of_ratings = 0;
     float average_rating = 0;
-
     Button postCommentButton;
     EditText postCommentText;
     ListView commentThread;
     ArrayList<String> comments = new ArrayList<String>();
     ArrayAdapter myAdapter1;
-    Integer indexVal;
-    String item;
     String activeUser = "Admin";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("message");
+
+        myRef.setValue("Hello World");
 
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
         enterRatingText = (EditText) findViewById(R.id.enterRatingText);
