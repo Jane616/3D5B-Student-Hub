@@ -14,13 +14,13 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="88dp"
         android:text="Your attendance is: "
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/buttonMissed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ModuleNameText" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonAttended"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.262" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonMissed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -45,7 +45,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.014"
-        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/buttonAttended"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
 

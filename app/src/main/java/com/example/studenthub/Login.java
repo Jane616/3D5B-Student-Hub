@@ -32,11 +32,11 @@ public class Login extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        b1 = (Button)findViewById(R.id.button);
+        b1 = (Button)findViewById(R.id.buttonAttended);
         ed1 = (EditText)findViewById(R.id.ModuleNameText);
         ed2 = (EditText)findViewById(R.id.editText2);
 
-        b2 = (Button)findViewById(R.id.button2);
+        b2 = (Button)findViewById(R.id.buttonMissed);
         tx1 = (TextView)findViewById(R.id.textView3);
         tx1.setVisibility(View.GONE);
 
