@@ -3,7 +3,6 @@ package com.example.studenthub;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -52,35 +51,7 @@ public class Attendance extends AppCompatActivity {
         attendanceTextView = findViewById(R.id.attendancePercentageTextView);
 
     }
-/*
-    public void onAttendedClick(View view) {
-        System.out.println("On attended was clicked");
-        numAttended ++;
-        updateAttendancePercentage();
-        System.out.println("attended clicked");
 
-    }
-
-
-    public void onMissedClick(View view) {
-        System.out.println("On missed was clicked");
-        numMissed ++;
-        updateAttendancePercentage();
-        System.out.println("missed clicked");
-
-    }
-
-    private void updateAttendancePercentage() {
-
-        double attendedPercentage = 100 * numAttended / (numAttended + numMissed);
-        String attendedPercentageAsString = String.valueOf(attendedPercentage);
-
-
-        attendanceTextView.setText("Attendance: " + attendedPercentageAsString + "%");
-
-
-    }
-*/
     @Override
     protected void onStart(){
         super.onStart();
@@ -149,6 +120,7 @@ public class Attendance extends AppCompatActivity {
         });
 
     }
+
 
 
 
