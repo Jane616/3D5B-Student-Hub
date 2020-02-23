@@ -112,6 +112,9 @@ public class Attendance extends AppCompatActivity {
                     String toAttendAsString = String.valueOf(toAttend);
                     mAttendMissView.setText("You need to attend " + toAttendAsString + " more lectures to get even");
                 }
+                else if (attendedPercentage == 75){
+                    mAttendMissView.setText("You are even!!");
+                }
                 else{
                     int toMiss = (numAttended-(3*numMissed))/3;
                     String toMissAsString = String.valueOf(toMiss);
@@ -124,14 +127,17 @@ public class Attendance extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 numMissed++;
-                double attendedPercentage =100 * numAttended / (numAttended + numMissed);
+                float attendedPercentage =100 * numAttended / (numAttended + numMissed);
                 String attendedPercentageAsString = String.valueOf(attendedPercentage);
                 mPercentageRef.setValue("Attendance: " + attendedPercentageAsString + "%");
 
-                if(attendedPercentage<=75){
+                if(attendedPercentage<75){
                     int toAttend = (3*numMissed)-numAttended;
                     String toAttendAsString = String.valueOf(toAttend);
                     mAttendMissView.setText("You need to attend " + toAttendAsString + " more lectures to get even");
+                }
+                else if (attendedPercentage == 75){
+                    mAttendMissView.setText("You are even!!");
                 }
                 else{
                     int toMiss = (numAttended-(3*numMissed))/3;
