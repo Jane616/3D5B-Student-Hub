@@ -81,15 +81,15 @@ public class Attendance extends AppCompatActivity {
                 if(attendedPercentage<=75){
                     int toAttend = (3*numMissed)-numAttended;
                     String toAttendAsString = String.valueOf(toAttend);
-                    mAttendMissView.setText("You need to attend " + toAttendAsString + " more lectures to get even");
+                    mAttendMissView.setText("Attended: " + numAttended+ "\nMissed: " + numMissed + "\nTotal Lectures: " + (numAttended+numMissed) + "\nYou need to attend " + toAttendAsString + " more lectures to get even");
                 }
-                else if (attendedPercentage == 75){
-                    mAttendMissView.setText("You are even!!");
+                else if (attendedPercentage == 75 ){
+                    mAttendMissView.setText("Attended: " + numAttended+ "\nMissed: " + numMissed + "\nTotal Lectures: " + (numAttended+numMissed) + "\nYou are even!!");
                 }
                 else{
                     int toMiss = (numAttended-(3*numMissed))/3;
                     String toMissAsString = String.valueOf(toMiss);
-                    mAttendMissView.setText("You can bunk " + toMissAsString + " lectures and still be even");
+                    mAttendMissView.setText("Attended: " + numAttended+ "\nMissed: " + numMissed + "\nTotal Lectures: " + (numAttended+numMissed) + "\nYou can bunk " + toMissAsString + " lectures and still be even");
                 }
             }
         });
@@ -105,15 +105,15 @@ public class Attendance extends AppCompatActivity {
                 if(attendedPercentage<75){
                     int toAttend = (3*numMissed)-numAttended;
                     String toAttendAsString = String.valueOf(toAttend);
-                    mAttendMissView.setText("You need to attend " + toAttendAsString + " more lectures to get even");
+                    mAttendMissView.setText("Attended: " + numAttended+ "\nMissed: " + numMissed + "\nTotal Lectures: " + (numAttended+numMissed) + "\nYou need to attend " + toAttendAsString + " more lectures to get even");
                 }
-                else if (attendedPercentage == 75){
-                    mAttendMissView.setText("You are even!!");
+                else if (attendedPercentage == 75 ){
+                    mAttendMissView.setText("Attended: " + numAttended+ "\nMissed: " + numMissed + "\nTotal Lectures: " + (numAttended+numMissed) + "\nYou are even!!");
                 }
                 else{
                     int toMiss = (numAttended-(3*numMissed))/3;
                     String toMissAsString = String.valueOf(toMiss);
-                    mAttendMissView.setText("You can bunk " + toMissAsString + " lectures and still be even");
+                    mAttendMissView.setText("Attended: " + numAttended+ "\nMissed: " + numMissed + "\nTotal Lectures: " + (numAttended+numMissed) + "\nYou can bunk " + toMissAsString + " lectures and still be even");
                 }
 
             }
