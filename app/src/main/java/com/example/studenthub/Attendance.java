@@ -3,6 +3,7 @@ package com.example.studenthub;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -17,14 +18,16 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Attendance extends AppCompatActivity {
 
-    int numAttended = 0;
-    int numMissed = 0;
+    int numAttended ;
+    int numMissed ;
     TextView attendanceTextView;
     TextView moduleName;
 
     TextView mAttendancePercentageTextView;
+    TextView mAttendMissView;
     Button mButtonMissed;
     Button mButtonAttended;
+
 
 
     DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
@@ -35,6 +38,7 @@ public class Attendance extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance);
         mAttendancePercentageTextView=(TextView)findViewById(R.id.attendancePercentageTextView);
+        mAttendMissView=(TextView)findViewById(R.id.toAttendMissView);
         mButtonMissed=(Button)findViewById(R.id.buttonMissed);
         mButtonAttended=(Button)findViewById(R.id.buttonAttended);
 
@@ -85,6 +89,7 @@ public class Attendance extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String text = dataSnapshot.getValue(String.class);
+
                 mAttendancePercentageTextView.setText(text);
             }
 
@@ -100,8 +105,18 @@ public class Attendance extends AppCompatActivity {
                 numAttended++;
                 double attendedPercentage = 100 * numAttended / (numAttended + numMissed);
                 String attendedPercentageAsString = String.valueOf(attendedPercentage);
-
                 mPercentageRef.setValue("Attendance: " + attendedPercentageAsString + "%");
+
+                if(attendedPercentage<=75){
+                    int toAttend = (3*numMissed)-numAttended;
+                    String toAttendAsString = String.valueOf(toAttend);
+                    mAttendMissView.setText("You need to attend " + toAttendAsString + " more lectures to get even");
+                }
+                else{
+                    int toMiss = (numAttended-(3*numMissed))/3;
+                    String toMissAsString = String.valueOf(toMiss);
+                    mAttendMissView.setText("You can bunk " + toMissAsString + " lectures and still be even");
+                }
             }
         });
 
@@ -109,13 +124,26 @@ public class Attendance extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 numMissed++;
-                double attendedPercentage = 100 * numAttended / (numAttended + numMissed);
+                double attendedPercentage =100 * numAttended / (numAttended + numMissed);
                 String attendedPercentageAsString = String.valueOf(attendedPercentage);
                 mPercentageRef.setValue("Attendance: " + attendedPercentageAsString + "%");
+
+                if(attendedPercentage<=75){
+                    int toAttend = (3*numMissed)-numAttended;
+                    String toAttendAsString = String.valueOf(toAttend);
+                    mAttendMissView.setText("You need to attend " + toAttendAsString + " more lectures to get even");
+                }
+                else{
+                    int toMiss = (numAttended-(3*numMissed))/3;
+                    String toMissAsString = String.valueOf(toMiss);
+                    mAttendMissView.setText("You can bunk " + toMissAsString + " lectures and still be even");
+                }
 
             }
         });
 
     }
+
+
 
 }
