@@ -30,7 +30,7 @@ public class Attendance extends AppCompatActivity {
 
 
     DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference mPercentageRef = RootRef.child("percentage");
+    DatabaseReference mPercentageRef = RootRef.child("Percentage");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
