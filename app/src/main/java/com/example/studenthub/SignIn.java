@@ -24,6 +24,7 @@ public class SignIn extends AppCompatActivity {
 
     private Button mSignUp;
     private Button mBack;
+    private Button mLogIn;
 
     private ProgressBar mProgressBar;
 
@@ -41,6 +42,15 @@ public class SignIn extends AppCompatActivity {
 
         mSignUp = (Button) findViewById(R.id.SignInButton);
         mBack = (Button) findViewById(R.id.backButton);
+        mLogIn = (Button) findViewById(R.id.LoggingButton);
+
+        mLogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignIn.this, Login.class);
+                startActivity(intent);
+            }
+        });
 
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
