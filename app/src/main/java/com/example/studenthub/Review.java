@@ -23,10 +23,10 @@ import java.util.ArrayList;
 
 public class Review extends AppCompatActivity {
     DatabaseReference reff;
-    ModuleData moduleData;
     RatingBar ratingBar;
     EditText enterRatingText;
     EditText ratingInfo;
+    EditText ModuleName;
     Button submitRatingButton;
     Button updateRatingButton;
     float rating_sum = 0;
@@ -46,7 +46,12 @@ public class Review extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
 
+        Bundle bn = getIntent().getExtras();
+        String modulename = bn.getString("modulename");
 
+
+        ModuleName = (EditText) findViewById(R.id.ModuleName);
+        ModuleName.setText(String.valueOf(modulename));
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
         enterRatingText = (EditText) findViewById(R.id.enterRatingText);
         submitRatingButton = (Button) findViewById(R.id.submitRatingButton);
@@ -56,7 +61,10 @@ public class Review extends AppCompatActivity {
         commentThread = (ListView) findViewById(R.id.commentThread);
         postCommentButton = (Button) findViewById(R.id.postCommentButton);
         postCommentText = (EditText) findViewById(R.id.postCommentText);
-        moduleData = new ModuleData();
+
+        reff = FirebaseDatabase.getInstance().getReference().child("Modules").
+                child("Computer Engineering").child("Year 3").child(modulename).
+                child("Reviews Page").child("Rating");
 
         //Set up list view
         comments.add("Comment Section:");
@@ -80,14 +88,14 @@ public class Review extends AppCompatActivity {
         updateRatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reff = FirebaseDatabase.getInstance().getReference().child("Modules").child("3E3");
                 reff.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                        String name = dataSnapshot.child("Title").getValue().toString();
-                        String rating = dataSnapshot.child("Rating").getValue().toString();
-                        ratingInfo.setText("Overall Rating:" + rating);
+                        rating_sum = Float.parseFloat(dataSnapshot.child("Rating Sum").getValue().toString());
+                        String rating_string = dataSnapshot.child("Average Rating").getValue().toString();
+                        number_of_ratings = Float.parseFloat(dataSnapshot.child("Number of Ratings").getValue().toString());
+                        ratingInfo.setText("Overall Rating:" + rating_string);
 
                     }
 
@@ -113,12 +121,13 @@ public class Review extends AppCompatActivity {
                     rating_sum = rating_sum + star_value;
                     number_of_ratings++;
                     average_rating = rating_sum / number_of_ratings;
-                    moduleData.setName("moduleName");
-                    moduleData.setRating(average_rating);
-                    reff.push().setValue(moduleData);
                     ratingBar.setRating(average_rating);
                     String string_rating = String.format("%.02f", average_rating);
                     ratingInfo.setText("Overall Rating:" + string_rating);
+                    reff.child("Average Rating").setValue(average_rating);
+                    reff.child("Number of Ratings").setValue(number_of_ratings);
+                    reff.child("Rating Sum").setValue(rating_sum);
+
                 }
             }
         });
