@@ -93,9 +93,11 @@ public class Review extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         rating_sum = Float.parseFloat(dataSnapshot.child("Rating Sum").getValue().toString());
+                        average_rating = Float.parseFloat(dataSnapshot.child("Average Rating").getValue().toString());
                         String rating_string = dataSnapshot.child("Average Rating").getValue().toString();
                         number_of_ratings = Float.parseFloat(dataSnapshot.child("Number of Ratings").getValue().toString());
                         ratingInfo.setText("Overall Rating:" + rating_string);
+                        ratingBar.setRating(average_rating);
 
                     }
 
