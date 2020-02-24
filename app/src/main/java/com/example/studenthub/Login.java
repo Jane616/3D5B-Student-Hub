@@ -22,6 +22,7 @@ public class Login extends AppCompatActivity {
     private Button b1,b2;
     private EditText ed1,ed2;
     private FirebaseAuth mAuth;
+    private Button mButton;
 
     TextView tx1;
     int counter = 3;
@@ -29,6 +30,15 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        mButton = (Button) findViewById(R.id.TeacherPage);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent buttonClick = new Intent(Login.this,TeacherLogin.class);
+                startActivity(buttonClick);
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
 
