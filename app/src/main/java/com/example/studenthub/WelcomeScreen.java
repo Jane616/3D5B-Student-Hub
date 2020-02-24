@@ -8,7 +8,7 @@ import android.os.Handler;
 
 public class WelcomeScreen extends AppCompatActivity {
 
-    private static int SPLASH_TIME_OUT = 2200;
+    private static int SPLASH_TIME_OUT = 3500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
