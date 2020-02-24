@@ -26,7 +26,11 @@ public class ModulesNewPage extends AppCompatActivity {
         review.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(ModulesNewPage.this, Review.class));
+                //startActivity(new Intent(ModulesNewPage.this, Review.class));
+                Intent jumpToAttendance = new Intent(ModulesNewPage.this, Review.class);
+                jumpToAttendance.putExtra("modulename",name);
+                startActivity(jumpToAttendance);
+                finish();
             }
 
         });
