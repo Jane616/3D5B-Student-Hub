@@ -44,7 +44,7 @@ public class ModuleList extends AppCompatActivity {
         topMsg.setText(username + "'s Modules");
 
         module1 = findViewById(R.id.buttonMissed);
-        module2 = findViewById(R.id.button3);
+        module2 = findViewById(R.id.ProceedButton);
         module3 = findViewById(R.id.button4);
         module4 = findViewById(R.id.button5);
         module5 = findViewById(R.id.button6);
