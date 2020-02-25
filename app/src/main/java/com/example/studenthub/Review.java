@@ -30,7 +30,7 @@ public class Review extends AppCompatActivity {
     Integer indexVal;
     String item;
     String activeUser = "Admin";
-
+//Review Page
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
