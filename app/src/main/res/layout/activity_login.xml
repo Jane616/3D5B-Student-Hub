@@ -102,8 +102,14 @@
         android:layout_toRightOf="@+id/LoginText"
         android:text="New Text"
         android:textSize="18sp" />
+  
+      <Button
+        android:id="@+id/TeacherPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Teacher Login" />
 
-    <Button
+   <Button
         android:id="@+id/buttonAttended"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
