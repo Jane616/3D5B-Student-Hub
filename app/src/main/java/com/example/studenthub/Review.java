@@ -11,7 +11,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 
 public class Review extends AppCompatActivity {
     DatabaseReference reff;
+    DatabaseReference comment_reff;
     RatingBar ratingBar;
     EditText enterRatingText;
     EditText ratingInfo;
@@ -34,8 +36,11 @@ public class Review extends AppCompatActivity {
     float average_rating = 0;
     Button postCommentButton;
     EditText postCommentText;
+    RecyclerView commentDisplay;
+    ArrayList<ReviewDisplay> comments = new ArrayList<>();
+    DatabaseReference mDatabase;
+    MyRecyclerViewAdapter adapter;
     ListView commentThread;
-    ArrayList<String> comments = new ArrayList<String>();
     ArrayAdapter myAdapter1;
     String activeUser = "Admin";
 
@@ -58,32 +63,60 @@ public class Review extends AppCompatActivity {
         updateRatingButton = (Button) findViewById(R.id.updateRatingButton);
         ratingBar.setRating(0);
         ratingInfo = (EditText) findViewById(R.id.ratingInfo);
-        commentThread = (ListView) findViewById(R.id.commentThread);
+        //commentThread = (ListView) findViewById(R.id.commentThread);
         postCommentButton = (Button) findViewById(R.id.postCommentButton);
         postCommentText = (EditText) findViewById(R.id.postCommentText);
+        commentDisplay = (RecyclerView) findViewById(R.id.CommentRecycler);
+        commentDisplay.setHasFixedSize(true);
+        commentDisplay.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new MyRecyclerViewAdapter(this, comments);
+        commentDisplay.setAdapter(adapter);
+
+
+        comment_reff = FirebaseDatabase.getInstance().getReference().child("Modules").
+                child("Computer Engineering").child("Year 3").child(modulename).
+                child("Reviews Page").child("Comments");
+
+        comment_reff.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ArrayList<ReviewDisplay> comms = new ArrayList<>();
+                for (DataSnapshot userSnapshot: dataSnapshot.getChildren()) {
+                    System.out.println(userSnapshot.getKey());
+
+
+                    if (userSnapshot.getKey().contains("Number of Comments")){
+                        continue;
+                    }else{
+                        String username = userSnapshot.child("username").getValue().toString();
+                        String comment = userSnapshot.child("comment").getValue().toString();
+                        String rating = userSnapshot.child("rating").getValue().toString();
+                        int rate = Integer.parseInt(rating);
+                        comments.add(new ReviewDisplay(username,comment,rate));
+                    }
+
+
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
+
 
         reff = FirebaseDatabase.getInstance().getReference().child("Modules").
                 child("Computer Engineering").child("Year 3").child(modulename).
                 child("Reviews Page").child("Rating");
 
-        //Set up list view
-        comments.add("Comment Section:");
 
-        myAdapter1 = new ArrayAdapter<String>(
-                this, android.R.layout.simple_list_item_1, comments);
-        commentThread.setAdapter(myAdapter1);
-
-        postCommentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String commentContent = postCommentText.getText().toString();
-                Toast.makeText(Review.this, commentContent, Toast.LENGTH_SHORT).show();
-                comments.add(activeUser + ": " + commentContent);
-                myAdapter1.notifyDataSetChanged();
-
-                postCommentText.setText("");
-            }
-        });
 
         updateRatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,4 +175,5 @@ public class Review extends AppCompatActivity {
             }
         });
     }
+
 }

@@ -23,7 +23,6 @@
         <activity android:name=".Login" />
         <activity android:name=".ModuleList" />
         <activity android:name=".ModulesNewPage"/>
-        <activity android:name=".Attendance" />
         <activity android:name=".Review" />
         <activity android:name=".MainActivity">
             <intent-filter>
