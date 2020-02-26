@@ -9,23 +9,33 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DatabaseReference;
 
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class Review extends AppCompatActivity {
+    DatabaseReference reff;
     RatingBar ratingBar;
     EditText enterRatingText;
     EditText ratingInfo;
+    EditText ModuleName;
     Button submitRatingButton;
+    Button updateRatingButton;
     float rating_sum = 0;
     float number_of_ratings = 0;
     float average_rating = 0;
-
     Button postCommentButton;
     EditText postCommentText;
     RecyclerView commentDisplay;
@@ -34,18 +44,25 @@ public class Review extends AppCompatActivity {
     ListView commentThread;
     ArrayList<String> comments = new ArrayList<String>();
     ArrayAdapter myAdapter1;
-    Integer indexVal;
-    String item;
     String activeUser = "Admin";
-//Review Page
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
 
+        Bundle bn = getIntent().getExtras();
+        String modulename = bn.getString("modulename");
+
+
+        ModuleName = (EditText) findViewById(R.id.ModuleName);
+        ModuleName.setText(String.valueOf(modulename));
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
         enterRatingText = (EditText) findViewById(R.id.enterRatingText);
         submitRatingButton = (Button) findViewById(R.id.submitRatingButton);
+        updateRatingButton = (Button) findViewById(R.id.updateRatingButton);
         ratingBar.setRating(0);
         ratingInfo = (EditText) findViewById(R.id.ratingInfo);
         //commentThread = (ListView) findViewById(R.id.commentThread);
@@ -69,6 +86,10 @@ public class Review extends AppCompatActivity {
 
         //fetch();
 
+        reff = FirebaseDatabase.getInstance().getReference().child("Modules").
+                child("Computer Engineering").child("Year 3").child(modulename).
+                child("Reviews Page").child("Rating");
+
         //Set up list view
         /*
         comments.add("Comment Section:");
@@ -90,6 +111,31 @@ public class Review extends AppCompatActivity {
         });
         */
 
+        updateRatingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reff.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        rating_sum = Float.parseFloat(dataSnapshot.child("Rating Sum").getValue().toString());
+                        average_rating = Float.parseFloat(dataSnapshot.child("Average Rating").getValue().toString());
+                        String rating_string = dataSnapshot.child("Average Rating").getValue().toString();
+                        number_of_ratings = Float.parseFloat(dataSnapshot.child("Number of Ratings").getValue().toString());
+                        ratingInfo.setText("Overall Rating:" + rating_string);
+                        ratingBar.setRating(average_rating);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        ratingInfo.setText("Error updating");
+
+                    }
+                });
+            }
+        });
+
         submitRatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,6 +152,10 @@ public class Review extends AppCompatActivity {
                     ratingBar.setRating(average_rating);
                     String string_rating = String.format("%.02f", average_rating);
                     ratingInfo.setText("Overall Rating:" + string_rating);
+                    reff.child("Average Rating").setValue(average_rating);
+                    reff.child("Number of Ratings").setValue(number_of_ratings);
+                    reff.child("Rating Sum").setValue(rating_sum);
+
                 }
             }
         });
