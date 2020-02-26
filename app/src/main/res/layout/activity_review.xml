@@ -14,21 +14,18 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="163dp"
-        android:layout_marginRight="163dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:numStars="5"
         android:rating="2.0"
         android:stepSize="0.01"
-        app:layout_constraintBottom_toTopOf="@+id/commentThread"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/CommentRecycler"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterRatingText" />
 
     <EditText
         android:id="@+id/enterRatingText"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -60,13 +57,13 @@
 
     <EditText
         android:id="@+id/ratingInfo"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="53dp"
-        android:layout_marginRight="53dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Overall Rating: No Data Yet"
@@ -93,7 +90,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/commentThread" />
+        app:layout_constraintTop_toBottomOf="@id/CommentRecycler" />
 
     <Button
         android:id="@+id/postCommentButton"
@@ -124,28 +121,28 @@
 
     <Button
         android:id="@+id/updateRatingButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="16dp"
         android:text="Update Rating"
-        app:layout_constraintBottom_toTopOf="@+id/commentThread"
+        app:layout_constraintBottom_toTopOf="@id/CommentRecycler"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ratingBar"
         app:layout_constraintTop_toBottomOf="@+id/submitRatingButton" />
 
     <EditText
         android:id="@+id/ModuleName"
-        android:layout_width="342dp"
-        android:layout_height="51dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="61dp"
-        android:layout_marginRight="61dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
