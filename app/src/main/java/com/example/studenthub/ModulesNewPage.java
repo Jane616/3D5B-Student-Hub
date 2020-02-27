@@ -41,5 +41,15 @@ public class ModulesNewPage extends AppCompatActivity {
                 finish();
             }
         });
+
+        Button signOutBtn = (Button)findViewById(R.id.signOutBtn);
+        signOutBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getApplicationContext(), Login.class);
+                startActivity(startIntent);
+            }
+        });
     }
 }

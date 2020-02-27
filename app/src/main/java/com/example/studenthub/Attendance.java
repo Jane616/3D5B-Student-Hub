@@ -1,7 +1,9 @@
 package com.example.studenthub;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +31,15 @@ public class Attendance extends AppCompatActivity {
         System.out.println("Activity started");
         attendanceTextView = findViewById(R.id.attendancePercentageTextView);
 
+        Button signOutBtn = (Button)findViewById(R.id.signOutBtn);
+        signOutBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getApplicationContext(), Login.class);
+                startActivity(startIntent);
+            }
+        });
     }
     /*
     @Override

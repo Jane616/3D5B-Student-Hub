@@ -1,5 +1,6 @@
 package com.example.studenthub;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -61,6 +62,16 @@ public class Review extends AppCompatActivity {
                 myAdapter1.notifyDataSetChanged();
 
                 postCommentText.setText("");
+
+                Button signOutBtn = (Button)findViewById(R.id.signOutBtn);
+                signOutBtn.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        Intent startIntent = new Intent(getApplicationContext(), Login.class);
+                        startActivity(startIntent);
+                    }
+                });
             }
         });
 

@@ -43,6 +43,16 @@ public class ModuleList extends AppCompatActivity {
         }
         topMsg.setText(username + "'s Modules");
 
+        Button signOutBtn = (Button)findViewById(R.id.signOutBtn);
+        signOutBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getApplicationContext(), Login.class);
+                startActivity(startIntent);
+            }
+        });
+
         module1 = findViewById(R.id.button2);
         module2 = findViewById(R.id.button3);
         module3 = findViewById(R.id.button4);
