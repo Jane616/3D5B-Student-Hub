@@ -23,6 +23,7 @@ public class Login extends AppCompatActivity {
     private EditText ed1,ed2;
     private FirebaseAuth mAuth;
     private Button mButton;
+    private Button b3;
 
     TextView tx1;
     int counter = 3;
@@ -30,6 +31,14 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        b3 = (Button) findViewById(R.id.Signup);
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSignUp();
+            }
+        });
 
         mButton = (Button) findViewById(R.id.TeacherPage);
         mButton.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +72,11 @@ public class Login extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public void openSignUp(){
+         Intent intent = new Intent(this, SignUp.class);
+         startActivity(intent);
     }
 
     private void startSignIn(){
