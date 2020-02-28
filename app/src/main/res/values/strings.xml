@@ -1,22 +1,10 @@
 <resources>
-    <string name="app_name" translatable="false">Student Hub</string>
-
-    <array name="modules">
-        <item>Select Module</item>
-        <item>module1</item>
-        <item>module2</item>
-        <item>module3</item>
-        <item>module4</item>
-        <item>module5</item>
-        <item>module6</item>
-    </array>
-
+    <string name="app_name">Student Hub</string>
     <string-array name="Year">
-        <item>Year-1</item>
-        <item>Year-2</item>
-        <item>Year-3</item>
-        <item>Year-4</item>
-        <item>Year-5</item>
+         <item>Year-1</item>
+         <item>Year-2</item>
+         <item>Year-3</item>
+         <item>Year-4</item>
+         <item>Year-5</item>
     </string-array>
-
 </resources>

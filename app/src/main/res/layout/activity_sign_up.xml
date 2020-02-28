@@ -133,6 +133,7 @@
 
     </RadioGroup>
 
+
     <EditText
         android:id="@+id/d_o_b"
         android:layout_width="301dp"
@@ -144,49 +145,60 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gen_1"/>
-
+        app:layout_constraintTop_toBottomOf="@+id/gen_1" />
 
     <Button
         android:id="@+id/register"
         android:layout_width="91dp"
         android:layout_height="52dp"
-        android:layout_marginTop="6dp"
 
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="9dp"
         android:text="Register"
-        app:layout_constraintBottom_toTopOf="@+id/alreg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/d_o_b" />
-
-    <Button
-        android:id="@+id/alreg"
-        android:layout_width="298dp"
-        android:layout_height="35dp"
-        android:layout_marginBottom="14dp"
-
-        android:text="Already registered? Login"
         app:layout_constraintBottom_toTopOf="@+id/exit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register"/>
+        app:layout_constraintTop_toBottomOf="@+id/year" />
 
     <Button
         android:id="@+id/exit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="8dp"
         android:text="Exit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alreg" />
+        app:layout_constraintTop_toBottomOf="@+id/register" />
+
+    <Spinner
+        android:id="@+id/year"
+        android:layout_width="136dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/register"
+        app:layout_constraintEnd_toStartOf="@+id/Course"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/d_o_b" />
+
+    <TextView
+        android:id="@+id/Course"
+        android:layout_width="134dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="2dp"
+        android:hint="Course Name"
+        app:layout_constraintBottom_toTopOf="@+id/register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/year"
+        app:layout_constraintTop_toBottomOf="@+id/d_o_b" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
