@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Student Hub</string>
+    <string-array name="Year">
+         <item>Year-1</item>
+         <item>Year-2</item>
+         <item>Year-3</item>
+         <item>Year-4</item>
+         <item>Year-5</item>
+    </string-array>
 </resources>
