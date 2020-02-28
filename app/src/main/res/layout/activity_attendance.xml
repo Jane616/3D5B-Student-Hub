@@ -7,67 +7,87 @@
     android:background="@drawable/background2"
     tools:context=".Attendance">
 
-
-    <TextView
+<TextView
         android:id="@+id/attendancePercentageTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="88dp"
+        android:layout_width="297dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="232dp"
         android:text="Your attendance is: "
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonMissed"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ModuleNameText"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.368"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonAttended"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:onClick="onAttendedClick"
         android:text="Attended"
         android:textColor="#FFFFFF"
         android:background="#1580c6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintHorizontal_bias="0.035"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/attendancePercentageTextView"
-        app:layout_constraintVertical_bias="0.211" />
+        app:layout_constraintVertical_bias="0.635" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonMissed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginBottom="16dp"
         android:onClick="onMissedClick"
+        android:text="Missed"
         android:background="#c64715"
         android:textColor="#FFFFFF"
-        android:text="Missed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.682"
+        app:layout_constraintStart_toEndOf="@+id/buttonAttended"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.421" />
+        app:layout_constraintVertical_bias="0.78" />
 
-    <EditText
-        android:id="@+id/ModuleNameText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="36dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Module Name"
-        android:background="#FFFFFF"
+    <TextView
+        android:id="@+id/toAttendMissView"
+        android:layout_width="375dp"
+        android:layout_height="126dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="73dp"
+        android:foregroundGravity="fill_horizontal|clip_horizontal|center"
+        android:gravity="clip_horizontal|center|fill_horizontal"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAttended"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/attendancePercentageTextView" />
+
+    <TextView
+        android:id="@+id/ModuleNameText"
+        android:layout_width="329dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="61dp"
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/attendancePercentageTextView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

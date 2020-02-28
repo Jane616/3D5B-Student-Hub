@@ -42,11 +42,11 @@ public class Login extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        b1 = (Button)findViewById(R.id.button);
+        b1 = (Button)findViewById(R.id.buttonAttended);
         ed1 = (EditText)findViewById(R.id.ModuleNameText);
         ed2 = (EditText)findViewById(R.id.editText2);
 
-        b2 = (Button)findViewById(R.id.button2);
+        b2 = (Button)findViewById(R.id.buttonMissed);
         tx1 = (TextView)findViewById(R.id.textView3);
         tx1.setVisibility(View.GONE);
 
@@ -54,6 +54,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startSignIn();
+                //Toast.makeText(Login.this, "Button pressed", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -66,8 +67,10 @@ public class Login extends AppCompatActivity {
     }
 
     private void startSignIn(){
+
         String email = ed1.getText().toString();
         String password = ed2.getText().toString();
+        //Toast.makeText(Login.this, "In start sign in with email/password: " + email + password, Toast.LENGTH_SHORT).show();
 
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
             Toast.makeText(getApplicationContext(),
@@ -75,9 +78,18 @@ public class Login extends AppCompatActivity {
             return;
         }
 
+        //mAuth function does not always work for me so included this shortcut to let me login - Billy
+        if(TextUtils.equals(email, "admin") & TextUtils.equals(password, "shortcut")){
+            Toast.makeText(getApplicationContext(), "Billy's Shortcut",Toast.LENGTH_SHORT).show();
+            Intent jumpToHome = new Intent(Login.this, ModuleList.class);
+            startActivity(jumpToHome);
+        }
+
+
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>(){
             @Override
             public void onComplete(@NonNull Task<AuthResult> task){
+
                 if (task.isSuccessful()){
 
                     Toast.makeText(getApplicationContext(),
