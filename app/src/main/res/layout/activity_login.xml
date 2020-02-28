@@ -104,7 +104,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginRight="-100dp"
-        android:layout_marginBottom="41dp"
+        android:layout_marginBottom="42dp"
         android:layout_toStartOf="@+id/LoginText"
         android:layout_toLeftOf="@+id/LoginText"
         android:text="login" />
