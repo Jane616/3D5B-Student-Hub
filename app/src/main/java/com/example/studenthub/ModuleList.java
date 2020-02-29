@@ -39,16 +39,6 @@ public class ModuleList extends AppCompatActivity {
         final ArrayAdapter<String> adapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
         listView.setAdapter(adapter);
 
-        //items.add("Module 1");
-        //items.add("Module 2");
-
-
-
-        //moduleList = (ListView) findViewById(R.id.modulesList);
-        //myAdapter1 = new ArrayAdapter<String>(
-                //this, android.R.layout.simple_list_item_1, moduleItem);
-        //moduleList.setAdapter(myAdapter1);
-
         TextView topMsg = findViewById(R.id.modulesTextView);
         String username = "no username";
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -63,6 +53,7 @@ public class ModuleList extends AppCompatActivity {
         reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //max of 12 modules
 
 
                 if(dataSnapshot.child("Module1").getValue() != null){
@@ -85,6 +76,54 @@ public class ModuleList extends AppCompatActivity {
 
                 if(dataSnapshot.child("Module4").getValue() != null){
                     items.add(dataSnapshot.child("Module4").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module5").getValue() != null){
+                    items.add(dataSnapshot.child("Module5").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module6").getValue() != null){
+                    items.add(dataSnapshot.child("Module6").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module7").getValue() != null){
+                    items.add(dataSnapshot.child("Module7").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module8").getValue() != null){
+                    items.add(dataSnapshot.child("Module8").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module9").getValue() != null){
+                    items.add(dataSnapshot.child("Module9").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module10").getValue() != null){
+                    items.add(dataSnapshot.child("Module10").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module11").getValue() != null){
+                    items.add(dataSnapshot.child("Module11").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module12").getValue() != null){
+                    items.add(dataSnapshot.child("Module12").getValue().toString());
                     adapter.notifyDataSetChanged();
 
                 }
