@@ -18,14 +18,11 @@
         </activity>
         <activity android:name=".TeacherLogin"></activity>
         <activity android:name=".Attendance"></activity>
-        <activity android:name=".Login">
-        </activity>
 
         <activity android:name=".SignIn"/>
         <activity android:name=".Login" />
         <activity android:name=".ModuleList" />
         <activity android:name=".ModulesNewPage"/>
-        <activity android:name=".Attendance" />
         <activity android:name=".Review" />
         <activity android:name=".MainActivity">
             <intent-filter>
