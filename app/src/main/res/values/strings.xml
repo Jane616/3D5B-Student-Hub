@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">Student Hub</string>
+    <string name="app_name" translatable="false">Student Hub</string>
+
+    <array name="modules">
+        <item>Select Module</item>
+        <item>module1</item>
+        <item>module2</item>
+        <item>module3</item>
+        <item>module4</item>
+        <item>module5</item>
+        <item>module6</item>
+    </array>
+
 </resources>

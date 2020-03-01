@@ -23,6 +23,7 @@ public class Login extends AppCompatActivity {
     private EditText ed1,ed2;
     private FirebaseAuth mAuth;
     private Button mButton;
+    private Button mReminders;
 
     TextView tx1;
     int counter = 3;
@@ -30,6 +31,16 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        mReminders = (Button) findViewById(R.id.button);
+        mReminders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, Reminders1.class);
+                startActivity(intent);
+            }
+        });
+
 
         mButton = (Button) findViewById(R.id.TeacherPage);
         mButton.setOnClickListener(new View.OnClickListener() {
