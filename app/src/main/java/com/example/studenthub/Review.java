@@ -142,7 +142,7 @@ public class Review extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 float star_value = ratingBar.getRating();
-                Toast.makeText(Review.this, "Stars: " + star_value, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Review.this, "Stars: " + star_value, Toast.LENGTH_SHORT).show();
                 if(star_value < 0 || star_value > 5){
                     Toast.makeText(Review.this, "Error: Rating must be between 0 and 5", Toast.LENGTH_SHORT).show();
                 }
@@ -171,6 +171,7 @@ public class Review extends AppCompatActivity {
                     return;
                 }
 
+                float star_value = ratingBar.getRating();
                 submitRatingButton.callOnClick();
 
                 number_of_comments++;
@@ -180,7 +181,6 @@ public class Review extends AppCompatActivity {
                 String username = user.getDisplayName();
                 //newRef.child("username").setValue(username);
                 //newRef.child("comment").setValue(comment);
-                float star_value = ratingBar.getRating();
                 //newRef.child("rating").setValue(star_value);
                 ReviewDisplay newRev = new ReviewDisplay(username,comment,star_value);
                 newRef.setValue(newRev);
@@ -194,7 +194,7 @@ public class Review extends AppCompatActivity {
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                Toast.makeText(Review.this, "Stars: " + rating, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Review.this, "Stars: " + rating, Toast.LENGTH_SHORT).show();
             }
         });
     }
