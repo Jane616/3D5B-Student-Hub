@@ -38,6 +38,7 @@ public class SignIn extends AppCompatActivity implements AdapterView.OnItemSelec
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sign_in);
         mLogIn = (Button) findViewById(R.id.LoggingButton);
         mLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +54,7 @@ public class SignIn extends AppCompatActivity implements AdapterView.OnItemSelec
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this,R.array.Year,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        spinner.setOnItemClickListener((AdapterView.OnItemClickListener) this);
+        spinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
     }
 
     @Override
