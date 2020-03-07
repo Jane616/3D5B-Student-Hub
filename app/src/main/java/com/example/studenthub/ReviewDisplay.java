@@ -4,13 +4,13 @@ public class ReviewDisplay {
 
 
     public String username, comment;
-    public int rating;
+    public float rating;
 
     public ReviewDisplay(){
 
     }
 
-    public ReviewDisplay(String username, String comment, int rating) {
+    public ReviewDisplay(String username, String comment, float rating) {
         this.username = username;
         this.comment = comment;
         this.rating = rating;
