@@ -28,16 +28,26 @@ public class ModulesNewPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modules_new_page);
 
+
+
+
+
         TextView Display = findViewById(R.id.textView2);
         Bundle bn = getIntent().getExtras();
         final String name = bn.getString("abc");
         Display.setText(String.valueOf(name));
+        Display.setFocusable(false);
+        Display.setCursorVisible(false);
+        Display.setKeyListener(null);
 
         reff = FirebaseDatabase.getInstance().getReference().child("Modules").
                 child("Computer Engineering").child("Year 3").child(name);
 
         lectureName = (EditText) findViewById(R.id.lectureName);
+        disableEditText(lectureName);
         lectureEmail = (EditText) findViewById(R.id.lectureEmail);
+        disableEditText(lectureEmail);
+
 
 
         reff.addValueEventListener(new ValueEventListener() {
@@ -67,7 +77,6 @@ public class ModulesNewPage extends AppCompatActivity {
                 Intent jumpToAttendance = new Intent(ModulesNewPage.this, Review.class);
                 jumpToAttendance.putExtra("modulename",name);
                 startActivity(jumpToAttendance);
-                finish();
             }
 
         });
@@ -79,8 +88,14 @@ public class ModulesNewPage extends AppCompatActivity {
                 Intent jumpToAttendance = new Intent(ModulesNewPage.this, Attendance.class);
                 jumpToAttendance.putExtra("modulename",name);
                 startActivity(jumpToAttendance);
-                finish();
             }
         });
+    }
+
+    private void disableEditText(EditText editText) {
+        editText.setFocusable(false);
+        //editText.setEnabled(false);
+        editText.setCursorVisible(false);
+        editText.setKeyListener(null);
     }
 }

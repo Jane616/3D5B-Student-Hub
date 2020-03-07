@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -40,6 +39,7 @@ public class Attendance extends AppCompatActivity {
         mAttendMissView=(TextView)findViewById(R.id.toAttendMissView);
         mButtonMissed=(Button)findViewById(R.id.buttonMissed);
         mButtonAttended=(Button)findViewById(R.id.buttonAttended);
+
 
 
         moduleName = findViewById(R.id.ModuleNameText);
@@ -120,6 +120,7 @@ public class Attendance extends AppCompatActivity {
         });
 
     }
+
 
 
 
