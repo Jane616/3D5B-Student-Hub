@@ -45,10 +45,10 @@ public class SignIn extends AppCompatActivity implements AdapterView.OnItemSelec
             public void onClick(View v) {
                 Intent intent = new Intent(SignIn.this, Login.class);
                 startActivity(intent);
+                finish();
             }
         });
 
-        setContentView(R.layout.activity_sign_in);
 
         Spinner spinner= findViewById(R.id.year);
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this,R.array.Year,android.R.layout.simple_spinner_item);
