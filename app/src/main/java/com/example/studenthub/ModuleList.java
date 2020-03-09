@@ -2,6 +2,8 @@ package com.example.studenthub;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -42,16 +44,6 @@ public class ModuleList extends AppCompatActivity {
             username = user.getDisplayName();
         }
         topMsg.setText(username + "'s Modules");
-
-        Button signOutBtn = (Button)findViewById(R.id.signOutBtn);
-        signOutBtn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), Login.class);
-                startActivity(startIntent);
-            }
-        });
 
         module1 = findViewById(R.id.button2);
         module2 = findViewById(R.id.button3);
@@ -234,5 +226,22 @@ public class ModuleList extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.menuLogout:
+                Intent startIntent = new Intent(getApplicationContext(), Login.class);
+                startActivity(startIntent);
+                break;
+        }
+        return true;
     }
 }

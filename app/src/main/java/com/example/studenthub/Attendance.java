@@ -2,10 +2,13 @@ package com.example.studenthub;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Attendance extends AppCompatActivity {
@@ -31,15 +34,16 @@ public class Attendance extends AppCompatActivity {
         System.out.println("Activity started");
         attendanceTextView = findViewById(R.id.attendancePercentageTextView);
 
-        Button signOutBtn = (Button)findViewById(R.id.signOutBtn);
-        signOutBtn.setOnClickListener(new View.OnClickListener() {
+//
+        View.OnClickListener logoutOnClickListener = new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Intent startIntent = new Intent(getApplicationContext(), Login.class);
                 startActivity(startIntent);
             }
-        });
+        };
+
     }
     /*
     @Override
@@ -48,8 +52,8 @@ public class Attendance extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-    */
-/*
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -64,7 +68,8 @@ public class Attendance extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    */
+
+     */
 
     public void onAttendedClick(View view) {
         System.out.println("On attended was clicked");
@@ -93,4 +98,23 @@ public class Attendance extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.menuLogout:
+                Intent startIntent = new Intent(getApplicationContext(), Login.class);
+                startActivity(startIntent);
+                break;
+        }
+        return true;
+    }
+
+
 }
+

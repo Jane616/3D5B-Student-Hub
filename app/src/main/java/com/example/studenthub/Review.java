@@ -2,6 +2,8 @@ package com.example.studenthub;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -62,16 +64,6 @@ public class Review extends AppCompatActivity {
                 myAdapter1.notifyDataSetChanged();
 
                 postCommentText.setText("");
-
-                Button signOutBtn = (Button)findViewById(R.id.signOutBtn);
-                signOutBtn.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        Intent startIntent = new Intent(getApplicationContext(), Login.class);
-                        startActivity(startIntent);
-                    }
-                });
             }
         });
 
@@ -102,5 +94,22 @@ public class Review extends AppCompatActivity {
                 Toast.makeText(Review.this, "Stars: " + rating, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.menuLogout:
+                Intent startIntent = new Intent(getApplicationContext(), Login.class);
+                startActivity(startIntent);
+                break;
+        }
+        return true;
     }
 }
