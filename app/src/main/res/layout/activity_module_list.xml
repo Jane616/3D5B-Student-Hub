@@ -6,37 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".ModuleList">
 
-    <TextView
-        android:id="@+id/modulesTextView"
-        android:layout_width="404dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="#00DBB781"
-        android:clickable="false"
-        android:gravity="center_horizontal|center_vertical"
-        android:padding="4dp"
-        android:text="My Modules"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:typeface="normal"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="1116dp"
+        android:layout_height="860dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="My Modules" />
+        app:srcCompat="@drawable/backgorund" />
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="417dp"
-        android:layout_height="434dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/ProceedButton"
+        android:layout_width="401dp"
+        android:layout_height="501dp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/modulesTextView"
         app:layout_constraintTop_toBottomOf="@+id/modulesTextView">
 
         <LinearLayout
@@ -59,6 +46,19 @@
                 android:background="#009688"
                 android:padding="5dp"
                 android:text="EEU3E03 Probability and Statistics"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#009688"
+                android:padding="5dp"
+                android:text="EEU33C01 Signals and Systems"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
@@ -249,18 +249,31 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/ProceedButton"
-        android:layout_width="130dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
-        android:text="Proceed"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/modulesTextView"
+        android:layout_width="404dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="186dp"
+        android:layout_marginLeft="186dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginRight="97dp"
+        android:layout_marginBottom="8dp"
+        android:background="#00DBB781"
+        android:clickable="false"
+        android:gravity="center_horizontal|center_vertical"
+        android:padding="4dp"
+        android:text="My Modules"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.02"
+        tools:text="My Modules" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
