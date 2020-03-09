@@ -1,3 +1,4 @@
+/*
 package com.example.studenthub;
 
 import androidx.annotation.NonNull;
@@ -16,14 +17,38 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+*/
 
-public class SignIn extends AppCompatActivity {
+package com.example.studenthub;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+
+public class SignIn extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+
 
     private EditText mEmail;
     private EditText mPassword;
 
     private Button mSignUp;
-    private Button mBack;
     private Button mLogIn;
 
     private ProgressBar mProgressBar;
@@ -35,13 +60,18 @@ public class SignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+        Spinner spinner= findViewById(R.id.year);
+        ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this,R.array.Year,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+
         mAuth = FirebaseAuth.getInstance();
 
         mEmail = (EditText) findViewById(R.id.emailTextView);
         mPassword = (EditText) findViewById(R.id.passwordTextView);
 
         mSignUp = (Button) findViewById(R.id.SignInButton);
-        mBack = (Button) findViewById(R.id.backButton);
         mLogIn = (Button) findViewById(R.id.LoggingButton);
 
         mLogIn.setOnClickListener(new View.OnClickListener() {
@@ -81,12 +111,16 @@ public class SignIn extends AppCompatActivity {
             }
         });
 
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish(); return;
-            }
-        });
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text=parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(),text,Toast.LENGTH_SHORT) .show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 
@@ -94,11 +128,9 @@ public class SignIn extends AppCompatActivity {
         if(x){
             mProgressBar.setVisibility(View.VISIBLE);
             mSignUp.setEnabled(false);
-            mBack.setEnabled(false);
         }else{
             mProgressBar.setVisibility(View.GONE);
             mSignUp.setEnabled(true);
-            mBack.setEnabled(true);
         }
     }
 
@@ -111,4 +143,36 @@ public class SignIn extends AppCompatActivity {
         }
         return false;
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,6 +2,8 @@ package com.example.studenthub;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -145,7 +147,6 @@ public class ModuleList extends AppCompatActivity {
                 Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
                 jumpToModule.putExtra("abc", items.get(position));
                 startActivity(jumpToModule);
-                finish();
 
             }
         });
@@ -153,6 +154,23 @@ public class ModuleList extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.menuLogout:
+                Intent startIntent = new Intent(getApplicationContext(), Login.class);
+                startActivity(startIntent);
+                break;
+        }
+        return true;
     }
 
 
