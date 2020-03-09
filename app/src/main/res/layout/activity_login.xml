@@ -48,7 +48,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="279dp"
+        android:layout_marginTop="330dp"
         android:layout_marginEnd="60dp"
         android:layout_marginRight="60dp"
         android:background="#FFFFFF"
@@ -119,21 +119,16 @@
         android:text="Cancel" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/Reminder"
         android:layout_width="wrap_content"
-        android:layout_height="98dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TeacherPage"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="207dp"
-        android:layout_marginLeft="207dp"
-        android:layout_marginTop="89dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginRight="17dp"
-        android:layout_marginBottom="416dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="311dp"
+        android:layout_marginRight="311dp"
         android:text="Reminder" />
 
 </RelativeLayout>

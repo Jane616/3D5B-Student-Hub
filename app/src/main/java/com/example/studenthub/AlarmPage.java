@@ -1,14 +1,12 @@
 package com.example.studenthub;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AlarmPage extends AppCompatActivity {
 
@@ -33,9 +31,9 @@ public class AlarmPage extends AppCompatActivity {
         m3 = (TextView) findViewById(R.id.h3);
         m4 = (TextView) findViewById(R.id.h4);
 
-        m1.setText(getIntent().getStringExtra("moduleName"));
-        m2.setText(getIntent().getStringExtra("moduleText"));
-        m3.setText(getIntent().getStringExtra("doomDate"));
-        m4.setText(getIntent().getStringExtra("doomTime"));
+        //m1.setText(getIntent().getStringExtra("moduleName"));
+        //m2.setText(getIntent().getStringExtra("moduleText"));
+        //m3.setText(getIntent().getStringExtra("doomDate"));
+        //m4.setText(getIntent().getStringExtra("doomTime"));
     }
 }
