@@ -50,7 +50,7 @@
         app:layout_constraintHorizontal_bias="0.682"
         app:layout_constraintStart_toEndOf="@+id/buttonAttended"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.78" />
+        app:layout_constraintVertical_bias="0.81" />
 
     <TextView
         android:id="@+id/toAttendMissView"

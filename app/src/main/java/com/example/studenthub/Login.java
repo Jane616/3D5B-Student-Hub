@@ -32,11 +32,11 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mReminders = (Button) findViewById(R.id.button);
+        mReminders = (Button) findViewById(R.id.Reminder);
         mReminders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login.this, Reminders1.class);
+                Intent intent = new Intent(Login.this, AlarmPage.class);
                 startActivity(intent);
             }
         });
