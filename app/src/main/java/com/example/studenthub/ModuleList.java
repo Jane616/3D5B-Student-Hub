@@ -106,7 +106,6 @@ public class ModuleList extends AppCompatActivity {
                 Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
                 jumpToModule.putExtra("abc", items.get(position));
                 startActivity(jumpToModule);
-                finish();
 
             }
         });
