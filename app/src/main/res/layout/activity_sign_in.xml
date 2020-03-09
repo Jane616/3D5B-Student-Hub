@@ -38,14 +38,14 @@
         android:ems="10"
         android:hint="  First Name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/Email"
+        app:layout_constraintBottom_toTopOf="@+id/emailTextView"
         app:layout_constraintEnd_toStartOf="@+id/LastName"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUpForm" />
 
     <EditText
-        android:id="@+id/Email"
+        android:id="@+id/emailTextView"
         android:layout_width="318dp"
         android:layout_height="43dp"
         android:layout_marginTop="9dp"
@@ -53,7 +53,7 @@
         android:ems="10"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/Password"
+        app:layout_constraintBottom_toTopOf="@+id/passwordTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,14 +68,14 @@
         android:ems="10"
         android:hint="Last Name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/Email"
+        app:layout_constraintBottom_toTopOf="@+id/emailTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/FirstName"
         app:layout_constraintTop_toBottomOf="@+id/SignUpForm" />
 
     <EditText
-        android:id="@+id/Password"
+        android:id="@+id/passwordTextView"
         android:layout_width="318dp"
         android:layout_height="43dp"
         android:layout_marginTop="6dp"
@@ -87,7 +87,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Email" />
+        app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
 
     <EditText
         android:id="@+id/StudentID"
@@ -103,7 +103,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Password" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
 
     <RadioGroup
         android:id="@+id/gen_1"
@@ -150,7 +150,7 @@
         app:layout_constraintTop_toBottomOf="@+id/gen_1" />
 
     <Button
-        android:id="@+id/register"
+        android:id="@+id/SignInButton"
         android:layout_width="91dp"
         android:layout_height="52dp"
 
@@ -172,7 +172,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register" />
+        app:layout_constraintTop_toBottomOf="@+id/SignInButton" />
 
     <Spinner
         android:id="@+id/year"
@@ -180,7 +180,7 @@
         android:layout_height="43dp"
         android:layout_marginTop="9dp"
         android:layout_marginBottom="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/register"
+        app:layout_constraintBottom_toTopOf="@+id/SignInButton"
         app:layout_constraintEnd_toStartOf="@+id/Course"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -193,11 +193,26 @@
         android:layout_marginTop="9dp"
         android:layout_marginBottom="2dp"
         android:hint="Course Name"
-        app:layout_constraintBottom_toTopOf="@+id/register"
+        app:layout_constraintBottom_toTopOf="@+id/SignInButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/year"
-        app:layout_constraintTop_toBottomOf="@+id/d_o_b" />
+        app:layout_constraintTop_toBottomOf="@+id/d_o_b"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="3dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/StudentID"
+        app:layout_constraintEnd_toStartOf="@+id/StudentID"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/StudentID"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
