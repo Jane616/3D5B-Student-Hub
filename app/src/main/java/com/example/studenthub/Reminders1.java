@@ -1,6 +1,5 @@
 package com.example.studenthub;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -13,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.Calendar;
 
 public class Reminders1 extends AppCompatActivity {
@@ -97,10 +99,10 @@ public class Reminders1 extends AppCompatActivity {
                 String doomTime = tv2.getText().toString();
 
                 Intent setClicked = new Intent (Reminders1.this, AlarmPage.class);
-                setClicked.putExtra("moduleName", moduleName);
-                setClicked.putExtra("moduleText", moduleText);
-                setClicked.putExtra("doomDate", doomDate);
-                setClicked.putExtra("doomTime", doomTime);
+                //setClicked.putExtra("moduleName", moduleName);
+                //setClicked.putExtra("moduleText", moduleText);
+                //setClicked.putExtra("doomDate", doomDate);
+                //setClicked.putExtra("doomTime", doomTime);
 
                 startActivity(setClicked);
             }
