@@ -59,6 +59,9 @@ public class ModuleList extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //max of 12 modules
 
+                //first delete the previous list
+                items.clear();
+                adapter.notifyDataSetChanged();
 
                 if(dataSnapshot.child("Module1").child("Title").getValue() != null){
                     items.add(dataSnapshot.child("Module1").child("Title").getValue().toString());
@@ -132,6 +135,7 @@ public class ModuleList extends AppCompatActivity {
                     adapter.notifyDataSetChanged();
 
                 }
+
 
 
             }
