@@ -3,37 +3,74 @@ package com.example.studenthub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class AlarmPage extends AppCompatActivity {
+    RecyclerView reminderDisplay;
+    ArrayList<ReminderDisplay> reminders = new ArrayList<>();
+    ReminderRecyclerViewAdapter adapter;
+    DatabaseReference reminders_reff;
 
-    TextView m1, m2, m3, m4;
-    ImageView mAddAlarm;
+
+
+    FloatingActionButton mAddAlarm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_page);
 
-        mAddAlarm = (ImageView) findViewById(R.id.remindersPage);
+        mAddAlarm = (FloatingActionButton) findViewById(R.id.remindersPage);
         mAddAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent backButton = new Intent (AlarmPage.this, Reminders1.class);
                 startActivity(backButton);
+                finish();
             }
         });
 
-        m1 = (TextView) findViewById(R.id.h1);
-        m2 = (TextView) findViewById(R.id.h2);
-        m3 = (TextView) findViewById(R.id.h3);
-        m4 = (TextView) findViewById(R.id.h4);
 
-        //m1.setText(getIntent().getStringExtra("moduleName"));
-        //m2.setText(getIntent().getStringExtra("moduleText"));
-        //m3.setText(getIntent().getStringExtra("doomDate"));
-        //m4.setText(getIntent().getStringExtra("doomTime"));
+        reminderDisplay = (RecyclerView) findViewById(R.id.ReminderRecycler);
+        reminderDisplay.setHasFixedSize(true);
+        reminderDisplay.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new ReminderRecyclerViewAdapter(this, reminders);
+        reminderDisplay.setAdapter(adapter);
+
+        reminders_reff = FirebaseDatabase.getInstance().getReference().child("User").
+                child("User1").child("D_Reminders");
+
+        reminders_reff.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot userSnapshot: dataSnapshot.getChildren()){
+                    String mTitle = userSnapshot.child("moduleTitle").getValue().toString();
+                    String aMsg = userSnapshot.child("assignMsg").getValue().toString();
+                    String date = userSnapshot.child("date").getValue().toString();
+                    String time = userSnapshot.child("time").getValue().toString();
+                    reminders.add(new ReminderDisplay(mTitle, aMsg, date, time));
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 }
