@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "122786261359-5sqnnjh4suj2j2a0i45pfiie4sckdtej.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.studenthub",
+            "certificate_hash": "b1c12bb060a6c175431999128e1e13e456fceab3"
+          }
+        },
+        {
           "client_id": "122786261359-oopnfv448j3mjkbl1qlu626n9pccb7qu.apps.googleusercontent.com",
           "client_type": 3
         }
