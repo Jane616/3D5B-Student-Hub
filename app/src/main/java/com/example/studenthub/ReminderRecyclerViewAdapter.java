@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,7 +27,7 @@ public class ReminderRecyclerViewAdapter extends RecyclerView.Adapter<ReminderRe
     @Override
     public ReminderRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.reminder_row, parent, false);
-        return new ReminderRecyclerViewAdapter.ViewHolder(view);
+        return new ReminderRecyclerViewAdapter.ViewHolder(view, mClickListener);
     }
 
     // binds the data to the TextView in each row
@@ -50,15 +51,28 @@ public class ReminderRecyclerViewAdapter extends RecyclerView.Adapter<ReminderRe
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView moduleTitle, assignMsg, date, time;
+        ImageView deleteBtn;
 
-        ViewHolder(View itemView) {
+        ViewHolder(View itemView, final ReminderRecyclerViewAdapter.ItemClickListener listener) {
             super(itemView);
             moduleTitle = (TextView) itemView.findViewById(R.id.moduleTitle);
             assignMsg = (TextView) itemView.findViewById(R.id.assignMsg);
             date = (TextView) itemView.findViewById(R.id.date);
             time = (TextView) itemView.findViewById(R.id.time);
+            deleteBtn = (ImageView) itemView.findViewById(R.id.deleteIcon);
 
             itemView.setOnClickListener(this);
+            deleteBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onDeleteClick(position);
+                        }
+                    }
+                }
+            });
         }
 
         @Override
@@ -80,6 +94,7 @@ public class ReminderRecyclerViewAdapter extends RecyclerView.Adapter<ReminderRe
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
         void onItemClick(View view, int position);
+        void onDeleteClick(int position);
     }
 
 }

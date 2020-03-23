@@ -1,11 +1,12 @@
 package com.example.studenthub;
 
 public class ReminderDisplay {
-    public String moduleTitle, assignMsg, date, time;
+    public String reminderKey, moduleTitle, assignMsg, date, time;
 
     public ReminderDisplay(){}
 
-    public ReminderDisplay(String mTitle, String aMsg, String date, String time){
+    public ReminderDisplay(String rKey, String mTitle, String aMsg, String date, String time){
+        this.reminderKey = rKey;
         this.moduleTitle = mTitle;
         this.assignMsg = aMsg;
         this.date = date;
