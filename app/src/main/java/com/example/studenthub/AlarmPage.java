@@ -48,6 +48,21 @@ public class AlarmPage extends AppCompatActivity {
         reminderDisplay.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ReminderRecyclerViewAdapter(this, reminders);
         reminderDisplay.setAdapter(adapter);
+        adapter.setClickListener(new ReminderRecyclerViewAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+
+            }
+
+            @Override
+            public void onDeleteClick(int position) {
+                ReminderDisplay deleted = reminders.get(position);
+                reminders_reff.child(deleted.reminderKey).removeValue();
+
+
+
+            }
+        });
 
         reminders_reff = FirebaseDatabase.getInstance().getReference().child("User").
                 child("User1").child("D_Reminders");
@@ -55,12 +70,14 @@ public class AlarmPage extends AppCompatActivity {
         reminders_reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                reminders.clear();
                 for (DataSnapshot userSnapshot: dataSnapshot.getChildren()){
+                    String rKey = userSnapshot.getKey();
                     String mTitle = userSnapshot.child("moduleTitle").getValue().toString();
                     String aMsg = userSnapshot.child("assignMsg").getValue().toString();
                     String date = userSnapshot.child("date").getValue().toString();
                     String time = userSnapshot.child("time").getValue().toString();
-                    reminders.add(new ReminderDisplay(mTitle, aMsg, date, time));
+                    reminders.add(new ReminderDisplay(rKey, mTitle, aMsg, date, time));
                 }
                 adapter.notifyDataSetChanged();
             }

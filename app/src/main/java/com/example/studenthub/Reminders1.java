@@ -139,7 +139,7 @@ public class Reminders1 extends AppCompatActivity {
                 String doomTime = tv2.getText().toString();
 
                 DatabaseReference newRef = reminders_reff.push();
-                ReminderDisplay newReminder = new ReminderDisplay(moduleName, moduleText, doomDate, doomTime);
+                Reminder newReminder = new Reminder(moduleName, moduleText, doomDate, doomTime);
                 newRef.setValue(newReminder);
                 Toast.makeText(Reminders1.this, "Remindered created.", Toast.LENGTH_SHORT).show();
 
