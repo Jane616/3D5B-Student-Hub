@@ -37,7 +37,8 @@ public class ModuleList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_module_list);
-        ListView listView = (ListView) findViewById(R.id.modulesList);
+
+        ListView listView = (ListView) findViewById(R.id.moduleList);
         final ArrayAdapter<String> adapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
         listView.setAdapter(adapter);
 
