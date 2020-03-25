@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -57,8 +59,9 @@ public class Attendance extends AppCompatActivity {
 
         attendanceTextView = findViewById(R.id.attendancePercentageTextView);
 
+        String user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
         reff = FirebaseDatabase.getInstance().getReference().child("User").
-                child("User1").child("C_Modules").child(module_number).child("Attendance");
+                child(user_id).child("C_Modules").child(module_number).child("Attendance");
 
         reff.addValueEventListener(new ValueEventListener() {
             @Override
