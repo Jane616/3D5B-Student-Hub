@@ -118,4 +118,22 @@
         android:layout_marginBottom="44dp"
         android:text="Cancel" />
 
+
+    <Button
+        android:id="@+id/btnSolutions"
+        android:layout_width="109dp"
+        android:layout_height="47dp"
+        android:layout_below="@+id/Reminder"
+        android:layout_alignStart="@+id/Reminder"
+        android:layout_alignLeft="@+id/Reminder"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="-1dp"
+        android:layout_marginEnd="289dp"
+        android:layout_marginRight="289dp"
+        android:layout_marginBottom="460dp"
+        android:text="Solutions" />
 </RelativeLayout>
