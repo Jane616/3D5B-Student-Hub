@@ -89,6 +89,7 @@ public class Login extends AppCompatActivity {
                             "Redirecting...",Toast.LENGTH_SHORT).show();
                     Intent jumpToHome = new Intent(Login.this, ModuleList.class);
                     startActivity(jumpToHome);
+                    finish();
                 }else{
                     Toast.makeText(getApplicationContext(),
                             "Wrong Credentials",Toast.LENGTH_SHORT).show();
