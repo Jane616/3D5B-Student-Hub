@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -216,7 +215,7 @@ public class Attendance extends AppCompatActivity {
                 startActivity(startIntent);
                 break;
             case R.id.menuReminders:
-                Intent otherIntent = new Intent(getApplicationContext(), Reminders1.class);
+                Intent otherIntent = new Intent(getApplicationContext(), AlarmPage.class);
                 startActivity(otherIntent);
                 break;
         }
