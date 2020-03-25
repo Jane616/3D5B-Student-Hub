@@ -2,6 +2,8 @@ package com.example.studenthub;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -72,5 +74,26 @@ public class AlarmPage extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.menuLogout:
+                Intent startIntent = new Intent(getApplicationContext(), Login.class);
+                startActivity(startIntent);
+                break;
+            case R.id.menuReminders:
+                Intent otherIntent = new Intent(getApplicationContext(), Reminders1.class);
+                startActivity(otherIntent);
+                break;
+        }
+        return true;
     }
 }

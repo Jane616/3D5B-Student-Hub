@@ -1,8 +1,11 @@
 package com.example.studenthub;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -207,4 +210,25 @@ public class Review extends AppCompatActivity {
         editText.setBackgroundColor(Color.TRANSPARENT);
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.menuLogout:
+                Intent startIntent = new Intent(getApplicationContext(), Login.class);
+                startActivity(startIntent);
+                break;
+            case R.id.menuReminders:
+                Intent otherIntent = new Intent(getApplicationContext(), Reminders1.class);
+                startActivity(otherIntent);
+                break;
+        }
+        return true;
+    }
 }

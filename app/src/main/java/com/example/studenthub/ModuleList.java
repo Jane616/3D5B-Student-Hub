@@ -179,6 +179,10 @@ public class ModuleList extends AppCompatActivity {
                 Intent startIntent = new Intent(getApplicationContext(), Login.class);
                 startActivity(startIntent);
                 break;
+            case R.id.menuReminders:
+                Intent otherIntent = new Intent(getApplicationContext(), Reminders1.class);
+                startActivity(otherIntent);
+                break;
         }
         return true;
     }

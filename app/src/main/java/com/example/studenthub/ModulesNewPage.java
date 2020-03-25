@@ -120,6 +120,10 @@ public class ModulesNewPage extends AppCompatActivity {
                 Intent startIntent = new Intent(getApplicationContext(), Login.class);
                 startActivity(startIntent);
                 break;
+            case R.id.menuReminders:
+                Intent otherIntent = new Intent(getApplicationContext(), Reminders1.class);
+                startActivity(otherIntent);
+                break;
         }
         return true;
     }
@@ -129,23 +133,6 @@ public class ModulesNewPage extends AppCompatActivity {
         //editText.setEnabled(false);
         editText.setCursorVisible(false);
         editText.setKeyListener(null);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.menuLogout:
-                Intent startIntent = new Intent(getApplicationContext(), Login.class);
-                startActivity(startIntent);
-                break;
-        }
-        return true;
     }
 
 }
