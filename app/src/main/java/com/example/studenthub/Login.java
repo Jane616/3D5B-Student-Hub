@@ -88,13 +88,6 @@ public class Login extends AppCompatActivity {
             return;
         }
 
-        //mAuth function does not always work for me so included this shortcut to let me login - Billy
-        if(TextUtils.equals(email, "admin") & TextUtils.equals(password, "shortcut")){
-            Toast.makeText(getApplicationContext(), "Billy's Shortcut",Toast.LENGTH_SHORT).show();
-            Intent jumpToHome = new Intent(Login.this, ModuleList.class);
-            startActivity(jumpToHome);
-        }
-
 
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>(){
             @Override

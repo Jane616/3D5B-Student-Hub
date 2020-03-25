@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +32,7 @@ public class ModuleList extends AppCompatActivity {
     //ArrayList<String> moduleItem = new ArrayList<String>();
     ArrayList<String> items = new ArrayList<String>();
     //ArrayAdapter myAdapter1;
+    TextView modulesTextView;
 
 
     @Override
@@ -41,6 +43,7 @@ public class ModuleList extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.moduleList);
         final ArrayAdapter<String> adapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
         listView.setAdapter(adapter);
+        modulesTextView = (TextView) findViewById(R.id.modulesTextView);
 
         //items.add("Module 1");
         //items.add("Module 2");
@@ -53,15 +56,116 @@ public class ModuleList extends AppCompatActivity {
         //moduleList.setAdapter(myAdapter1);
 
         TextView topMsg = findViewById(R.id.modulesTextView);
-        String username = "no username";
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null){
-            username = user.getDisplayName();
-        }
-        topMsg.setText(username + "'s Modules");
+        String user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        //Toast.makeText(ModuleList.this, "ID: " + user_id, Toast.LENGTH_SHORT).show();
 
         reff = FirebaseDatabase.getInstance().getReference().child("User").
-                child("User1").child("C_Modules");
+                child(user_id);
+
+        reff.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child("Name").getValue() != null) {
+                    String username = dataSnapshot.child("Name").getValue().toString();
+                    modulesTextView.setText(username + "'s Modules");
+                }
+                else{
+                    modulesTextView.setText("No username");
+                }
+
+                //max of 12 modules
+
+                //first delete the previous list
+                items.clear();
+                adapter.notifyDataSetChanged();
+
+                if(dataSnapshot.child("C_Modules").child("Module1").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module1").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module2").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module2").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module3").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module3").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module4").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module4").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module5").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module5").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module6").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module6").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module7").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module7").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module8").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module8").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module9").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module9").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module10").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module10").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module11").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module11").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module12").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module12").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+
+        });
+
+        /*
 
         reff.addValueEventListener(new ValueEventListener() {
             @Override
@@ -100,6 +204,8 @@ public class ModuleList extends AppCompatActivity {
 
 
         });
+
+         */
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
