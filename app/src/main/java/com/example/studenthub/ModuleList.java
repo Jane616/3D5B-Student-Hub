@@ -7,10 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -258,7 +256,7 @@ public class ModuleList extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                Toast.makeText(ModuleList.this, module_array[position], Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ModuleList.this, module_array[position], Toast.LENGTH_SHORT).show();
                 Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
                 jumpToModule.putExtra("module_name", items.get(position));
                 jumpToModule.putExtra("module_number", module_array[position]);
@@ -286,7 +284,7 @@ public class ModuleList extends AppCompatActivity {
                 startActivity(startIntent);
                 break;
             case R.id.menuReminders:
-                Intent otherIntent = new Intent(getApplicationContext(), Reminders1.class);
+                Intent otherIntent = new Intent(getApplicationContext(), AlarmPage.class);
                 startActivity(otherIntent);
                 break;
         }

@@ -23,7 +23,6 @@ public class Login extends AppCompatActivity {
     private EditText ed1,ed2;
     private FirebaseAuth mAuth;
     private Button mButton;
-    private Button mReminders;
 
     TextView tx1;
     int counter = 3;
