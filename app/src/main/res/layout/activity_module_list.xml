@@ -6,268 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".ModuleList">
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="380dp"
-        android:layout_height="500dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/modulesTextView">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:divider="?attr/dividerHorizontal"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingBottom="100dp"
-            android:showDividers="middle">
-
-            <Button
-                android:id="@+id/button2"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#009688"
-                android:padding="5dp"
-                android:text="EEU3E03 Probability and Statistics"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-
-            <Button
-                android:id="@+id/button3"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#009688"
-                android:padding="5dp"
-                android:text="EEU33C01 Signals and Systems"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <Button
-                android:id="@+id/button4"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#009688"
-                android:padding="5dp"
-                android:text="EEU33C02 Digital Circuits"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <Button
-                android:id="@+id/button5"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#009688"
-                android:padding="5dp"
-                android:text="MAU33E01 Engineering Mathematics V"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <Button
-                android:id="@+id/button6"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#009688"
-                android:padding="5dp"
-                android:text="EEU33C07 Digital Systems Design"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <Button
-                android:id="@+id/button7"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#009688"
-                android:padding="5dp"
-                android:text="CSU33D01 Microprocessor Systems I"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <Button
-                android:id="@+id/button8"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#009688"
-                android:padding="5dp"
-                android:text="CSU33D02 Microprocessor Systems II"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <Button
-                android:id="@+id/button9"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#009688"
-                android:padding="5dp"
-                android:text="CSU33D03 Computer Networks"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <Button
-                android:id="@+id/button10"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#009688"
-                android:padding="5dp"
-                android:text="CSU33D04 Operating Systems and Concurrent Systems"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <Button
-                android:id="@+id/button11"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#009688"
-                android:padding="5dp"
-                android:text="CSU33D05 Data Structures"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <Button
-                android:id="@+id/button12"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#009688"
-                android:padding="5dp"
-                android:text="CSU33D06 Software Design Analysis"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <Button
-                android:id="@+id/button13"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#009688"
-                android:padding="5dp"
-                android:text="CEU33E04 Innovation and Entrepreneurship for Engineers"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <Button
-                android:id="@+id/button14"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#009688"
-                android:padding="5dp"
-                android:text="EEU33C05 Telecommunications"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <Button
-                android:id="@+id/button15"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#009688"
-                android:padding="5dp"
-                android:text="EEU33C08 Digital Circuits Design"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <Button
-                android:id="@+id/button16"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#009688"
-                android:padding="5dp"
-                android:text="CSU33D06 Software Design and Implementation"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <Button
-                android:id="@+id/button17"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#009688"
-                android:padding="5dp"
-                android:text="MAU33E02 Engineering Mathematics VI"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-        </LinearLayout>
-    </ScrollView>
-
     <TextView
         android:id="@+id/modulesTextView"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_width="404dp"
+        android:layout_height="61dp"
         android:layout_marginStart="186dp"
         android:layout_marginLeft="186dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="97dp"
         android:layout_marginRight="97dp"
-        android:layout_marginBottom="8dp"
         android:background="#00DBB781"
         android:clickable="false"
+        android:gravity="center_horizontal|center_vertical"
         android:padding="4dp"
-        android:text="My Modules"
-        android:textSize="28sp"
+        android:text="Admin's Modules"
+        android:textSize="32sp"
         android:textStyle="bold"
         android:typeface="normal"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintHorizontal_bias="0.65"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02"
-        tools:text="My Modules" />
+        tools:text="Admin's Modules" />
+
+    <ListView
+        android:id="@+id/modulesList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/modulesTextView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,12 +12,17 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class SignUp extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
 
         Spinner spinner= findViewById(R.id.year);
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this,R.array.Year,android.R.layout.simple_spinner_item);

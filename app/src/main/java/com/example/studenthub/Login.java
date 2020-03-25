@@ -23,7 +23,7 @@ public class Login extends AppCompatActivity {
     private EditText ed1,ed2;
     private FirebaseAuth mAuth;
     private Button mButton;
-    private Button b3;
+    private Button mReminders;
 
     TextView tx1;
     int counter = 3;
@@ -31,14 +31,6 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        b3 = (Button) findViewById(R.id.Signup);
-        b3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openSignUp();
-            }
-        });
 
         mButton = (Button) findViewById(R.id.TeacherPage);
         mButton.setOnClickListener(new View.OnClickListener() {
@@ -51,18 +43,19 @@ public class Login extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        b1 = (Button)findViewById(R.id.button);
+        b1 = (Button)findViewById(R.id.buttonAttended);
         ed1 = (EditText)findViewById(R.id.ModuleNameText);
         ed2 = (EditText)findViewById(R.id.editText2);
 
-        b2 = (Button)findViewById(R.id.button2);
-        tx1 = (TextView)findViewById(R.id.Course);
+        b2 = (Button)findViewById(R.id.buttonMissed);
+        tx1 = (TextView)findViewById(R.id.textView3);
         tx1.setVisibility(View.GONE);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startSignIn();
+                //Toast.makeText(Login.this, "Button pressed", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -74,14 +67,11 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    public void openSignUp(){
-         Intent intent = new Intent(this, SignUp.class);
-         startActivity(intent);
-    }
-
     private void startSignIn(){
+
         String email = ed1.getText().toString();
         String password = ed2.getText().toString();
+        //Toast.makeText(Login.this, "In start sign in with email/password: " + email + password, Toast.LENGTH_SHORT).show();
 
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
             Toast.makeText(getApplicationContext(),
@@ -89,9 +79,11 @@ public class Login extends AppCompatActivity {
             return;
         }
 
+
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>(){
             @Override
             public void onComplete(@NonNull Task<AuthResult> task){
+
                 if (task.isSuccessful()){
 
                     Toast.makeText(getApplicationContext(),

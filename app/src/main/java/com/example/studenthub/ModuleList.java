@@ -2,227 +2,296 @@ package com.example.studenthub;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class ModuleList extends AppCompatActivity {
-    private Button module1;
-    private Button module2;
-    private Button module3;
-    private Button module4;
-    private Button module5;
-    private Button module6;
-    private Button module7;
-    private Button module8;
-    private Button module9;
-    private Button module10;
-    private Button module11;
-    private Button module12;
-    private Button module13;
-    private Button module14;
-    private Button module15;
-    private Button module16;
+    DatabaseReference reff;
+    //ListView moduleList;
+    //String items[] = new String [] {"Module List", "Module 1"};
+    String module_array[] = new String[] {"Module1", "Module2", "Module3", "Module4", "Module5",
+            "Module6", "Module7", "Module8", "Module9", "Module10", "Module11", "Module12"};
+    //ArrayList<String> moduleItem = new ArrayList<String>();
+    ArrayList<String> items = new ArrayList<String>();
+    //ArrayAdapter myAdapter1;
+    TextView modulesTextView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_module_list);
+        ListView listView = (ListView) findViewById(R.id.modulesList);
+        final ArrayAdapter<String> adapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        listView.setAdapter(adapter);
+        modulesTextView = (TextView) findViewById(R.id.modulesTextView);
 
         TextView topMsg = findViewById(R.id.modulesTextView);
-        String username = "no username";
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null){
-            username = user.getDisplayName();
-        }
-        topMsg.setText(username + "'s Modules");
+        String user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        //Toast.makeText(ModuleList.this, "ID: " + user_id, Toast.LENGTH_SHORT).show();
 
-        module1 = findViewById(R.id.button2);
-        module2 = findViewById(R.id.button3);
-        module3 = findViewById(R.id.button4);
-        module4 = findViewById(R.id.button5);
-        module5 = findViewById(R.id.button6);
-        module6 = findViewById(R.id.button7);
-        module7 = findViewById(R.id.button8);
-        module8 = findViewById(R.id.button9);
-        module9 = findViewById(R.id.button10);
-        module10 = findViewById(R.id.button11);
-        module11 = findViewById(R.id.button12);
-        module12 = findViewById(R.id.button13);
-        module13 = findViewById(R.id.button14);
-        module14 = findViewById(R.id.button15);
-        module15 = findViewById(R.id.button16);
-        module16 = findViewById(R.id.button17);
+        reff = FirebaseDatabase.getInstance().getReference().child("User").
+                child(user_id);
 
-
-
-        module1.setOnClickListener(new View.OnClickListener() {
+        reff.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child("Name").getValue() != null) {
+                    String username = dataSnapshot.child("Name").getValue().toString();
+                    modulesTextView.setText(username + "'s Modules");
+                }
+                else{
+                    modulesTextView.setText("No username");
+                }
+
+                //max of 12 modules
+
+                //first delete the previous list
+                items.clear();
+                adapter.notifyDataSetChanged();
+
+                if(dataSnapshot.child("C_Modules").child("Module1").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module1").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module2").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module2").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module3").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module3").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module4").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module4").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module5").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module5").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module6").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module6").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module7").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module7").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module8").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module8").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module9").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module9").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module10").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module10").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module11").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module11").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("C_Modules").child("Module12").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("C_Modules").child("Module12").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+
+        });
+
+        /*
+
+        reff.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //max of 12 modules
+
+                //first delete the previous list
+                items.clear();
+                adapter.notifyDataSetChanged();
+
+                if(dataSnapshot.child("Module1").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("Module1").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+
+                if(dataSnapshot.child("Module2").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("Module2").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module3").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("Module3").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module4").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("Module4").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module5").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("Module5").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module6").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("Module6").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module7").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("Module7").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module8").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("Module8").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module9").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("Module9").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module10").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("Module10").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module11").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("Module11").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+                if(dataSnapshot.child("Module12").child("Title").getValue() != null){
+                    items.add(dataSnapshot.child("Module12").child("Title").getValue().toString());
+                    adapter.notifyDataSetChanged();
+
+                }
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+
+        });
+
+         */
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                Toast.makeText(ModuleList.this, module_array[position], Toast.LENGTH_SHORT).show();
                 Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
-                jumpToModule.putExtra("abc",module1.getText().toString());
+                jumpToModule.putExtra("module_name", items.get(position));
+                jumpToModule.putExtra("module_number", module_array[position]);
                 startActivity(jumpToModule);
-                finish();
+
             }
         });
 
-        module2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
-                jumpToModule.putExtra("abc",module2.getText().toString());
-                startActivity(jumpToModule);
-                finish();
-            }
-        });
-
-        module3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
-                jumpToModule.putExtra("abc",module3.getText().toString());
-                startActivity(jumpToModule);
-                finish();
-            }
-        });
-
-        module4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
-                jumpToModule.putExtra("abc",module4.getText().toString());
-                startActivity(jumpToModule);
-                finish();
-            }
-        });
-
-        module5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
-                jumpToModule.putExtra("abc",module5.getText().toString());
-                startActivity(jumpToModule);
-                finish();
-            }
-        });
-
-        module6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
-                jumpToModule.putExtra("abc",module6.getText().toString());
-                startActivity(jumpToModule);
-                finish();
-            }
-        });
-
-        module7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
-                jumpToModule.putExtra("abc",module7.getText().toString());
-                startActivity(jumpToModule);
-                finish();
-            }
-        });
-
-        module8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
-                jumpToModule.putExtra("abc",module8.getText().toString());
-                startActivity(jumpToModule);
-                finish();
-            }
-        });
-
-        module9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
-                jumpToModule.putExtra("abc",module9.getText().toString());
-                startActivity(jumpToModule);
-                finish();
-            }
-        });
-
-        module10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
-                jumpToModule.putExtra("abc",module10.getText().toString());
-                startActivity(jumpToModule);
-                finish();
-            }
-        });
-
-        module11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
-                jumpToModule.putExtra("abc",module11.getText().toString());
-                startActivity(jumpToModule);
-                finish();
-            }
-        });
-
-        module12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
-                jumpToModule.putExtra("abc",module12.getText().toString());
-                startActivity(jumpToModule);
-                finish();
-            }
-        });
-
-        module13.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
-                jumpToModule.putExtra("abc",module13.getText().toString());
-                startActivity(jumpToModule);
-                finish();
-            }
-        });
-
-        module14.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
-                jumpToModule.putExtra("abc",module14.getText().toString());
-                startActivity(jumpToModule);
-                finish();
-            }
-        });
-
-        module15.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
-                jumpToModule.putExtra("abc",module15.getText().toString());
-                startActivity(jumpToModule);
-                finish();
-            }
-        });
-
-        module16.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent jumpToModule = new Intent(ModuleList.this, ModulesNewPage.class);
-                jumpToModule.putExtra("abc",module16.getText().toString());
-                startActivity(jumpToModule);
-                finish();
-            }
-        });
 
 
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.menuLogout:
+                Intent startIntent = new Intent(getApplicationContext(), Login.class);
+                startActivity(startIntent);
+                break;
+            case R.id.menuReminders:
+                Intent otherIntent = new Intent(getApplicationContext(), Reminders1.class);
+                startActivity(otherIntent);
+                break;
+        }
+        return true;
+    }
+
+
 }
