@@ -121,7 +121,7 @@ public class ModulesNewPage extends AppCompatActivity {
                 startActivity(startIntent);
                 break;
             case R.id.menuReminders:
-                Intent otherIntent = new Intent(getApplicationContext(), Reminders1.class);
+                Intent otherIntent = new Intent(getApplicationContext(), AlarmPage.class);
                 startActivity(otherIntent);
                 break;
         }
