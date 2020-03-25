@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,12 +36,21 @@ public class ModulesNewPage extends AppCompatActivity {
 
 
         TextView Display = findViewById(R.id.textView2);
+
         Bundle bn = getIntent().getExtras();
-        final String name = bn.getString("abc");
+        final String name = bn.getString("module_name");
+        final String module_number = bn.getString("module_number");
         Display.setText(String.valueOf(name));
+        //Display.setText("Module: " + module_number);
         Display.setFocusable(false);
         Display.setCursorVisible(false);
         Display.setKeyListener(null);
+
+        /*
+        bn = getIntent().getExtras();
+        final String module_number = bn.getString("module_number");
+        Display.setText("Module: " + module_number);
+         */
 
         reff = FirebaseDatabase.getInstance().getReference().child("Modules").
                 child("Computer Engineering").child("Year 3").child(name);
@@ -78,6 +88,7 @@ public class ModulesNewPage extends AppCompatActivity {
                 //startActivity(new Intent(ModulesNewPage.this, Review.class));
                 Intent jumpToAttendance = new Intent(ModulesNewPage.this, Review.class);
                 jumpToAttendance.putExtra("modulename",name);
+                //jumpToAttendance.putExtra("modulenumber",module_number);
                 startActivity(jumpToAttendance);
             }
 
@@ -89,18 +100,13 @@ public class ModulesNewPage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent jumpToAttendance = new Intent(ModulesNewPage.this, Attendance.class);
                 jumpToAttendance.putExtra("modulename",name);
+                jumpToAttendance.putExtra("modulenumber",module_number);
+                Toast.makeText(ModulesNewPage.this, module_number, Toast.LENGTH_SHORT).show();
                 startActivity(jumpToAttendance);
             }
         });
-    }
 
-    private void disableEditText(EditText editText) {
-        editText.setFocusable(false);
-        //editText.setEnabled(false);
-        editText.setCursorVisible(false);
-        editText.setKeyListener(null);
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -114,8 +120,19 @@ public class ModulesNewPage extends AppCompatActivity {
                 Intent startIntent = new Intent(getApplicationContext(), Login.class);
                 startActivity(startIntent);
                 break;
+            case R.id.menuReminders:
+                Intent otherIntent = new Intent(getApplicationContext(), AlarmPage.class);
+                startActivity(otherIntent);
+                break;
         }
         return true;
+    }
+
+    private void disableEditText(EditText editText) {
+        editText.setFocusable(false);
+        //editText.setEnabled(false);
+        editText.setCursorVisible(false);
+        editText.setKeyListener(null);
     }
 
 }

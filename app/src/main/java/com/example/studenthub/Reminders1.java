@@ -6,15 +6,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Reminders1 extends AppCompatActivity {
@@ -26,6 +37,10 @@ public class Reminders1 extends AppCompatActivity {
     int day, month, year;
     Button mSet;
     EditText mMessage;
+    DatabaseReference reminders_reff;
+    ArrayList<String> modules = new ArrayList<>();
+    DatabaseReference module_reff;
+    ArrayAdapter<String> spinnerArrayAdaper;
 
 
 
@@ -42,6 +57,11 @@ public class Reminders1 extends AppCompatActivity {
         day = mCurrentDate.get(Calendar.DAY_OF_MONTH);
         month = mCurrentDate.get(Calendar.MONTH);
         year = mCurrentDate.get(Calendar.YEAR);
+
+        spinnerArrayAdaper = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, modules);
+        spinner= (Spinner) findViewById(R.id.ModuleList);
+        spinner.setAdapter(spinnerArrayAdaper);
+
 
         tv2 = (TextView) findViewById(R.id.currentTime);
         tv2.setText("12:00");
@@ -76,7 +96,28 @@ public class Reminders1 extends AppCompatActivity {
             }
         });
 
-        spinner= (Spinner) findViewById(R.id.ModuleList);
+        String user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
+        module_reff = FirebaseDatabase.getInstance().getReference().child("User").
+                child(user_id).child("C_Modules");
+        module_reff.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot userSnapshot: dataSnapshot.getChildren()){
+                    String modTitle = userSnapshot.child("Title").getValue().toString();
+                    modules.add(modTitle);
+                }
+                spinnerArrayAdaper.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -89,22 +130,27 @@ public class Reminders1 extends AppCompatActivity {
             }
         });
 
+        reminders_reff = FirebaseDatabase.getInstance().getReference().child("User").
+                child(user_id).child("D_Reminders");
+
         mSet.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                String moduleName = spinner.toString();
+                String moduleName = spinner.getSelectedItem().toString();
                 String moduleText = mMessage.getText().toString();
                 String doomDate = tv1.getText().toString();
                 String doomTime = tv2.getText().toString();
 
+                DatabaseReference newRef = reminders_reff.push();
+                Reminder newReminder = new Reminder(moduleName, moduleText, doomDate, doomTime);
+                newRef.setValue(newReminder);
+                Toast.makeText(Reminders1.this, "Remindered created.", Toast.LENGTH_SHORT).show();
+
                 Intent setClicked = new Intent (Reminders1.this, AlarmPage.class);
-                //setClicked.putExtra("moduleName", moduleName);
-                //setClicked.putExtra("moduleText", moduleText);
-                //setClicked.putExtra("doomDate", doomDate);
-                //setClicked.putExtra("doomTime", doomTime);
 
                 startActivity(setClicked);
+                finish();
             }
         });
     }

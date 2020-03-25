@@ -23,8 +23,8 @@ public class Login extends AppCompatActivity {
     private EditText ed1,ed2;
     private FirebaseAuth mAuth;
     private Button mButton;
-    private Button mReminders;
     private Button mSolutions;
+
 
     TextView tx1;
     int counter = 3;
@@ -32,16 +32,6 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        mReminders = (Button) findViewById(R.id.Reminder);
-        mReminders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Login.this, AlarmPage.class);
-                startActivity(intent);
-            }
-        });
-
 
         mButton = (Button) findViewById(R.id.TeacherPage);
         mButton.setOnClickListener(new View.OnClickListener() {
@@ -96,13 +86,6 @@ public class Login extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),
                     "Fields are empty.",Toast.LENGTH_SHORT).show();
             return;
-        }
-
-        //mAuth function does not always work for me so included this shortcut to let me login - Billy
-        if(TextUtils.equals(email, "admin") & TextUtils.equals(password, "shortcut")){
-            Toast.makeText(getApplicationContext(), "Billy's Shortcut",Toast.LENGTH_SHORT).show();
-            Intent jumpToHome = new Intent(Login.this, ModuleList.class);
-            startActivity(jumpToHome);
         }
 
 
