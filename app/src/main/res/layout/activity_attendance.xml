@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
+    android:background="@drawable/androidback"
     tools:context=".Attendance">
 
     <TextView
@@ -27,30 +27,28 @@
 
     <Button
         android:id="@+id/buttonAttended"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#1580c6"
-        android:text="Attended"
+        android:layout_width="162dp"
+        android:layout_height="61dp"
+        android:background="@drawable/attended"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/buttonMissed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/attendancePercentageTextView"
-        app:layout_constraintVertical_bias="0.655" />
+        app:layout_constraintVertical_bias="0.648" />
 
     <Button
         android:id="@+id/buttonMissed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#c64715"
-        android:text="Missed"
+        android:layout_width="179dp"
+        android:layout_height="63dp"
+        android:background="@drawable/missed"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.682"
         app:layout_constraintStart_toEndOf="@+id/buttonAttended"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.81" />
+        app:layout_constraintVertical_bias="0.766" />
 
     <TextView
         android:id="@+id/toAttendMissView"

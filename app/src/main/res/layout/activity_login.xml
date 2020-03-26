@@ -102,9 +102,12 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="-100dp"
-
+        android:textColor="#ffffff"
+        android:textSize="20dp"
         android:layout_marginBottom="44dp"
-        android:text="login" />
+        android:text="login"
+        android:background="#1580c6"
+        />
 
     <Button
         android:id="@+id/buttonMissed"
@@ -113,9 +116,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-
+        android:background="#1580c6"
         android:layout_marginRight="60dp"
         android:layout_marginBottom="44dp"
+        android:textSize="20dp"
+        android:textColor="#ffffff"
         android:text="Cancel" />
 
     <Button
