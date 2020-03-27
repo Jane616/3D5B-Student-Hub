@@ -21,16 +21,23 @@ import com.google.firebase.auth.FirebaseAuth;
 
 package com.example.studenthub;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -42,9 +49,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 public class SignIn extends AppCompatActivity {
+    private static final String TAG = "SignIn";
+    private TextView mDisplayDate;
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
+
 
     Spinner year,Course;
     ArrayList<String> arrayList_year;
@@ -68,8 +80,35 @@ public class SignIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+        // Code for Date Picker In DOB Column
+        mDisplayDate = (TextView) findViewById(R.id.d_o_b);
+        mDisplayDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(SignIn.this,android.R.style.Widget_DeviceDefault,mDateSetListener,year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+                dialog.show();
+            }
+        });
+
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month = month + 1;
+                Log.d(TAG,"Date Of Birth : dd/mm/yyyy" + dayOfMonth + "/" + month + "/" + year);
+
+                String date = dayOfMonth + "/" + month + "/" + year;
+                mDisplayDate.setText(date);
+            }
+        };
 
 
+        // Code Ends
         year=(Spinner)findViewById(R.id.year);
         Course=(Spinner)findViewById(R.id.course);
         arrayList_year= new ArrayList<>();
