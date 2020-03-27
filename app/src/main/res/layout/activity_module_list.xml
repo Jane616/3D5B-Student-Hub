@@ -19,7 +19,7 @@
         android:clickable="false"
         android:gravity="center_horizontal|center_vertical"
         android:padding="4dp"
-        android:text="Admin's Modules"
+        android:text="My Modules"
         android:textSize="32sp"
         android:textStyle="bold"
         android:typeface="normal"
@@ -27,10 +27,10 @@
         app:layout_constraintHorizontal_bias="0.65"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Admin's Modules" />
+        tools:text="My Modules" />
 
     <ListView
-        android:id="@+id/modulesList"
+        android:id="@+id/moduleList"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"

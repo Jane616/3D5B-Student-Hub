@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -66,8 +67,9 @@ public class AlarmPage extends AppCompatActivity {
             }
         });
 
+        String user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
         reminders_reff = FirebaseDatabase.getInstance().getReference().child("User").
-                child("User1").child("D_Reminders");
+                child(user_id).child("D_Reminders");
 
         reminders_reff.addValueEventListener(new ValueEventListener() {
             @Override
@@ -107,7 +109,7 @@ public class AlarmPage extends AppCompatActivity {
                 startActivity(startIntent);
                 break;
             case R.id.menuReminders:
-                Intent otherIntent = new Intent(getApplicationContext(), Reminders1.class);
+                Intent otherIntent = new Intent(getApplicationContext(), AlarmPage.class);
                 startActivity(otherIntent);
                 break;
         }

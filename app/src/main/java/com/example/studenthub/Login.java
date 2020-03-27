@@ -23,7 +23,8 @@ public class Login extends AppCompatActivity {
     private EditText ed1,ed2;
     private FirebaseAuth mAuth;
     private Button mButton;
-    private Button mReminders;
+    private Button mSolutions;
+
 
     TextView tx1;
     int counter = 3;
@@ -38,6 +39,14 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent buttonClick = new Intent(Login.this,TeacherLogin.class);
                 startActivity(buttonClick);
+            }
+        });
+        mSolutions = (Button) findViewById(R.id.btnSolutions);
+        mSolutions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent studSol = new Intent(Login.this,StudentSolutions.class);
+                startActivity(studSol);
             }
         });
 
@@ -90,6 +99,7 @@ public class Login extends AppCompatActivity {
                             "Redirecting...",Toast.LENGTH_SHORT).show();
                     Intent jumpToHome = new Intent(Login.this, ModuleList.class);
                     startActivity(jumpToHome);
+                    finish();
                 }else{
                     Toast.makeText(getApplicationContext(),
                             "Wrong Credentials",Toast.LENGTH_SHORT).show();
