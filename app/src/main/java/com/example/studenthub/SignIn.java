@@ -22,7 +22,6 @@ import com.google.firebase.auth.FirebaseAuth;
 package com.example.studenthub;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
@@ -42,7 +41,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class SignIn extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class SignIn<mModr> extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
 
     private EditText mEmail;
@@ -54,14 +53,17 @@ public class SignIn extends AppCompatActivity implements AdapterView.OnItemSelec
     private ProgressBar mProgressBar;
 
     private FirebaseAuth mAuth;
+    private Button b1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        Spinner spinner= findViewById(R.id.year);
-        ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this,R.array.Year,android.R.layout.simple_spinner_item);
+        Spinner spinner = findViewById(R.id.year);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Year, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
@@ -87,29 +89,39 @@ public class SignIn extends AppCompatActivity implements AdapterView.OnItemSelec
         mSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isEmpty())return;
+                if (isEmpty()) return;
                 inProgress(true);
-                mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(),mPassword.getText().toString())
+                mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(), mPassword.getText().toString())
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-                                Toast.makeText(SignIn.this,"User Registered Successfully!",Toast.LENGTH_LONG).show();
+                                Toast.makeText(SignIn.this, "User Registered Successfully!", Toast.LENGTH_LONG).show();
                                 inProgress(false);
 
-                            Intent intent = new Intent(SignIn.this,Login.class);
-                            startActivity(intent);
-                            finish();
-                            return;
+                                Intent intent = new Intent(SignIn.this, Login.class);
+                                startActivity(intent);
+                                finish();
+                                return;
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         inProgress(false);
-                        Toast.makeText(SignIn.this,"Sign Up failed!"+e.getMessage(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(SignIn.this, "Sign Up failed!" + e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
             }
         });
+        b1 = (Button) findViewById(R.id.Modr);
+        mLogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ModuleReg= new Intent(SignIn.this, ModuleSelect.class);
+                startActivity(ModuleReg);
+            }
+
+        });
+
 
     }
 
