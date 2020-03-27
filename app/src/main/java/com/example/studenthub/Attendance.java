@@ -1,6 +1,9 @@
 package com.example.studenthub;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -9,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -54,8 +58,9 @@ public class Attendance extends AppCompatActivity {
 
         attendanceTextView = findViewById(R.id.attendancePercentageTextView);
 
+        String user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
         reff = FirebaseDatabase.getInstance().getReference().child("User").
-                child("User1").child("C_Modules").child(module_number).child("Attendance");
+                child(user_id).child("C_Modules").child(module_number).child("Attendance");
 
         reff.addValueEventListener(new ValueEventListener() {
             @Override
@@ -196,7 +201,26 @@ public class Attendance extends AppCompatActivity {
     */
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.menuLogout:
+                Intent startIntent = new Intent(getApplicationContext(), Login.class);
+                startActivity(startIntent);
+                break;
+            case R.id.menuReminders:
+                Intent otherIntent = new Intent(getApplicationContext(), AlarmPage.class);
+                startActivity(otherIntent);
+                break;
+        }
+        return true;
+    }
 
 
 }

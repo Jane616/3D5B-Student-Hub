@@ -18,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -95,8 +96,11 @@ public class Reminders1 extends AppCompatActivity {
             }
         });
 
+        String user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
         module_reff = FirebaseDatabase.getInstance().getReference().child("User").
-                child("User1").child("C_Modules");
+                child(user_id).child("C_Modules");
         module_reff.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -127,7 +131,7 @@ public class Reminders1 extends AppCompatActivity {
         });
 
         reminders_reff = FirebaseDatabase.getInstance().getReference().child("User").
-                child("User1").child("D_Reminders");
+                child(user_id).child("D_Reminders");
 
         mSet.setOnClickListener(new View.OnClickListener() {
 
