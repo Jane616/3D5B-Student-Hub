@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/alreadyregistered"
+    android:id="@+id/Course"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignIn">
@@ -143,7 +143,6 @@
         android:layout_marginBottom="176dp"
         android:ems="10"
         android:hint="Date of Birth"
-        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -178,24 +177,30 @@
         android:id="@+id/year"
         android:layout_width="136dp"
         android:layout_height="43dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginLeft="47dp"
         android:layout_marginTop="9dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginRight="46dp"
         android:layout_marginBottom="2dp"
         app:layout_constraintBottom_toTopOf="@+id/SignInButton"
-        app:layout_constraintEnd_toStartOf="@+id/Course"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@+id/course"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/d_o_b" />
 
-    <TextView
-        android:id="@+id/Course"
+    <Spinner
+        android:id="@+id/course"
         android:layout_width="134dp"
         android:layout_height="43dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginLeft="46dp"
+
         android:layout_marginTop="9dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
         android:layout_marginBottom="2dp"
-        android:hint="Course Name"
         app:layout_constraintBottom_toTopOf="@+id/SignInButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/year"
         app:layout_constraintTop_toBottomOf="@+id/d_o_b"
         app:layout_constraintVertical_bias="0.0" />
@@ -215,10 +220,17 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
 
     <Button
-        android:id="@+id/Modr"
+        android:id="@+id/SelectModuleBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mod Reg." />
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Select Module"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/LoggingButton"
+        app:layout_constraintEnd_toStartOf="@+id/SignInButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/year" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
