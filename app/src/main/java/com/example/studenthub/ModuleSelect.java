@@ -15,6 +15,8 @@ import android.widget.ListView;
 import android.view.View;
 
 public class ModuleSelect extends Activity {
+    private button b1;
+
     ArrayList<String> selectedItems;
     protected void onCreate(Bundle savedInstanceState) {
         //TODO Auto-generated method stub
