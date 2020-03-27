@@ -25,7 +25,7 @@ public class ModuleSelect extends Activity {
 
 
 
-
+        //test
         ListView chl=(ListView) findViewById(R.id.checkable_list);
         //set multiple selection mode
         chl.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
