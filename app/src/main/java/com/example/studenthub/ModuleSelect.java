@@ -24,7 +24,7 @@ public class ModuleSelect extends Activity {
         //TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.moduleselect);
-        //create an ArrayList object to store selected items
+        //create an ArrayList object to store selected items item
         selectedItems=new ArrayList<String>();
 
 
