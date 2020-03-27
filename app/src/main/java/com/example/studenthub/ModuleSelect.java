@@ -4,18 +4,20 @@ package com.example.studenthub;
 
 import java.util.ArrayList;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ListView;
 import android.view.View;
 
 public class ModuleSelect extends Activity {
-    private button b1;
+
 
     ArrayList<String> selectedItems;
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class ModuleSelect extends Activity {
             }
 
         });
+
     }
 
     public void showSelectedItems(View view){
