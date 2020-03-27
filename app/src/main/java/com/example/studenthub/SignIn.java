@@ -114,7 +114,7 @@ public class SignIn<mModr> extends AppCompatActivity implements AdapterView.OnIt
             }
         });
         b1 = (Button) findViewById(R.id.Modr);
-        mLogIn.setOnClickListener(new View.OnClickListener() {
+        b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent ModuleReg= new Intent(SignIn.this, ModuleSelect.class);
