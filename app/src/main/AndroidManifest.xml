@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AlarmPage"></activity>
+        <activity android:name=".SelectModules"></activity>
+        <activity android:name=".AlarmPage" />
         <activity android:name=".Reminders1" />
         <activity android:name=".WelcomeScreen">
             <intent-filter>
@@ -26,8 +27,7 @@
         <activity android:name=".ModuleList" />
         <activity android:name=".ModulesNewPage" />
         <activity android:name=".Review" />
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
