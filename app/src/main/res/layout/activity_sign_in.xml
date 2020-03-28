@@ -219,5 +219,18 @@
         app:layout_constraintStart_toEndOf="@+id/StudentID"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
 
+    <Button
+        android:id="@+id/SelectModuleBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Select Module"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/LoggingButton"
+        app:layout_constraintEnd_toStartOf="@+id/SignInButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/year" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

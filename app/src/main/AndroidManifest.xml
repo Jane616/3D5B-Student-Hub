@@ -29,6 +29,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".TeacherLogin" />
+        <activity android:name=".ModuleSelect" />
         <activity android:name=".Attendance" />
         <activity android:name=".SignIn" />
         <activity android:name=".Login" />
