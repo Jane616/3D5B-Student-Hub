@@ -6,4 +6,140 @@
     android:layout_height="match_parent"
     tools:context=".ContactPage">
 
+
+    <TextView
+        android:id="@+id/contactus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="546dp"
+        android:gravity="center"
+        android:text="Contact Us"
+        android:textColor="#050505"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/c1"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:text="College Emergency Telephone No.  +353 1 896 1999"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/c2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactus" />
+
+
+    <TextView
+        android:id="@+id/c2"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:text="Academic Registry Telephone No. +353 1 896 4500"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/c3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/c1" />
+
+    <TextView
+        android:id="@+id/c3"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="235dp"
+        android:gravity="center_vertical"
+        android:text="Health Services Telephone No. +353 1 896 1556"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/rtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/c2" />
+
+
+    <TextView
+        android:id="@+id/c4"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="163dp"
+        android:gravity="center_vertical"
+        android:text="Global Room Telephone No. +353 1 896 2097"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/rtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/c3" />
+
+
+    <TextView
+        android:id="@+id/c5"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="90dp"
+        android:gravity="center_vertical"
+        android:text="Accomodation Telephone No. +353 1 896 1177"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/rtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/c4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/c6"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center_vertical"
+        android:text="Career Services Telephone No. +353 1 896 1721"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/rtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/c5" />
+
+    <Button
+        android:id="@+id/rtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginLeft="159dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginEnd="164dp"
+        android:layout_marginRight="164dp"
+        android:layout_marginBottom="55dp"
+        android:text="Return"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
