@@ -54,6 +54,8 @@ public class ContactPage extends AppCompatActivity {
             }
         });
 
+
+
         TextView t2 = (TextView) findViewById(R.id.c2);
         t2.setOnClickListener(new View.OnClickListener() {
             @Override
