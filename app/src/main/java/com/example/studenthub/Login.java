@@ -23,7 +23,9 @@ public class Login extends AppCompatActivity {
     private EditText ed1,ed2;
     private FirebaseAuth mAuth;
     private Button mButton;
-    private Button b3;
+    private Button mSolutions;
+    private Button mContact;
+
 
     TextView tx1;
     int counter = 3;
@@ -32,14 +34,18 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        b3 = (Button) findViewById(R.id.Signup);
-        b3.setOnClickListener(new View.OnClickListener() {
+
+        // Button to move to Contact Us page
+
+        mContact =(Button) findViewById(R.id.contact);
+        mContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openSignUp();
+                opencontactActivity();
             }
         });
 
+        // Code ends
         mButton = (Button) findViewById(R.id.TeacherPage);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,21 +54,30 @@ public class Login extends AppCompatActivity {
                 startActivity(buttonClick);
             }
         });
+        mSolutions = (Button) findViewById(R.id.btnSolutions);
+        mSolutions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent studSol = new Intent(Login.this,StudentSolutions.class);
+                startActivity(studSol);
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
 
-        b1 = (Button)findViewById(R.id.button);
+        b1 = (Button)findViewById(R.id.buttonAttended);
         ed1 = (EditText)findViewById(R.id.ModuleNameText);
         ed2 = (EditText)findViewById(R.id.editText2);
 
-        b2 = (Button)findViewById(R.id.button2);
-        tx1 = (TextView)findViewById(R.id.Course);
+        b2 = (Button)findViewById(R.id.buttonMissed);
+        tx1 = (TextView)findViewById(R.id.textView3);
         tx1.setVisibility(View.GONE);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startSignIn();
+                //Toast.makeText(Login.this, "Button pressed", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -74,14 +89,16 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    public void openSignUp(){
-         Intent intent = new Intent(this, SignUp.class);
-         startActivity(intent);
+    public void opencontactActivity() {
+        Intent intentC = new Intent(this, ContactPage.class);
+        startActivity(intentC);
     }
 
     private void startSignIn(){
+
         String email = ed1.getText().toString();
         String password = ed2.getText().toString();
+        //Toast.makeText(Login.this, "In start sign in with email/password: " + email + password, Toast.LENGTH_SHORT).show();
 
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
             Toast.makeText(getApplicationContext(),
@@ -89,15 +106,18 @@ public class Login extends AppCompatActivity {
             return;
         }
 
+
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>(){
             @Override
             public void onComplete(@NonNull Task<AuthResult> task){
+
                 if (task.isSuccessful()){
 
                     Toast.makeText(getApplicationContext(),
                             "Redirecting...",Toast.LENGTH_SHORT).show();
                     Intent jumpToHome = new Intent(Login.this, ModuleList.class);
                     startActivity(jumpToHome);
+                    finish();
                 }else{
                     Toast.makeText(getApplicationContext(),
                             "Wrong Credentials",Toast.LENGTH_SHORT).show();

@@ -1,72 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/background"
     tools:context=".Login">
 
-    <TextView
-        android:id="@+id/LoginText"
+
+
+
+
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="45dp"
-        android:text="Student HUB"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#009688"
-        android:textColorHighlight="#00FFFFFF"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/ModuleNameText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/ModuleNameText"
-        android:layout_width="232dp"
-        android:layout_height="47dp"
-        android:layout_below="@+id/imageView3"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="45dp"
-        android:layout_marginBottom="22dp"
-        android:focusable="true"
-        android:hint="Enter Name"
-        android:textColorHighlight="#00CEBA"
-        android:textColorHint="#009688"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginText" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/editText2"
-        android:layout_width="229dp"
-        android:layout_height="51dp"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
         android:layout_below="@+id/ModuleNameText"
         android:layout_alignEnd="@+id/ModuleNameText"
         android:layout_alignRight="@+id/ModuleNameText"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="36dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginLeft="61dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="-3dp"
+        android:layout_marginRight="-3dp"
+        android:background="#FFFFFF"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        android:textColorHint="#009688"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ModuleNameText" />
+        android:textColorHint="#009688" />
+
+
+    <EditText
+        android:id="@+id/ModuleNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="330dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:background="#FFFFFF"
+        android:focusable="true"
+        android:hint="Enter Name"
+
+        android:textColorHighlight="#00CEBA"
+        android:textColorHint="#009688" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="-100dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginRight="61dp"
+        android:layout_marginBottom="-2dp"
+        android:text="New Text"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -75,71 +82,82 @@
         android:layout_below="@+id/editText2"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginLeft="59dp"
+        android:layout_marginTop="15dp"
         android:text="Attempts Left:"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
-    <Button
+      <Button
         android:id="@+id/TeacherPage"
-        android:layout_width="368dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginBottom="11dp"
-        android:text="Teacher Login"
-        app:layout_constraintBottom_toTopOf="@+id/Signup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Teacher Login" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="376dp"
-        android:layout_height="46dp"
+        android:id="@+id/buttonAttended"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="5dp"
-        android:layout_toStartOf="@+id/LoginText"
-        android:layout_toLeftOf="@+id/LoginText"
-        android:text="login"
-        app:layout_constraintBottom_toTopOf="@+id/TeacherPage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="-100dp"
+
+        android:layout_marginBottom="44dp"
+        android:text="login" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="383dp"
-        android:layout_height="43dp"
+        android:id="@+id/buttonMissed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="23dp"
-        android:layout_toEndOf="@+id/LoginText"
-        android:layout_toRightOf="@+id/LoginText"
-        android:text="Cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Signup" />
+
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="44dp"
+        android:text="Cancel" />
+
 
     <Button
-        android:id="@+id/Signup"
-        android:layout_width="389dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginBottom="23dp"
-        android:text="SignUp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TeacherPage" />
+        android:id="@+id/btnSolutions"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:layout_below="@id/TeacherPage"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="300dp"
+        android:layout_marginRight="300dp"
+        android:layout_marginBottom="590dp"
+        android:minWidth="10dp"
+        android:minHeight="10dp"
+        android:text="Solutions" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/contact"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_below="@id/TeacherPage"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="300dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="590dp"
+        android:minWidth="10dp"
+        android:minHeight="10dp"
+        android:text="Contact Us" />
+
+</RelativeLayout>
