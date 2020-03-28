@@ -14,9 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StudentUpload"/>
+        <activity android:name=".ContactPage"></activity>
+        <activity android:name=".StudentUpload" />
         <activity android:name=".SolutionsDownload" />
-        <activity android:name=".StudentSolutions"/>
+        <activity android:name=".StudentSolutions" />
         <activity android:name=".AlarmPage" />
         <activity android:name=".Reminders1" />
         <activity android:name=".WelcomeScreen">
