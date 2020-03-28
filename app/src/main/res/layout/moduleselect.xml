@@ -25,9 +25,9 @@
         android:text="Show selected Modules" />
 
     <Button
-        android:id="@+id/goback"
+        android:id="@+id/gb"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="wrap_content"
         android:text="Done" />
 
 </LinearLayout>

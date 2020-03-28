@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.view.View;
 
 public class ModuleSelect extends Activity {
+    private Button b1;
 
 
     ArrayList<String> selectedItems;
@@ -50,6 +51,16 @@ public class ModuleSelect extends Activity {
             }
 
         });
+        b1 = (Button) findViewById(R.id.gb);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Mor = new Intent(ModuleSelect.this, SignIn.class);
+                startActivity(Mor);
+            }
+        });
+
+
 
     }
 
