@@ -55,7 +55,7 @@ public class ModuleSelect extends Activity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Mor = new Intent(ModuleSelect.this, SignIn.class);
+                Intent Mor = new Intent(ModuleSelect.this, Login.class);
                 startActivity(Mor);
             }
         });
