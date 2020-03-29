@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ContactPage"></activity>
+        <activity android:name=".GradeAnalytics"></activity>
         <activity android:name=".StudentUpload" />
         <activity android:name=".SolutionsDownload" />
         <activity android:name=".StudentSolutions" />
