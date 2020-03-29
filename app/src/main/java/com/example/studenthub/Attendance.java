@@ -28,12 +28,16 @@ public class Attendance extends AppCompatActivity {
     TextView attendanceTextView;
     TextView moduleName;
 
+    //test
+
     TextView AttendancePercentageTextView;
     TextView AttendMissView;
     Button ButtonMissed;
     Button ButtonAttended;
 
     DatabaseReference reff;
+
+    //test1
 
     //DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
     //DatabaseReference mPercentageRef = RootRef.child("Percentage");

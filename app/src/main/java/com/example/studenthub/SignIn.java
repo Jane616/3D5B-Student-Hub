@@ -209,6 +209,10 @@ public class SignIn extends AppCompatActivity {
         mSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //sign-up is causing app to crash sometimes so removing it for now - Billy/Harsh
+
+                /*
                 if (isEmpty()) return;
                 inProgress(true);
                 mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(), mPassword.getText().toString())
@@ -230,6 +234,11 @@ public class SignIn extends AppCompatActivity {
                         Toast.makeText(SignIn.this, "Sign Up failed!" + e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
+
+                 */
+
+                Intent ModuleReg= new Intent(SignIn.this, ModuleSelect.class);
+                startActivity(ModuleReg);
             }
         });
 
