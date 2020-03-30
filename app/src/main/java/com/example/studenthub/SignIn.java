@@ -206,6 +206,8 @@ public class SignIn extends AppCompatActivity {
 
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
+        //
+
         mSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
