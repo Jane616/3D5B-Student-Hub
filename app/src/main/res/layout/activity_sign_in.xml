@@ -159,33 +159,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Spinner
-        android:id="@+id/year"
-        android:layout_width="136dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="47dp"
-        android:layout_marginLeft="47dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="46dp"
-        android:layout_marginRight="46dp"
-        app:layout_constraintEnd_toStartOf="@+id/course"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/d_o_b" />
-
-    <Spinner
-        android:id="@+id/course"
-        android:layout_width="134dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginLeft="46dp"
-
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/year"
-        app:layout_constraintTop_toBottomOf="@+id/d_o_b" />
-
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
@@ -204,14 +177,25 @@
         android:id="@+id/SelectModuleBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginLeft="152dp"
-        android:text="Register"
+        android:layout_marginStart="112dp"
+        android:layout_marginLeft="112dp"
+        android:text="Module Sel"
         android:textSize="10sp"
         app:layout_constraintBottom_toTopOf="@+id/LoggingButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/year"
-        app:layout_constraintVertical_bias="0.533" />
+        app:layout_constraintVertical_bias="0.466" />
+
+    <Button
+        android:id="@+id/SignInButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        app:layout_constraintBottom_toTopOf="@+id/LoggingButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toEndOf="@+id/SelectModuleBtn"
+        app:layout_constraintTop_toBottomOf="@+id/year" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

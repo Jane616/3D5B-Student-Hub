@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AdapterView.OnItemClickListener;
@@ -19,25 +18,22 @@ import android.view.View;
 
 public class ModuleSelect extends Activity {
     private Button b1;
-    Spinner year, Course;
-    ArrayList<String> arrayList_year;
-    ArrayAdapter<String> arrayAdapter_year;
+    // these are the global variables
+    Spinner classSpinner, divSpinner;
+    // string variable to store selected values
+    String selectedClass, selectedDiv;
 
-    ArrayList<String> arrayList_year1, arrayList_year2, arrayList_year3, arrayList_year4, arrayList_year5;
-    ArrayAdapter<String> arrayAdapter_Course;
 
 
 
     ArrayList<String> selectedItems;
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         //TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.moduleselect);
         //create an ArrayList object to store selected items it
         selectedItems=new ArrayList<String>();
-
-
-
 
 
 
@@ -62,104 +58,92 @@ public class ModuleSelect extends Activity {
             }
 
         });
-        b1 = (Button) findViewById(R.id.gb);
+        classSpinner = (Spinner) findViewById(R.id.classSpinner);
+        divSpinner = (Spinner) findViewById(R.id.divSpinner);
+
+        // Class Spinner implementing onItemSelectedListener
+        classSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                String selectedClass = parent.getItemAtPosition(position).toString();
+                switch (selectedClass)
+                {
+                    case "Year 1":
+                        // assigning div item list defined in XML to the div Spinner
+                        divSpinner.setAdapter(new ArrayAdapter<String>(ModuleSelect.this,
+                                android.R.layout.simple_spinner_dropdown_item,
+                                getResources().getStringArray(R.array.items_div_class_1)));
+                        break;
+
+                    case "Year 2":
+                        divSpinner.setAdapter(new ArrayAdapter<String>(ModuleSelect.this,
+                                android.R.layout.simple_spinner_dropdown_item,
+                                getResources().getStringArray(R.array.items_div_class_2)));
+                        break;
+
+                    case "Year 3":
+                        divSpinner.setAdapter(new ArrayAdapter<String>(ModuleSelect.this,
+                                android.R.layout.simple_spinner_dropdown_item,
+                                getResources().getStringArray(R.array.items_div_class_3)));
+                        break;
+
+                    case "Year 4":
+                        divSpinner.setAdapter(new ArrayAdapter<String>(ModuleSelect.this,
+                                android.R.layout.simple_spinner_dropdown_item,
+                                getResources().getStringArray(R.array.items_div_class_4)));
+                        break;
+                }
+
+                //set divSpinner Visibility to Visible
+                divSpinner.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+                // can leave this empty
+            }
+        });
+
+        // Div Spinner implementing onItemSelectedListener
+        divSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                selectedDiv = parent.getItemAtPosition(position).toString();
+                /*
+                    Now that we have both values, lets create a Toast to
+                    show the values on screen
+                */
+                Toast.makeText(ModuleSelect.this, "\n Class: \t " + selectedClass +
+                        "\n Div: \t" + selectedDiv, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+                // can leave this empty
+            }
+
+        });
+
+
+
+
+
+        b1 = (Button) findViewById(R.id.goback);
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Mor = new Intent(ModuleSelect.this, Login.class);
-                startActivity(Mor);
+                Intent ModuleReg3= new Intent(ModuleSelect.this, Login.class);
+                startActivity(ModuleReg3);
             }
+
         });
-        year = (Spinner) findViewById(R.id.year);
-        Course = (Spinner) findViewById(R.id.course);
-        arrayList_year = new ArrayList<>();
-        arrayList_year.add("Select Year");
-        arrayList_year.add("Year 1");
-        arrayList_year.add("Year 2");
-        arrayList_year.add("Year 3");
-        arrayList_year.add("Year 4");
-        arrayList_year.add("Year 5");
-
-        arrayAdapter_year = new ArrayAdapter<>(getApplicationContext(), R.layout.textview_black, arrayList_year);
-        year.setAdapter(arrayAdapter_year);
-
-        //Course Spinner process connected with year
-        arrayList_year1 = new ArrayList<>();
-        arrayList_year1.add("Course");
-        arrayList_year1.add("Engineering");
-        arrayList_year1.add("BESS");
-        arrayList_year1.add("Global Business");
-        arrayList_year1.add("Law ");
-        arrayList_year1.add("Arts");
-
-        arrayList_year2 = new ArrayList<>();
-        arrayList_year2.add("Course");
-        arrayList_year2.add("Dual BA");
-        arrayList_year2.add("Sociology");
-        arrayList_year2.add("Computer Science");
-        arrayList_year2.add("Clinical Studies");
-        arrayList_year2.add("Speech Language");
-
-        arrayList_year3 = new ArrayList<>();
-        arrayList_year3.add("Course");
-        arrayList_year3.add("Engineering");
-        arrayList_year3.add("BESS");
-        arrayList_year3.add("Global Business");
-        arrayList_year3.add("Law ");
-        arrayList_year3.add("Arts");
-
-        arrayList_year4 = new ArrayList<>();
-        arrayList_year4.add("Course");
-        arrayList_year4.add("Dual BA");
-        arrayList_year4.add("Sociology");
-        arrayList_year4.add("Computer Science");
-        arrayList_year4.add("Clinical Studies");
-        arrayList_year4.add("Speech Language");
-
-
-        arrayList_year5 = new ArrayList<>();
-        arrayList_year5.add("Course");
-        arrayList_year5.add("Engineering MAI");
-        arrayList_year5.add("MSc Finance");
-        arrayList_year5.add("MSc Marketing");
-        arrayList_year5.add("MSc Management");
-        arrayList_year5.add("PHD");
-
-        year.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                if (position == 1) {
-                    arrayAdapter_Course = new ArrayAdapter<>(getApplicationContext(), R.layout.textview_black, arrayList_year1);
-                }
-
-                if (position == 2) {
-                    arrayAdapter_Course = new ArrayAdapter<>(getApplicationContext(), R.layout.textview_black, arrayList_year2);
-                }
-
-                if (position == 3) {
-                    arrayAdapter_Course = new ArrayAdapter<>(getApplicationContext(), R.layout.textview_black, arrayList_year3);
-                }
-
-                if (position == 4) {
-                    arrayAdapter_Course = new ArrayAdapter<>(getApplicationContext(), R.layout.textview_black, arrayList_year4);
-                }
-
-                if (position == 5) {
-                    arrayAdapter_Course = new ArrayAdapter<>(getApplicationContext(), R.layout.textview_black, arrayList_year5);
-                }
-
-                Course.setAdapter(arrayAdapter_Course);
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-
 
     }
 
