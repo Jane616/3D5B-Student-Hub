@@ -38,6 +38,13 @@
         <activity android:name=".ModulesNewPage" />
         <activity android:name=".Review" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".ModuleSelect">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
