@@ -88,8 +88,13 @@ public class SignIn extends AppCompatActivity {
 
 
         // Code Ends
+
         /*year = (Spinner) findViewById(R.id.year);
         Course = (Spinner) findViewById(R.id.year);
+
+        year = (Spinner) findViewById(R.id.year);
+        Course = (Spinner) findViewById(R.id.course);
+
         arrayList_year = new ArrayList<>();
         arrayList_year.add("Select Year");
         arrayList_year.add("Year 1");
@@ -177,7 +182,9 @@ public class SignIn extends AppCompatActivity {
             }
         });
 
+
          */
+
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -214,6 +221,7 @@ public class SignIn extends AppCompatActivity {
             // this is making the app crash
 
             public void onClick(View v) {
+
                 Intent ModuleReg1= new Intent(SignIn.this, ModuleSelect.class);
                 startActivity(ModuleReg1);
                 //
@@ -240,6 +248,8 @@ public class SignIn extends AppCompatActivity {
                 //                });
                 //
                 //
+
+
             }
         });
 
