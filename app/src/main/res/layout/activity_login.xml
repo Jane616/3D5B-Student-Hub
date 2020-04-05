@@ -28,7 +28,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ModuleNameText" />
+        app:layout_constraintTop_toBottomOf="@+id/ModuleNameText"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/ModuleNameText"
@@ -38,8 +39,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="206dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginTop="226dp"
+        android:layout_marginBottom="15dp"
         android:background="#FFFFFF"
         android:focusable="true"
         android:hint=" E-mail Address"
@@ -49,7 +50,7 @@
         app:layout_constraintBottom_toTopOf="@+id/editText2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSolutions" />
+        app:layout_constraintTop_toBottomOf="@+id/TeacherPage" />
 
     <TextView
         android:id="@+id/textView3"
@@ -104,7 +105,6 @@
         android:layout_marginEnd="255dp"
         android:layout_marginRight="255dp"
         android:text="Teacher Login"
-        app:layout_constraintBottom_toTopOf="@+id/btnSolutions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -141,28 +141,7 @@
         android:text="Cancel"
         app:layout_constraintBottom_toTopOf="@+id/line1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSolutions" />
-
-    <Button
-        android:id="@+id/btnSolutions"
-        android:layout_width="109dp"
-        android:layout_height="47dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginEnd="299dp"
-        android:layout_marginRight="299dp"
-        android:text="Solutions"
-        app:layout_constraintBottom_toTopOf="@+id/buttonMissed"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TeacherPage" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView4"

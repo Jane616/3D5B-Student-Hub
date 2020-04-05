@@ -11,23 +11,23 @@
     <ListView
 
         android:id="@+id/myListView"
-        android:layout_width="410dp"
-        android:layout_height="490dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="406dp"
+        android:layout_height="475dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/backBtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/head">
-
-    </ListView>
+        app:layout_constraintTop_toBottomOf="@+id/head" />
 
     <TextView
         android:id="@+id/head"
         android:layout_width="236dp"
         android:layout_height="42dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="6dp"
         android:gravity="center"
         android:text="Download Papers"
         android:textColor="#0B0808"
@@ -39,16 +39,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/backBtn"
-        android:layout_width="104dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="9dp"
-        android:text="Back"
+    <TextView
+        android:id="@+id/uploadDocument"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="24dp"
+        android:text="Have a new solution? UPLOAD Here"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myListView" />
 

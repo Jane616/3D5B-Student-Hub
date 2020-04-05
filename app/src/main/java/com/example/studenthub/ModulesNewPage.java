@@ -25,6 +25,7 @@ public class ModulesNewPage extends AppCompatActivity {
     DatabaseReference reff;
     EditText lectureName;
     EditText lectureEmail;
+    Button mSolutions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +104,18 @@ public class ModulesNewPage extends AppCompatActivity {
                 jumpToAttendance.putExtra("modulenumber",module_number);
                 Toast.makeText(ModulesNewPage.this, module_number, Toast.LENGTH_SHORT).show();
                 startActivity(jumpToAttendance);
+            }
+        });
+        
+        mSolutions = findViewById(R.id.SolutionsBtn);
+        mSolutions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent jumpToSolutions = new Intent(ModulesNewPage.this, SolutionsDownload.class);
+                jumpToSolutions.putExtra("modulename",name);
+                jumpToSolutions.putExtra("modulenumber",module_number);
+                startActivity(jumpToSolutions);
+
             }
         });
 

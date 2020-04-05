@@ -52,7 +52,7 @@ public class StudentUpload extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent back = new Intent(StudentUpload.this, StudentSolutions.class);
+                Intent back = new Intent(StudentUpload.this, SolutionsDownload.class);
                 startActivity(back);
         }
     });
