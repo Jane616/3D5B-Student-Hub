@@ -228,6 +228,10 @@ public class Review extends AppCompatActivity {
                 Intent otherIntent = new Intent(getApplicationContext(), AlarmPage.class);
                 startActivity(otherIntent);
                 break;
+            case R.id.menuContactUs:
+                Intent anotherIntent = new Intent(getApplicationContext(), ContactPage.class);
+                startActivity(anotherIntent);
+                break;
         }
         return true;
     }

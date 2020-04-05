@@ -10,4 +10,9 @@
         android:id="@+id/menuReminders"
         android:title="Reminders"
         />
+
+    <item
+        android:id="@+id/menuContactUs"
+        android:title="Reminders"
+        />
 </menu>
