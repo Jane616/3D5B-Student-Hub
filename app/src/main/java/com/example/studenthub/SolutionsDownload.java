@@ -16,12 +16,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hsalf.smilerating.SmileRating;
+import com.hsalf.smileyrating.SmileyRating;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +43,37 @@ public class SolutionsDownload extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solutions_download);
+
+        SmileyRating smileRating=(SmileyRating)findViewById(R.id.smile_rating);
+        smileRating.setSmileySelectedListener(new SmileyRating.OnSmileySelectedListener() {
+            @Override
+            public void onSmileySelected(SmileyRating.Type type) {
+                if (SmileyRating.Type.GREAT == type) {
+                    Toast.makeText(SolutionsDownload.this,"GREAT",Toast.LENGTH_SHORT).show();
+                }
+                if (SmileyRating.Type.GOOD == type) {
+                    Toast.makeText(SolutionsDownload.this,"GOOD",Toast.LENGTH_SHORT).show();
+                }
+                if (SmileyRating.Type.BAD == type) {
+                    Toast.makeText(SolutionsDownload.this,"BAD",Toast.LENGTH_SHORT).show();
+                }
+                if (SmileyRating.Type.OKAY == type) {
+                    Toast.makeText(SolutionsDownload.this,"OKAY",Toast.LENGTH_SHORT).show();
+                }
+                if (SmileyRating.Type.TERRIBLE == type) {
+                    Toast.makeText(SolutionsDownload.this,"TERRIBLE",Toast.LENGTH_SHORT).show();
+                }
+
+                int rating = type.getRating();
+            }
+        });
+
+
+
+
+
+
+
 
         mBack = (Button) findViewById(R.id.backBtn);
         mBack.setOnClickListener(new View.OnClickListener() {

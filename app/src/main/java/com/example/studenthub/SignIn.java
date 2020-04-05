@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -48,7 +50,9 @@ public class SignIn extends AppCompatActivity {
 
     DatabaseReference reff;
 
+
     private EditText mFirstName;
+
     private EditText mEmail;
     private EditText mPassword;
 
@@ -64,7 +68,9 @@ public class SignIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
         reff = FirebaseDatabase.getInstance().getReference().child("User");
+
         // Code for Date Picker In DOB Column
         mDisplayDate = (TextView) findViewById(R.id.d_o_b);
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +113,7 @@ public class SignIn extends AppCompatActivity {
         arrayList_year.add("Year 2");
         arrayList_year.add("Year 3");
         arrayList_year.add("Year 4");
-        arrayList_year.add("Year 5");
+        arrayLi st_year.add("Year 5");
 
         arrayAdapter_year = new ArrayAdapter<>(getApplicationContext(), R.layout.textview_black, arrayList_year);
         year.setAdapter(arrayAdapter_year);

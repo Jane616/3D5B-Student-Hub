@@ -54,14 +54,6 @@ public class Login extends AppCompatActivity {
                 startActivity(buttonClick);
             }
         });
-        mSolutions = (Button) findViewById(R.id.btnSolutions);
-        mSolutions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent studSol = new Intent(Login.this,StudentSolutions.class);
-                startActivity(studSol);
-            }
-        });
 
         mAuth = FirebaseAuth.getInstance();
 
