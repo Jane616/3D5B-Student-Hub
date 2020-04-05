@@ -27,6 +27,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -45,10 +48,11 @@ public class SignIn extends AppCompatActivity {
     ArrayList<String> arrayList_year1, arrayList_year2, arrayList_year3, arrayList_year4, arrayList_year5;
     ArrayAdapter<String> arrayAdapter_Course;
 
+    DatabaseReference reff;
 
-     EditText mFirstName;
-     EditText mLastName;
-     EditText mStudentNumber;
+
+    private EditText mFirstName;
+
     private EditText mEmail;
     private EditText mPassword;
 
@@ -64,9 +68,8 @@ public class SignIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-        mFirstName =(EditText)findViewById(R.id.FirstName);
-        mLastName = (EditText)findViewById(R.id.LastName);
-        mStudentNumber = (EditText)findViewById(R.id.StudentID);
+
+        reff = FirebaseDatabase.getInstance().getReference().child("User");
 
         // Code for Date Picker In DOB Column
         mDisplayDate = (TextView) findViewById(R.id.d_o_b);
@@ -200,6 +203,7 @@ public class SignIn extends AppCompatActivity {
 
         mEmail = (EditText) findViewById(R.id.emailTextView);
         mPassword = (EditText) findViewById(R.id.passwordTextView);
+        mFirstName = (EditText) findViewById(R.id.FirstName);
 
         mSignUp = (Button) findViewById(R.id.SignInButton);
         mLogIn = (Button) findViewById(R.id.LoggingButton);
@@ -231,34 +235,30 @@ public class SignIn extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                Intent ModuleReg1= new Intent(SignIn.this, ModuleSelect.class);
-                startActivity(ModuleReg1);
-                //
-                //                if (isEmpty()) return;
-                //                inProgress(true);
-                //                mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(), mPassword.getText().toString())
-                //                        .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                //                            @Override
-                //                            public void onSuccess(AuthResult authResult) {
-                //                                Toast.makeText(SignIn.this, "User Registered Successfully!", Toast.LENGTH_LONG).show();
-                //                                inProgress(false);
-                //
-                //                                Intent intent = new Intent(SignIn.this, Login.class);
-                //                                startActivity(intent);
-                //                                finish();
-                //                                return;
-                //                            }
-                //                        }).addOnFailureListener(new OnFailureListener() {
-                //                    @Override
-                //                    public void onFailure(@NonNull Exception e) {
-                //                        inProgress(false);
-                //                        Toast.makeText(SignIn.this, "Sign Up failed!" + e.getMessage(), Toast.LENGTH_LONG).show();
-                //                    }
-                //                });
-                //
-                //
+                if (isEmpty()) return;
+                inProgress(true);
+                mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(), mPassword.getText().toString())
+                        .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
+                                Toast.makeText(SignIn.this, "User Registered Successfully!", Toast.LENGTH_LONG).show();
+                                inProgress(false);
+                                // Need to create branch in fire base for user
+                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                String user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                String first_name = mFirstName.getText().toString();
+                                reff.child(user_id).child("Name").setValue(first_name);
+                                Intent ModuleReg1= new Intent(SignIn.this, ModuleSelect.class);
+                                startActivity(ModuleReg1);
 
-
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                inProgress(false);
+                                Toast.makeText(SignIn.this, "Sign Up failed!" + e.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        });
             }
         });
 
