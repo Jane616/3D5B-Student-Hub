@@ -24,6 +24,7 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Button mButton;
     private Button mSolutions;
+    private Button mContact;
 
 
     TextView tx1;
@@ -33,6 +34,18 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+        // Button to move to Contact Us page
+
+        mContact =(Button) findViewById(R.id.contact);
+        mContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opencontactActivity();
+            }
+        });
+
+        // Code ends
         mButton = (Button) findViewById(R.id.TeacherPage);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +81,11 @@ public class Login extends AppCompatActivity {
         });
     }
 
+    public void opencontactActivity() {
+        Intent intentC = new Intent(this, ContactPage.class);
+        startActivity(intentC);
+    }
+
     private void startSignIn(){
 
         String email = ed1.getText().toString();
@@ -91,6 +109,7 @@ public class Login extends AppCompatActivity {
                             "Redirecting...",Toast.LENGTH_SHORT).show();
                     Intent jumpToHome = new Intent(Login.this, ModuleList.class);
                     startActivity(jumpToHome);
+                    finish();
                 }else{
                     Toast.makeText(getApplicationContext(),
                             "Wrong Credentials",Toast.LENGTH_SHORT).show();

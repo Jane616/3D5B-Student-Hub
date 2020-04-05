@@ -22,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 public class ModulesNewPage extends AppCompatActivity {
     private Button review;
     private Button attendance;
+    private Button grade;
     DatabaseReference reff;
     EditText lectureName;
     EditText lectureEmail;
@@ -87,10 +88,10 @@ public class ModulesNewPage extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 //startActivity(new Intent(ModulesNewPage.this, Review.class));
-                Intent jumpToAttendance = new Intent(ModulesNewPage.this, Review.class);
-                jumpToAttendance.putExtra("modulename",name);
+                Intent jumpToReview = new Intent(ModulesNewPage.this, Review.class);
+                jumpToReview.putExtra("modulename",name);
                 //jumpToAttendance.putExtra("modulenumber",module_number);
-                startActivity(jumpToAttendance);
+                startActivity(jumpToReview);
             }
 
         });
@@ -116,6 +117,16 @@ public class ModulesNewPage extends AppCompatActivity {
                 jumpToSolutions.putExtra("modulenumber",module_number);
                 startActivity(jumpToSolutions);
 
+            }
+        });
+
+        grade = findViewById(R.id.GradeAnalyticsBtn);
+        grade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent jumpToGrade = new Intent(ModulesNewPage.this, GradeAnalytics.class);
+                jumpToGrade.putExtra("module_name", name);
+                startActivity(jumpToGrade);
             }
         });
 

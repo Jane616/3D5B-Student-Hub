@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/title"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Module for Registration" />
+
+    <Spinner
+        android:id="@+id/classSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:entries="@array/items_class"/>
+
+    <Spinner
+        android:id="@+id/divSpinner"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/classSpinner"
+
+        android:layout_toLeftOf="@id/classSpinner"
+        android:layout_marginTop="10dp"
+        />
+
+
+    <ListView
+        android:id="@+id/checkable_list"
+        android:layout_width="fill_parent"
+        android:layout_height="308dp">
+
+    </ListView>
+
+    <Button
+        android:id="@+id/btshow"
+        android:layout_width="139dp"
+        android:layout_height="56dp"
+        android:onClick="showSelectedItems"
+        android:text="Show selected Modules" />
+
+    <Button
+        android:id="@+id/goback"
+        android:layout_width="137dp"
+        android:layout_height="46dp"
+        android:text="Done" />
+
+
+</LinearLayout>

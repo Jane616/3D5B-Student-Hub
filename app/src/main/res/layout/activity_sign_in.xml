@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/alreadyregistered"
+    android:id="@+id/Course"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignIn">
@@ -143,62 +143,22 @@
         android:layout_marginBottom="176dp"
         android:ems="10"
         android:hint="Date of Birth"
-        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gen_1" />
 
     <Button
-        android:id="@+id/SignInButton"
-        android:layout_width="91dp"
-        android:layout_height="52dp"
-
-        android:layout_marginTop="8dp"
-        android:text="Register"
-        app:layout_constraintBottom_toTopOf="@+id/LoggingButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/year" />
-
-    <Button
         android:id="@+id/LoggingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
         android:layout_marginBottom="8dp"
         android:text="Already registered? Click here to log in."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SignInButton" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Spinner
-        android:id="@+id/year"
-        android:layout_width="136dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginBottom="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/SignInButton"
-        app:layout_constraintEnd_toStartOf="@+id/Course"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/d_o_b" />
-
-    <TextView
-        android:id="@+id/Course"
-        android:layout_width="134dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginBottom="2dp"
-        android:hint="Course Name"
-        app:layout_constraintBottom_toTopOf="@+id/SignInButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/year"
-        app:layout_constraintTop_toBottomOf="@+id/d_o_b"
-        app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -213,6 +173,31 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/StudentID"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
+
+   <Button
+        android:id="@+id/SelectModuleBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginLeft="112dp"
+        android:text="Module Sel"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/LoggingButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/year"
+        app:layout_constraintVertical_bias="0.466" />
+
+    <Button
+        android:id="@+id/SignInButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        app:layout_constraintBottom_toTopOf="@+id/LoggingButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toEndOf="@+id/SelectModuleBtn"
+        app:layout_constraintTop_toBottomOf="@+id/year" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
