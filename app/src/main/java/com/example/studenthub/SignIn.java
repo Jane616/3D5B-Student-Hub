@@ -88,8 +88,13 @@ public class SignIn extends AppCompatActivity {
 
 
         // Code Ends
+
+        /*year = (Spinner) findViewById(R.id.year);
+        Course = (Spinner) findViewById(R.id.year);
+
         year = (Spinner) findViewById(R.id.year);
         Course = (Spinner) findViewById(R.id.course);
+
         arrayList_year = new ArrayList<>();
         arrayList_year.add("Select Year");
         arrayList_year.add("Year 1");
@@ -178,6 +183,10 @@ public class SignIn extends AppCompatActivity {
         });
 
 
+         */
+
+
+
         mAuth = FirebaseAuth.getInstance();
 
         mEmail = (EditText) findViewById(R.id.emailTextView);
@@ -206,41 +215,41 @@ public class SignIn extends AppCompatActivity {
 
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
-        //
-
         mSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
+
+            // this is making the app crash
+
             public void onClick(View v) {
 
-                //sign-up is causing app to crash sometimes so removing it for now - Billy/Harsh
+                Intent ModuleReg1= new Intent(SignIn.this, ModuleSelect.class);
+                startActivity(ModuleReg1);
+                //
+                //                if (isEmpty()) return;
+                //                inProgress(true);
+                //                mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(), mPassword.getText().toString())
+                //                        .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                //                            @Override
+                //                            public void onSuccess(AuthResult authResult) {
+                //                                Toast.makeText(SignIn.this, "User Registered Successfully!", Toast.LENGTH_LONG).show();
+                //                                inProgress(false);
+                //
+                //                                Intent intent = new Intent(SignIn.this, Login.class);
+                //                                startActivity(intent);
+                //                                finish();
+                //                                return;
+                //                            }
+                //                        }).addOnFailureListener(new OnFailureListener() {
+                //                    @Override
+                //                    public void onFailure(@NonNull Exception e) {
+                //                        inProgress(false);
+                //                        Toast.makeText(SignIn.this, "Sign Up failed!" + e.getMessage(), Toast.LENGTH_LONG).show();
+                //                    }
+                //                });
+                //
+                //
 
-                /*
-                if (isEmpty()) return;
-                inProgress(true);
-                mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(), mPassword.getText().toString())
-                        .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                            @Override
-                            public void onSuccess(AuthResult authResult) {
-                                Toast.makeText(SignIn.this, "User Registered Successfully!", Toast.LENGTH_LONG).show();
-                                inProgress(false);
 
-                                Intent intent = new Intent(SignIn.this, Login.class);
-                                startActivity(intent);
-                                finish();
-                                return;
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        inProgress(false);
-                        Toast.makeText(SignIn.this, "Sign Up failed!" + e.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                });
-
-                 */
-
-                Intent ModuleReg= new Intent(SignIn.this, ModuleSelect.class);
-                startActivity(ModuleReg);
             }
         });
 
