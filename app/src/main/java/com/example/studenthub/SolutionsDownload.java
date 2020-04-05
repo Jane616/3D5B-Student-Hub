@@ -1,14 +1,16 @@
 package com.example.studenthub;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.hardware.camera2.params.BlackLevelPattern;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -26,14 +28,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.graphics.Color.BLACK;
-
 public class SolutionsDownload extends AppCompatActivity {
 
     ListView myPDFListView;
     DatabaseReference databaseReference;
     List<uploadPDF> uploadPDFS;
-    Button mBack;
+    TextView mTextView;
 
 
     @Override
@@ -41,12 +41,23 @@ public class SolutionsDownload extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solutions_download);
 
-        mBack = (Button) findViewById(R.id.backBtn);
-        mBack.setOnClickListener(new View.OnClickListener() {
+        mTextView = findViewById(R.id.uploadDocument);
+        String text = "Have a new solution? UPLOAD Here";
+        SpannableString ss = new SpannableString(text);
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+
+            }
+        };
+        ss.setSpan(clickableSpan, 21, 32, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        mTextView.setText(ss);
+        mTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent backToSol = new Intent(SolutionsDownload.this, StudentSolutions.class);
-                startActivity(backToSol);
+                Intent upload = new Intent(SolutionsDownload.this, StudentUpload.class);
+                startActivity(upload);
             }
         });
 
