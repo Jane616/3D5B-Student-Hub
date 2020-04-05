@@ -32,6 +32,7 @@ import java.util.ArrayList;
 public class Review extends AppCompatActivity {
     DatabaseReference reff;
     DatabaseReference comment_reff;
+    DatabaseReference user_reff;
     RatingBar ratingBar;
     EditText enterRatingText;
     EditText ratingInfo;
@@ -51,6 +52,7 @@ public class Review extends AppCompatActivity {
     ListView commentThread;
     ArrayAdapter myAdapter1;
     String activeUser = "Admin";
+    String username;
 
 
 
@@ -79,6 +81,22 @@ public class Review extends AppCompatActivity {
         commentDisplay.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MyRecyclerViewAdapter(this, comments);
         commentDisplay.setAdapter(adapter);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user_reff = FirebaseDatabase.getInstance().getReference().child("User").child(user.getUid());
+        user_reff.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child("Name").getValue() != null) {
+                    username = dataSnapshot.child("Name").getValue().toString();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
         comment_reff = FirebaseDatabase.getInstance().getReference().child("Modules").
@@ -180,11 +198,7 @@ public class Review extends AppCompatActivity {
                 number_of_comments++;
                 comment_reff.child("Number of Comments").setValue(number_of_comments);
                 DatabaseReference newRef = comment_reff.push();
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                String username = user.getDisplayName();
-                //newRef.child("username").setValue(username);
-                //newRef.child("comment").setValue(comment);
-                //newRef.child("rating").setValue(star_value);
+
                 ReviewDisplay newRev = new ReviewDisplay(username,comment,star_value);
                 newRef.setValue(newRev);
                 Toast.makeText(Review.this, "Comment posted.", Toast.LENGTH_SHORT).show();
