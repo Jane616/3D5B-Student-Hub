@@ -1,16 +1,14 @@
 package com.example.studenthub;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.hardware.camera2.params.BlackLevelPattern;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -18,22 +16,27 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hsalf.smilerating.SmileRating;
+import com.hsalf.smileyrating.SmileyRating;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.graphics.Color.BLACK;
 
 public class SolutionsDownload extends AppCompatActivity {
 
     ListView myPDFListView;
     DatabaseReference databaseReference;
     List<uploadPDF> uploadPDFS;
-    TextView mTextView;
+    Button mBack;
 
 
     @Override
@@ -41,23 +44,43 @@ public class SolutionsDownload extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solutions_download);
 
-        mTextView = findViewById(R.id.uploadDocument);
-        String text = "Have a new solution? UPLOAD Here";
-        SpannableString ss = new SpannableString(text);
-        ClickableSpan clickableSpan = new ClickableSpan() {
+        SmileyRating smileRating=(SmileyRating)findViewById(R.id.smile_rating);
+        smileRating.setSmileySelectedListener(new SmileyRating.OnSmileySelectedListener() {
             @Override
-            public void onClick(@NonNull View widget) {
+            public void onSmileySelected(SmileyRating.Type type) {
+                if (SmileyRating.Type.GREAT == type) {
+                    Toast.makeText(SolutionsDownload.this,"GREAT",Toast.LENGTH_SHORT).show();
+                }
+                if (SmileyRating.Type.GOOD == type) {
+                    Toast.makeText(SolutionsDownload.this,"GOOD",Toast.LENGTH_SHORT).show();
+                }
+                if (SmileyRating.Type.BAD == type) {
+                    Toast.makeText(SolutionsDownload.this,"BAD",Toast.LENGTH_SHORT).show();
+                }
+                if (SmileyRating.Type.OKAY == type) {
+                    Toast.makeText(SolutionsDownload.this,"OKAY",Toast.LENGTH_SHORT).show();
+                }
+                if (SmileyRating.Type.TERRIBLE == type) {
+                    Toast.makeText(SolutionsDownload.this,"TERRIBLE",Toast.LENGTH_SHORT).show();
+                }
 
+                int rating = type.getRating();
             }
-        };
-        ss.setSpan(clickableSpan, 21, 32, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        mTextView.setText(ss);
-        mTextView.setMovementMethod(LinkMovementMethod.getInstance());
-        mTextView.setOnClickListener(new View.OnClickListener() {
+        });
+
+
+
+
+
+
+
+
+        mBack = (Button) findViewById(R.id.backBtn);
+        mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent upload = new Intent(SolutionsDownload.this, StudentUpload.class);
-                startActivity(upload);
+                Intent backToSol = new Intent(SolutionsDownload.this, StudentSolutions.class);
+                startActivity(backToSol);
             }
         });
 
