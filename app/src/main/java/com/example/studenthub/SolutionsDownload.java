@@ -1,16 +1,14 @@
 package com.example.studenthub;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.hardware.camera2.params.BlackLevelPattern;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -19,32 +17,42 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hsalf.smilerating.SmileRating;
+import com.hsalf.smileyrating.SmileyRating;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.graphics.Color.BLACK;
+
 public class SolutionsDownload extends AppCompatActivity {
     TextView SolutionsModuleName;
     ListView myPDFListView;
     DatabaseReference databaseReference;
     List<uploadPDF> uploadPDFS;
+
     TextView mTextView;
     ImageView mUploadPage;
     TextView mPeerReview;
+
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solutions_download);
+
 
 
         Bundle bn = getIntent().getExtras();
@@ -82,7 +90,7 @@ public class SolutionsDownload extends AppCompatActivity {
         String text = "Have a new or a better solution?";
         SpannableString ss = new SpannableString(text);
         ClickableSpan clickableSpan = new ClickableSpan() {
-            @Override
+                      @Override
             public void onClick(@NonNull View widget) {
 
             }
@@ -90,6 +98,32 @@ public class SolutionsDownload extends AppCompatActivity {
         ss.setSpan(clickableSpan, 4, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         mTextView.setText(ss);
         mTextView.setMovementMethod(LinkMovementMethod.getInstance());
+
+        SmileyRating smileRating=(SmileyRating)findViewById(R.id.smile_rating);
+        smileRating.setSmileySelectedListener(new SmileyRating.OnSmileySelectedListener() {
+
+            @Override
+            public void onSmileySelected(SmileyRating.Type type) {
+                if (SmileyRating.Type.GREAT == type) {
+                    Toast.makeText(SolutionsDownload.this,"GREAT",Toast.LENGTH_SHORT).show();
+                }
+                if (SmileyRating.Type.GOOD == type) {
+                    Toast.makeText(SolutionsDownload.this,"GOOD",Toast.LENGTH_SHORT).show();
+                }
+                if (SmileyRating.Type.BAD == type) {
+                    Toast.makeText(SolutionsDownload.this,"BAD",Toast.LENGTH_SHORT).show();
+                }
+                if (SmileyRating.Type.OKAY == type) {
+                    Toast.makeText(SolutionsDownload.this,"OKAY",Toast.LENGTH_SHORT).show();
+                }
+                if (SmileyRating.Type.TERRIBLE == type) {
+                    Toast.makeText(SolutionsDownload.this,"TERRIBLE",Toast.LENGTH_SHORT).show();
+                }
+
+                int rating = type.getRating();
+            }
+        });
+
 
         myPDFListView = (ListView) findViewById(R.id.myListView);
         uploadPDFS = new ArrayList<>();

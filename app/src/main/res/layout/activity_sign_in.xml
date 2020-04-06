@@ -135,7 +135,7 @@
     </RadioGroup>
 
 
-    <EditText
+    <TextView
         android:id="@+id/d_o_b"
         android:layout_width="301dp"
         android:layout_height="46dp"
@@ -152,12 +152,14 @@
         android:id="@+id/LoggingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="546dp"
         android:layout_marginBottom="8dp"
         android:text="Already registered? Click here to log in."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ProgressBar
@@ -174,30 +176,21 @@
         app:layout_constraintStart_toEndOf="@+id/StudentID"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
 
-   <Button
-        android:id="@+id/SelectModuleBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginLeft="112dp"
-        android:text="Module Sel"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/LoggingButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/year"
-        app:layout_constraintVertical_bias="0.466" />
 
     <Button
         android:id="@+id/SignInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="498dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginRight="160dp"
         android:text="Register"
         app:layout_constraintBottom_toTopOf="@+id/LoggingButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toEndOf="@+id/SelectModuleBtn"
-        app:layout_constraintTop_toBottomOf="@+id/year" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
