@@ -113,8 +113,7 @@ public class ModulesNewPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent jumpToSolutions = new Intent(ModulesNewPage.this, SolutionsDownload.class);
-                jumpToSolutions.putExtra("modulename",name);
-                jumpToSolutions.putExtra("modulenumber",module_number);
+                jumpToSolutions.putExtra("module_name",name);
                 startActivity(jumpToSolutions);
 
             }

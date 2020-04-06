@@ -8,9 +8,14 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,7 +28,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 public class StudentUpload extends AppCompatActivity {
-
+    TextView mtext;
+    TextView SolutionsModule;
     EditText editPDF;
     Button mUpload;
     Button mBack;
@@ -36,9 +42,30 @@ public class StudentUpload extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_upload);
 
+        mtext = findViewById(R.id.textView9);
+        String text = "Please provide a brief title and description regarding the solution you want to upload. " +
+                    "The title should include the module name and number whereas the description should " +
+                    "consist of the exam paper year and the question number.";
+        SpannableString ss = new SpannableString(text);
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+
+            }
+        };
+        ss.setSpan(clickableSpan, 0, 226, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        mtext.setText(ss);
+        mtext.setMovementMethod(LinkMovementMethod.getInstance());
+
+
+        Bundle bn = getIntent().getExtras();
+        final String name = bn.getString("module_name");
+        SolutionsModule = (TextView) findViewById(R.id.SolutionsModule);
+        SolutionsModule.setText(String.valueOf(name));
+
         editPDF = (EditText) findViewById(R.id.txt_PDF);
         storageReference = FirebaseStorage.getInstance().getReference();
-        databaseReference = FirebaseDatabase.getInstance().getReference("uploads");
+        databaseReference = FirebaseDatabase.getInstance().getReference("uploadForReview");
         mUpload = (Button) findViewById(R.id.btn_upload);
         mUpload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +115,7 @@ public class StudentUpload extends AppCompatActivity {
         progressDialog.show();
         progressDialog.setTitle("Uploading...");
 
-        StorageReference reference = storageReference.child("uploads/"+System.currentTimeMillis()+".pdf");
+        StorageReference reference = storageReference.child("uploadForReview/"+System.currentTimeMillis()+".pdf");
         reference.putFile(data)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
