@@ -90,7 +90,7 @@ public class ModuleSelect extends Activity {
                     items.add(current_module);
                     adapter.notifyDataSetChanged();
                 }
-                Toast.makeText(ModuleSelect.this, "Something has happened Updating", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(ModuleSelect.this, "Something has happened Updating", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -116,7 +116,7 @@ public class ModuleSelect extends Activity {
                                 android.R.layout.simple_spinner_dropdown_item,
                                 getResources().getStringArray(R.array.items_div_class_1)));
                                 selectedYear = selectedClass;
-                                Toast.makeText(ModuleSelect.this, selectedYear + ", Course: " + selectedDiv, Toast.LENGTH_SHORT).show();
+                                // Toast.makeText(ModuleSelect.this, selectedYear + ", Course: " + selectedDiv, Toast.LENGTH_SHORT).show();
                         break;
 
                     case "Year 2":
@@ -124,7 +124,7 @@ public class ModuleSelect extends Activity {
                                 android.R.layout.simple_spinner_dropdown_item,
                                 getResources().getStringArray(R.array.items_div_class_2)));
                                 selectedYear = selectedClass;
-                                Toast.makeText(ModuleSelect.this, selectedYear + ", Course: " + selectedDiv, Toast.LENGTH_SHORT).show();
+                                // Toast.makeText(ModuleSelect.this, selectedYear + ", Course: " + selectedDiv, Toast.LENGTH_SHORT).show();
                         break;
 
                     case "Year 3":
@@ -132,7 +132,7 @@ public class ModuleSelect extends Activity {
                                 android.R.layout.simple_spinner_dropdown_item,
                                 getResources().getStringArray(R.array.items_div_class_3)));
                                 selectedYear = selectedClass;
-                                Toast.makeText(ModuleSelect.this, selectedYear + ", Course: " + selectedDiv, Toast.LENGTH_SHORT).show();
+                                // Toast.makeText(ModuleSelect.this, selectedYear + ", Course: " + selectedDiv, Toast.LENGTH_SHORT).show();
                         break;
 
                     case "Year 4":
@@ -140,7 +140,7 @@ public class ModuleSelect extends Activity {
                                 android.R.layout.simple_spinner_dropdown_item,
                                 getResources().getStringArray(R.array.items_div_class_4)));
                                 selectedYear = selectedClass;
-                                Toast.makeText(ModuleSelect.this, selectedYear + ", Course: " + selectedDiv, Toast.LENGTH_SHORT).show();
+                                // Toast.makeText(ModuleSelect.this, selectedYear + ", Course: " + selectedDiv, Toast.LENGTH_SHORT).show();
                         break;
                 }
 
@@ -162,7 +162,7 @@ public class ModuleSelect extends Activity {
                             items.add(current_module);
                             adapter.notifyDataSetChanged();
                         }
-                        Toast.makeText(ModuleSelect.this, "Something has happened Updating", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(ModuleSelect.this, "Something has happened Updating", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -196,7 +196,7 @@ public class ModuleSelect extends Activity {
 
                 */
                 selectedCourse = selectedDiv;
-                Toast.makeText(ModuleSelect.this, selectedYear + ", Course: " + selectedCourse, Toast.LENGTH_SHORT).show();
+                // Toast.makeText(ModuleSelect.this, selectedYear + ", Course: " + selectedCourse, Toast.LENGTH_SHORT).show();
 
                 reff = FirebaseDatabase.getInstance().getReference().child("Modules").child(selectedCourse).child(selectedYear);
 
@@ -213,7 +213,7 @@ public class ModuleSelect extends Activity {
                             items.add(current_module);
                             adapter.notifyDataSetChanged();
                         }
-                        Toast.makeText(ModuleSelect.this, "Something has happened Updating", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(ModuleSelect.this, "Something has happened Updating", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -260,7 +260,7 @@ public class ModuleSelect extends Activity {
         });
 
     }
-
+    /*
     public void showSelectedItems(View view){
         String selItems="";
         for(String item:selectedItems){
@@ -273,6 +273,8 @@ public class ModuleSelect extends Activity {
         Toast.makeText(this, selItems, Toast.LENGTH_LONG).show();
     }
 
+
+     */
 
 
 }
