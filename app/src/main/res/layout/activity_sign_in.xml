@@ -176,32 +176,21 @@
         app:layout_constraintStart_toEndOf="@+id/StudentID"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
 
-    <Button
-        android:id="@+id/SelectModuleBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="71dp"
-        android:layout_marginLeft="71dp"
-        android:layout_marginEnd="252dp"
-        android:layout_marginRight="252dp"
-        android:text="Module Sel"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/LoggingButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.466" />
 
     <Button
         android:id="@+id/SignInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="498dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginRight="160dp"
         android:text="Register"
         app:layout_constraintBottom_toTopOf="@+id/LoggingButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toEndOf="@+id/SelectModuleBtn"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

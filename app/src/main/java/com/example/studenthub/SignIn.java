@@ -58,7 +58,7 @@ public class SignIn extends AppCompatActivity {
 
     private Button mSignUp;
     private Button mLogIn;
-    private Button mSelectModule;
+    //private Button mSelectModule;
 
     private ProgressBar mProgressBar;
 
@@ -207,7 +207,7 @@ public class SignIn extends AppCompatActivity {
 
         mSignUp = (Button) findViewById(R.id.SignInButton);
         mLogIn = (Button) findViewById(R.id.LoggingButton);
-        mSelectModule = (Button) findViewById(R.id.SelectModuleBtn);
+        /*mSelectModule = (Button) findViewById(R.id.SelectModuleBtn);
 
         mSelectModule.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,6 +217,8 @@ public class SignIn extends AppCompatActivity {
             }
 
         });
+
+         */
 
         mLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
