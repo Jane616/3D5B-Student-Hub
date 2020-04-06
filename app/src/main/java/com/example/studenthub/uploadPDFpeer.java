@@ -1,17 +1,19 @@
 package com.example.studenthub;
 
-public class uploadPDF {
+public class uploadPDFpeer {
 
     public String name;
     public String url;
+    public String description;
 
-    public uploadPDF(){
+    public uploadPDFpeer(){
     }
 
 
-    public uploadPDF(String name, String url){
+    public uploadPDFpeer(String name, String url, String description){
         this.name = name;
         this.url = url;
+        this.description = description;
 
     }
 
@@ -22,4 +24,6 @@ public class uploadPDF {
     public String getUrl() {
         return url;
     }
+
+    public String getDescription() {return description;}
 }
