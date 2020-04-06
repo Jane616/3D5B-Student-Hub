@@ -1,38 +1,32 @@
 package com.example.studenthub;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
-import android.hardware.camera2.params.BlackLevelPattern;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.hsalf.smilerating.SmileRating;
-import com.hsalf.smileyrating.SmileyRating;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.graphics.Color.BLACK;
 
 public class SolutionsDownload extends AppCompatActivity {
     TextView SolutionsModuleName;
@@ -99,7 +93,7 @@ public class SolutionsDownload extends AppCompatActivity {
         mTextView.setText(ss);
         mTextView.setMovementMethod(LinkMovementMethod.getInstance());
 
-        SmileyRating smileRating=(SmileyRating)findViewById(R.id.smile_rating);
+        /*SmileyRating smileRating=(SmileyRating)findViewById(R.id.smile_rating);
         smileRating.setSmileySelectedListener(new SmileyRating.OnSmileySelectedListener() {
 
             @Override
@@ -122,7 +116,7 @@ public class SolutionsDownload extends AppCompatActivity {
 
                 int rating = type.getRating();
             }
-        });
+        });*/
 
 
         myPDFListView = (ListView) findViewById(R.id.myListView);

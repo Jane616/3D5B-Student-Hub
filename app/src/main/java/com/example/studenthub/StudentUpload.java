@@ -1,9 +1,5 @@
 package com.example.studenthub;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -17,6 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -74,7 +74,7 @@ public class StudentUpload extends AppCompatActivity {
 
             }
         });
-        mBack = (Button) findViewById(R.id.backButton);
+        /*mBack = (Button) findViewById(R.id.backButton);
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,7 +82,7 @@ public class StudentUpload extends AppCompatActivity {
                 Intent back = new Intent(StudentUpload.this, SolutionsDownload.class);
                 startActivity(back);
         }
-    });
+    });*/
 }
 
 
