@@ -5,19 +5,20 @@
     android:id="@+id/alreadyregistered"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/androidback"
     tools:context=".SignIn">
 
     <TextView
         android:id="@+id/SignUpForm"
-        android:layout_width="285dp"
-        android:layout_height="62dp"
+        android:layout_width="187dp"
+        android:layout_height="61dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="        SIGN  UP"
+        android:background="@drawable/signup"
         android:textColor="#009688"
         android:textColorHighlight="#00FFFFFF"
         android:textSize="36sp"
@@ -37,6 +38,7 @@
         android:layout_marginBottom="13dp"
         android:ems="10"
         android:hint="  First Name"
+        android:textStyle="bold"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/emailTextView"
         app:layout_constraintEnd_toStartOf="@+id/LastName"
@@ -151,28 +153,25 @@
 
     <Button
         android:id="@+id/SignInButton"
-        android:layout_width="91dp"
-        android:layout_height="52dp"
-
-        android:layout_marginTop="8dp"
-        android:text="Register"
+        android:layout_width="110dp"
+        android:layout_height="41dp"
+        android:background="@drawable/register"
         app:layout_constraintBottom_toTopOf="@+id/LoggingButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/year" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.98" />
 
     <Button
         android:id="@+id/LoggingButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:layout_marginBottom="8dp"
-        android:text="Already registered? Click here to log in."
+        android:layout_width="281dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/already1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SignInButton" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
         android:id="@+id/year"
@@ -184,7 +183,8 @@
         app:layout_constraintEnd_toStartOf="@+id/Course"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/d_o_b" />
+        app:layout_constraintTop_toBottomOf="@+id/d_o_b"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/Course"
