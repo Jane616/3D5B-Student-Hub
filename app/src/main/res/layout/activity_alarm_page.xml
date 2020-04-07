@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/androidback"
     tools:context=".AlarmPage">
 
     <TextView
@@ -11,8 +12,8 @@
         android:layout_width="230dp"
         android:layout_height="42dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/reminders"
         android:gravity="center"
-        android:text="My Reminders"
         android:textColor="#37993B"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -56,6 +57,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:maxImageSize="60dp"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_menu_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

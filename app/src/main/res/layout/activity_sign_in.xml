@@ -25,8 +25,6 @@
 
         android:background="@drawable/signup"
 
-        android:text="        SIGN  UP"
-
         android:textColor="#009688"
         android:textColorHighlight="#00FFFFFF"
         android:textSize="36sp"
@@ -47,9 +45,8 @@
         android:ems="10"
         android:hint="  First Name"
 
-        android:textStyle="bold"
-
         android:inputType="textPersonName"
+
         app:layout_constraintBottom_toTopOf="@+id/emailTextView"
         app:layout_constraintEnd_toStartOf="@+id/LastName"
         app:layout_constraintHorizontal_bias="0.5"
@@ -163,11 +160,11 @@
 
     <Button
         android:id="@+id/LoggingButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="380dp"
+        android:layout_height="50dp"
         android:layout_marginTop="546dp"
         android:layout_marginBottom="8dp"
-        android:text="Already registered? Click here to log in."
+        android:background="@drawable/already1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -192,18 +189,13 @@
 
     <Button
         android:id="@+id/SignInButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="498dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginRight="160dp"
-        android:text="Register"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:background="@drawable/register"
         app:layout_constraintBottom_toTopOf="@+id/LoggingButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toEndOf="@+id/SelectModuleBtn"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/d_o_b" />
 
 
 

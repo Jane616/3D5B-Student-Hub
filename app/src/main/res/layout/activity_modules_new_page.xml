@@ -9,9 +9,9 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="0dp"
+        android:layout_width="380dp"
 
-        android:layout_height="0dp"
+        android:layout_height="60dp"
 
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -19,7 +19,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
 
-        android:layout_marginBottom="8dp"
         android:background="@drawable/textb1"
 
         android:foregroundGravity="center_horizontal"
@@ -29,7 +28,7 @@
         android:textSize="18sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,7 +38,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="32dp"
-        android:background="@drawable/review"
+        android:background="@drawable/moduleb"
         android:text="Review"
 
         android:textSize="18sp"
@@ -58,7 +57,7 @@
         android:layout_width="145dp"
         android:layout_height="80dp"
         android:layout_marginTop="64dp"
-        android:background="@drawable/attendance"
+        android:background="@drawable/assesment"
         android:text="Attendance"
 
         android:textSize="18sp"
@@ -75,7 +74,7 @@
         android:layout_width="145dp"
         android:layout_height="80dp"
         android:layout_marginTop="64dp"
-        android:background="@drawable/timet"
+        android:background="@drawable/textb1"
         android:text="Solutions"
 
         android:textSize="18sp"
@@ -126,7 +125,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="32dp"
-        android:background="#00B8D4"
+        android:background="@drawable/remind"
         android:text="Grade Analytics"
 
         android:textSize="18sp"
