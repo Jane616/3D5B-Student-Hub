@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
+    android:background="@drawable/androidback"
     tools:context=".MainActivity">
 
 
@@ -13,51 +13,48 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Student Hub"
+
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/Homebutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:text="HomePage"
-        android:background="#c67915"
+        android:layout_width="149dp"
+        android:layout_height="53dp"
+        android:background="@drawable/homepage"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.48" />
+        app:layout_constraintVertical_bias="0.704" />
 
     <Button
         android:id="@+id/Reviewbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#c67915"
+        android:layout_width="152dp"
+        android:layout_height="49dp"
+        android:background="@drawable/review"
         android:textColor="#FFFFFF"
-        android:text="Review"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.674"
-        app:layout_constraintStart_toEndOf="@+id/Homebutton"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.48" />
+        app:layout_constraintVertical_bias="0.513" />
 
     <Button
         android:id="@+id/Loginbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginLeft="156dp"
-        android:background="#1580c6"
-        android:text="Login"
+        android:layout_width="153dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginLeft="128dp"
+        android:background="@drawable/login"
+
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.338" />
+        app:layout_constraintVertical_bias="0.353" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

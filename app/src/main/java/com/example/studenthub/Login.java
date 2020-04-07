@@ -23,8 +23,10 @@ public class Login extends AppCompatActivity {
     private EditText ed1,ed2;
     private FirebaseAuth mAuth;
     private Button mButton;
-    private Button mSolutions;
+
+
     private Button mContact;
+
 
 
     TextView tx1;
@@ -54,6 +56,7 @@ public class Login extends AppCompatActivity {
                 startActivity(buttonClick);
             }
         });
+
 
         mAuth = FirebaseAuth.getInstance();
 
