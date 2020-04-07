@@ -52,9 +52,10 @@ public class SignIn extends AppCompatActivity {
 
 
     private EditText mFirstName;
-
+    private EditText mLastName;
     private EditText mEmail;
     private EditText mPassword;
+    private EditText mStudentNo;
 
     private Button mSignUp;
     private Button mLogIn;
@@ -68,6 +69,10 @@ public class SignIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
+
+        mLastName=(EditText)findViewById(R.id.LastName);
+        mStudentNo=(EditText)findViewById(R.id.StudentID);
 
         reff = FirebaseDatabase.getInstance().getReference().child("User");
 
@@ -237,6 +242,9 @@ public class SignIn extends AppCompatActivity {
 
             public void onClick(View v) {
 
+                ValidateEmail(mEmail);
+
+
                 if (isEmpty()) return;
                 inProgress(true);
                 mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(), mPassword.getText().toString())
@@ -265,6 +273,24 @@ public class SignIn extends AppCompatActivity {
         });
 
     }
+
+    private boolean ValidateEmail(EditText mEmail){
+        String emailInput= mEmail.getText().toString();
+        if(!emailInput.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
+            Toast.makeText(this,"Email Validated Successfully",Toast.LENGTH_SHORT).show();
+            return true;
+        }  else {
+            Toast.makeText(this,"InValid Email Address",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+
+
+
+
+
+
+
 
 
     private void inProgress(boolean x) {
