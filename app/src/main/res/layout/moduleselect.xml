@@ -14,9 +14,9 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="338dp"
-        android:layout_height="35dp"
-        android:text="Select Module for Registration"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:background="@drawable/registermodule"
         android:textColor="#FA000000"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -75,6 +75,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="22dp"
         android:layout_marginBottom="27dp"
+        android:background="@drawable/moduleb"
         android:text="Finish Registration"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

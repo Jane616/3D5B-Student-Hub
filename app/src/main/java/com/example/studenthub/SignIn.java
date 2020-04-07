@@ -1,6 +1,4 @@
-
 package com.example.studenthub;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,7 +8,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -23,12 +20,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -54,10 +49,10 @@ public class SignIn extends AppCompatActivity {
 
 
     private EditText mFirstName;
-
-
+    private EditText mLastName;
     private EditText mEmail;
     private EditText mPassword;
+    private EditText mStudentNo;
 
     private Button mSignUp;
     private Button mLogIn;
@@ -71,6 +66,10 @@ public class SignIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
+
+        mLastName=(EditText)findViewById(R.id.LastName);
+        mStudentNo=(EditText)findViewById(R.id.StudentID);
 
         reff = FirebaseDatabase.getInstance().getReference().child("User");
 
@@ -106,10 +105,8 @@ public class SignIn extends AppCompatActivity {
 
         /*year = (Spinner) findViewById(R.id.year);
         Course = (Spinner) findViewById(R.id.year);
-
         year = (Spinner) findViewById(R.id.year);
         Course = (Spinner) findViewById(R.id.course);
-
         arrayList_year = new ArrayList<>();
         arrayList_year.add("Select Year");
         arrayList_year.add("Year 1");
@@ -117,10 +114,8 @@ public class SignIn extends AppCompatActivity {
         arrayList_year.add("Year 3");
         arrayList_year.add("Year 4");
         arrayLi st_year.add("Year 5");
-
         arrayAdapter_year = new ArrayAdapter<>(getApplicationContext(), R.layout.textview_black, arrayList_year);
         year.setAdapter(arrayAdapter_year);
-
         //Course Spinner process connected with year
         arrayList_year1 = new ArrayList<>();
         arrayList_year1.add("Course");
@@ -129,7 +124,6 @@ public class SignIn extends AppCompatActivity {
         arrayList_year1.add("Global Business");
         arrayList_year1.add("Law ");
         arrayList_year1.add("Arts");
-
         arrayList_year2 = new ArrayList<>();
         arrayList_year2.add("Course");
         arrayList_year2.add("Dual BA");
@@ -137,7 +131,6 @@ public class SignIn extends AppCompatActivity {
         arrayList_year2.add("Computer Science");
         arrayList_year2.add("Clinical Studies");
         arrayList_year2.add("Speech Language");
-
         arrayList_year3 = new ArrayList<>();
         arrayList_year3.add("Course");
         arrayList_year3.add("Engineering");
@@ -145,7 +138,6 @@ public class SignIn extends AppCompatActivity {
         arrayList_year3.add("Global Business");
         arrayList_year3.add("Law ");
         arrayList_year3.add("Arts");
-
         arrayList_year4 = new ArrayList<>();
         arrayList_year4.add("Course");
         arrayList_year4.add("Dual BA");
@@ -153,8 +145,6 @@ public class SignIn extends AppCompatActivity {
         arrayList_year4.add("Computer Science");
         arrayList_year4.add("Clinical Studies");
         arrayList_year4.add("Speech Language");
-
-
         arrayList_year5 = new ArrayList<>();
         arrayList_year5.add("Course");
         arrayList_year5.add("Engineering MAI");
@@ -162,42 +152,30 @@ public class SignIn extends AppCompatActivity {
         arrayList_year5.add("MSc Marketing");
         arrayList_year5.add("MSc Management");
         arrayList_year5.add("PHD");
-
         year.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
                 if (position == 1) {
                     arrayAdapter_Course = new ArrayAdapter<>(getApplicationContext(), R.layout.textview_black, arrayList_year1);
                 }
-
                 if (position == 2) {
                     arrayAdapter_Course = new ArrayAdapter<>(getApplicationContext(), R.layout.textview_black, arrayList_year2);
                 }
-
                 if (position == 3) {
                     arrayAdapter_Course = new ArrayAdapter<>(getApplicationContext(), R.layout.textview_black, arrayList_year3);
                 }
-
                 if (position == 4) {
                     arrayAdapter_Course = new ArrayAdapter<>(getApplicationContext(), R.layout.textview_black, arrayList_year4);
                 }
-
                 if (position == 5) {
                     arrayAdapter_Course = new ArrayAdapter<>(getApplicationContext(), R.layout.textview_black, arrayList_year5);
                 }
-
                 Course.setAdapter(arrayAdapter_Course);
-
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
-
-
          */
 
 
@@ -211,16 +189,13 @@ public class SignIn extends AppCompatActivity {
         mSignUp = (Button) findViewById(R.id.SignInButton);
         mLogIn = (Button) findViewById(R.id.LoggingButton);
         /*mSelectModule = (Button) findViewById(R.id.SelectModuleBtn);
-
         mSelectModule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent ModuleReg= new Intent(SignIn.this, ModuleSelect.class);
                 startActivity(ModuleReg);
             }
-
         });
-
          */
 
         mLogIn.setOnClickListener(new View.OnClickListener() {
@@ -240,6 +215,9 @@ public class SignIn extends AppCompatActivity {
 
             public void onClick(View v) {
 
+                ValidateEmail(mEmail);
+
+
                 if (isEmpty()) return;
                 inProgress(true);
                 mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(), mPassword.getText().toString())
@@ -258,28 +236,41 @@ public class SignIn extends AppCompatActivity {
 
                             }
                         }).addOnFailureListener(new OnFailureListener() {
-
-
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                inProgress(false);
-                                Toast.makeText(SignIn.this, "Sign Up failed!" + e.getMessage(), Toast.LENGTH_LONG).show();
-                            }
-                        });
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        inProgress(false);
+                        Toast.makeText(SignIn.this, "Sign Up failed!" + e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
 
-
     }
+
+    private boolean ValidateEmail(EditText mEmail){
+        String emailInput= mEmail.getText().toString();
+        if(!emailInput.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
+            Toast.makeText(this,"Email Validated Successfully",Toast.LENGTH_SHORT).show();
+            return true;
+        }  else {
+            Toast.makeText(this,"InValid Email Address",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+
+
+
+
+
+
+
 
 
     private void inProgress(boolean x) {
         if (x) {
             mProgressBar.setVisibility(View.VISIBLE);
             mSignUp.setEnabled(false);
-
         } else {
-
             mProgressBar.setVisibility(View.GONE);
             mSignUp.setEnabled(true);
         }
@@ -294,9 +285,7 @@ public class SignIn extends AppCompatActivity {
         }
         return false;
     }
-
 }
-
 
 
 

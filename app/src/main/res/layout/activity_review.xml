@@ -35,8 +35,8 @@
         android:id="@+id/submitRatingButton"
 
         style="@style/Widget.AppCompat.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
         android:layout_margin="8dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
@@ -50,7 +50,6 @@
 
         android:scaleX="0.9"
         android:scaleY="0.9"
-        android:text="Submit Rating"
         app:layout_constraintBottom_toTopOf="@+id/CommentRecycler"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ModuleName"
-        android:gravity="center_horizontal" />
+        />
 
     <EditText
         android:id="@+id/postCommentText"
@@ -101,13 +100,14 @@
 
     <Button
         android:id="@+id/postCommentButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Post"
+        android:background="@drawable/moduleb"
+        android:text="POST"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CommentRecycler" />
@@ -146,6 +146,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal" />
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

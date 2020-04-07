@@ -51,7 +51,7 @@
         android:id="@+id/ModuleNameGradeAnalytics"
 
         android:layout_width="331dp"
-        android:layout_height="52dp"
+        android:layout_height="60dp"
 
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
@@ -64,7 +64,7 @@
         android:text="Module Name"
         android:textColor="#4776b5"
 
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
