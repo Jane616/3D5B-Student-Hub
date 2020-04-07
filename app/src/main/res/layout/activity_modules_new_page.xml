@@ -10,21 +10,24 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="0dp"
+
         android:layout_height="0dp"
+
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+
         android:layout_marginBottom="8dp"
         android:background="@drawable/textb1"
+
         android:foregroundGravity="center_horizontal"
         android:gravity="center_horizontal|center_vertical"
         android:padding="10dp"
         android:text="Module Name"
         android:textSize="18sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/lectureName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,51 +35,56 @@
 
     <Button
         android:id="@+id/ReviewBtn"
-        android:layout_width="270dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="145dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/review"
-        app:layout_constraintBottom_toTopOf="@+id/TimetableBtn"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Review"
+
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/GradeAnalyticsBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lectureEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/SolutionsBtn"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/AttendanceBtn"
-        android:layout_width="265dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="120dp"
+
+        android:layout_width="145dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/attendance"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Attendance"
+
+        android:textSize="18sp"
+        android:textStyle="bold"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TimetableBtn" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/SolutionsBtn"
+        app:layout_constraintTop_toBottomOf="@+id/lectureEmail" />
 
     <Button
-        android:id="@+id/TimetableBtn"
-        android:layout_width="269dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+
+        android:id="@+id/SolutionsBtn"
+        android:layout_width="145dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/timet"
-        app:layout_constraintBottom_toTopOf="@+id/AttendanceBtn"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Solutions"
+
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/AttendanceBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ReviewBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/lectureEmail" />
 
     <EditText
         android:id="@+id/lectureName"
@@ -88,10 +96,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+
         android:background="#9FFFFFFF"
         android:inputType="textPersonName"
         android:text="Lecturer: Name"
-        app:layout_constraintBottom_toTopOf="@+id/lectureEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -102,15 +110,38 @@
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="8dp"
         android:background="#9FFFFFFF"
         android:inputType="textPersonName"
         android:text="Email: email@tcd.ie"
-        app:layout_constraintBottom_toTopOf="@+id/ReviewBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lectureName" />
+
+    <Button
+        android:id="@+id/GradeAnalyticsBtn"
+        android:layout_width="145dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:background="#00B8D4"
+        android:text="Grade Analytics"
+
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ReviewBtn"
+        app:layout_constraintTop_toBottomOf="@+id/AttendanceBtn"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

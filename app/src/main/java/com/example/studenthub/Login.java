@@ -23,7 +23,10 @@ public class Login extends AppCompatActivity {
     private EditText ed1,ed2;
     private FirebaseAuth mAuth;
     private Button mButton;
-    private Button mSolutions;
+
+
+    private Button mContact;
+
 
 
     TextView tx1;
@@ -33,6 +36,18 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+        // Button to move to Contact Us page
+
+        mContact =(Button) findViewById(R.id.contact);
+        mContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                opencontactActivity();
+            }
+        });
+
+        // Code ends
         mButton = (Button) findViewById(R.id.TeacherPage);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,14 +56,7 @@ public class Login extends AppCompatActivity {
                 startActivity(buttonClick);
             }
         });
-        mSolutions = (Button) findViewById(R.id.btnSolutions);
-        mSolutions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent studSol = new Intent(Login.this,StudentSolutions.class);
-                startActivity(studSol);
-            }
-        });
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -74,6 +82,11 @@ public class Login extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public void opencontactActivity() {
+        Intent intentC = new Intent(this, ContactPage.class);
+        startActivity(intentC);
     }
 
     private void startSignIn(){

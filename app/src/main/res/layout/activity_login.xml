@@ -6,10 +6,6 @@
     android:background="@drawable/loginbackground"
     tools:context=".Login">
 
-
-
-
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -123,23 +119,26 @@
         android:background="@drawable/login"
         android:textSize="20dp" />
 
+
     <Button
-        android:id="@+id/btnSolutions"
+        android:id="@+id/contact"
         android:layout_width="wrap_content"
-        android:layout_height="10dp"
+        android:layout_height="0dp"
         android:layout_below="@id/TeacherPage"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginLeft="300dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="300dp"
-        android:layout_marginRight="300dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
         android:layout_marginBottom="590dp"
         android:minWidth="10dp"
         android:minHeight="10dp"
-        android:text="Solutions" />
+        android:text="Contact Us" />
+
 </RelativeLayout>
+
