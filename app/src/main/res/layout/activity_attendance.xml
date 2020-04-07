@@ -88,7 +88,7 @@
         android:focusable="false"
         android:gravity="center"
         android:text="TextView"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

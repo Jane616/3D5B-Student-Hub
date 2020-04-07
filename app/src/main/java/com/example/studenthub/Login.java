@@ -37,15 +37,8 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-        // Button to move to Contact Us page
 
-        mContact =(Button) findViewById(R.id.contact);
-        mContact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                opencontactActivity();
-            }
-        });
+
 
         // Code ends
         mButton = (Button) findViewById(R.id.TeacherPage);
