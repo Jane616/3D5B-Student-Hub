@@ -217,6 +217,11 @@ public class SignIn extends AppCompatActivity {
 
                 ValidateEmail(mEmail);
 
+                if (mEmail.getText().toString().isEmpty() || mPassword.getText().toString().isEmpty() || mFirstName.getText().toString().isEmpty()){
+                    Toast.makeText(SignIn.this, "One of the following fields is empty and must be completed: First Name, Email, Password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
 
                 if (isEmpty()) return;
                 inProgress(true);
