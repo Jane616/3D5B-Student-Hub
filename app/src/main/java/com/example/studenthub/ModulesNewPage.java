@@ -88,10 +88,12 @@ public class ModulesNewPage extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 //startActivity(new Intent(ModulesNewPage.this, Review.class));
+
                 Intent jumpToReview = new Intent(ModulesNewPage.this, Review.class);
                 jumpToReview.putExtra("modulename",name);
                 //jumpToAttendance.putExtra("modulenumber",module_number);
                 startActivity(jumpToReview);
+
             }
 
         });
@@ -107,6 +109,7 @@ public class ModulesNewPage extends AppCompatActivity {
                 startActivity(jumpToAttendance);
             }
         });
+
         
         mSolutions = findViewById(R.id.SolutionsBtn);
         mSolutions.setOnClickListener(new View.OnClickListener() {
@@ -147,9 +150,14 @@ public class ModulesNewPage extends AppCompatActivity {
                 Intent otherIntent = new Intent(getApplicationContext(), AlarmPage.class);
                 startActivity(otherIntent);
                 break;
+            case R.id.menuContactUs:
+                Intent anotherIntent = new Intent(getApplicationContext(), ContactPage.class);
+                startActivity(anotherIntent);
+                break;
         }
         return true;
     }
+
 
     private void disableEditText(EditText editText) {
         editText.setFocusable(false);

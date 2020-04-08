@@ -1,6 +1,9 @@
 package com.example.studenthub;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,6 +26,7 @@ public class GradeAnalytics extends AppCompatActivity {
     TextView ModuleNameGradeAnalytics, GradeAnalyticsTxt, AverageTxt, averageTxt, NoFailsTxt, noFailsTxt;
     Spinner spinner;
     ListView assesmentListView;
+
     DatabaseReference reff;
     DatabaseReference yearlyreff;
     ArrayList<String> arrayList_year = new ArrayList<>();
@@ -52,6 +56,7 @@ public class GradeAnalytics extends AppCompatActivity {
         setTextDisable(averageTxt);
         setTextDisable(NoFailsTxt);
         setTextDisable(noFailsTxt);
+
 
 
         arrayAdapter_year = new ArrayAdapter<>(getApplicationContext(), R.layout.spinner_item, arrayList_year);
@@ -152,6 +157,7 @@ public class GradeAnalytics extends AppCompatActivity {
             }
         });
 
+
     }
 
     private void setTextDisable(TextView text){
@@ -159,4 +165,30 @@ public class GradeAnalytics extends AppCompatActivity {
         text.setCursorVisible(false);
         text.setKeyListener(null);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.menuLogout:
+                Intent startIntent = new Intent(getApplicationContext(), Login.class);
+                startActivity(startIntent);
+                break;
+            case R.id.menuReminders:
+                Intent otherIntent = new Intent(getApplicationContext(), AlarmPage.class);
+                startActivity(otherIntent);
+                break;
+            case R.id.menuContactUs:
+                Intent anotherIntent = new Intent(getApplicationContext(), ContactPage.class);
+                startActivity(anotherIntent);
+                break;
+        }
+        return true;
+    }
+
 }

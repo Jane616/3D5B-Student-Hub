@@ -1,13 +1,9 @@
 package com.example.studenthub;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ContactPage extends AppCompatActivity {
 
@@ -17,16 +13,9 @@ public class ContactPage extends AppCompatActivity {
         setContentView(R.layout.activity_contact_page);
 
 
-        Button button = (Button)findViewById(R.id.rtn);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                returnActivity();
-            }
-        });
 
 
-        TextView t4 = (TextView) findViewById(R.id.c4);
+        /*TextView t4 = (TextView) findViewById(R.id.c4);
         t4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,7 +71,7 @@ public class ContactPage extends AppCompatActivity {
                 intent.setData(Uri.parse("tel: 35318961999"));
                 startActivity(intent);
             }
-        });
+        });*/
     }
     public void returnActivity() {
         Intent intentR = new Intent(ContactPage.this,Login.class);

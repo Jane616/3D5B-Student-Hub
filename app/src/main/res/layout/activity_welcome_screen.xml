@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/androidback"
     tools:context=".WelcomeScreen">
 
     <ImageView
@@ -14,28 +15,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/studenthublogo" />
+        app:layout_constraintVertical_bias="0.88"
+        app:srcCompat="@drawable/logo" />
 
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="725dp"
-        android:layout_height="148dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/studenthublogostrip" />
 
-    <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="575dp"
-        android:layout_height="156dp"
-        android:layout_marginTop="31dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11"
-        app:layout_constraintVertical_bias="0.94"
-        app:srcCompat="@drawable/studenthublogostrip" />
 </androidx.constraintlayout.widget.ConstraintLayout>
