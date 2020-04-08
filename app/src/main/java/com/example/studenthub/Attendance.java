@@ -28,12 +28,16 @@ public class Attendance extends AppCompatActivity {
     TextView attendanceTextView;
     TextView moduleName;
 
+    //test
+
     TextView AttendancePercentageTextView;
     TextView AttendMissView;
     Button ButtonMissed;
     Button ButtonAttended;
 
     DatabaseReference reff;
+
+    //test1
 
     //DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
     //DatabaseReference mPercentageRef = RootRef.child("Percentage");
@@ -217,6 +221,10 @@ public class Attendance extends AppCompatActivity {
             case R.id.menuReminders:
                 Intent otherIntent = new Intent(getApplicationContext(), AlarmPage.class);
                 startActivity(otherIntent);
+                break;
+            case R.id.menuContactUs:
+                Intent anotherIntent = new Intent(getApplicationContext(), ContactPage.class);
+                startActivity(anotherIntent);
                 break;
         }
         return true;

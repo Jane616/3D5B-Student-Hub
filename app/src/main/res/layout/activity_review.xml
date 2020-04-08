@@ -4,107 +4,125 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<<<< Temporary merge branch 1
+    android:layout_gravity="center|center_horizontal|center_vertical"
+=========
+    android:background="@drawable/androidback"
+>>>>>>>>> Temporary merge branch 2
     tools:context=".Review">
 
 
     <RatingBar
         android:id="@+id/ratingBar"
+        style="@style/Widget.AppCompat.RatingBar.Indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:isIndicator="false"
         android:numStars="5"
-        android:rating="2.0"
-        android:stepSize="0.01"
+        android:rating="3.0"
+        android:scaleX="1.0"
+        android:scaleY="1.0"
+        android:stepSize="1.0"
         app:layout_constraintBottom_toTopOf="@id/CommentRecycler"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterRatingText" />
-
-    <EditText
-        android:id="@+id/enterRatingText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="153dp"
-        android:layout_marginRight="153dp"
-        android:ems="10"
-        android:hint="Enter rating for module (0-5)"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/ratingBar"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/submitRatingButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ratingInfo" />
 
     <Button
         android:id="@+id/submitRatingButton"
+<<<<<<<<< Temporary merge branch 1
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+=========
+        android:layout_width="112dp"
+        android:layout_height="34dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+>>>>>>>>> Temporary merge branch 2
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+<<<<<<<<< Temporary merge branch 1
+        android:scaleX="0.9"
+        android:scaleY="0.9"
         android:text="Submit Rating"
+        app:layout_constraintBottom_toTopOf="@+id/CommentRecycler"
+=========
+        android:background="@drawable/submit"
         app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+>>>>>>>>> Temporary merge branch 2
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/enterRatingText"
+        app:layout_constraintStart_toEndOf="@+id/ratingBar"
         app:layout_constraintTop_toBottomOf="@+id/ratingInfo" />
 
     <EditText
         android:id="@+id/ratingInfo"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginLeft="200dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:ems="10"
+        android:layout_marginEnd="200dp"
+        android:layout_marginRight="200dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:includeFontPadding="false"
         android:inputType="textPersonName"
+<<<<<<<<< Temporary merge branch 1
+        android:lineSpacingExtra="0dp"
+        android:text="Overall Rating"
+        android:textColor="#D81B60"
+        android:textSize="40sp"
+        android:textStyle="bold"
+=========
         android:text="Overall Rating: No Data Yet"
+        android:textStyle="bold"
+        android:textColor="#70716f"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/enterRatingText"
+>>>>>>>>> Temporary merge branch 2
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ModuleName" />
+        app:layout_constraintTop_toBottomOf="@+id/ModuleName"
+        android:gravity="center_horizontal" />
 
     <EditText
         android:id="@+id/postCommentText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginRight="150dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Post a comment..."
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintEnd_toStartOf="@+id/postCommentButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/CommentRecycler" />
 
     <Button
         android:id="@+id/postCommentButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:text="Post"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/postCommentText" />
+        app:layout_constraintTop_toBottomOf="@+id/CommentRecycler" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/CommentRecycler"
@@ -112,43 +130,56 @@
         android:layout_height="0dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/postCommentText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
+<<<<<<<<< Temporary merge branch 1
+=========
     <Button
         android:id="@+id/updateRatingButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="110dp"
+        android:layout_height="34dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="16dp"
-        android:text="Update Rating"
+        android:background="@drawable/update"
         app:layout_constraintBottom_toTopOf="@id/CommentRecycler"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.794"
         app:layout_constraintStart_toEndOf="@+id/ratingBar"
-        app:layout_constraintTop_toBottomOf="@+id/submitRatingButton" />
+        app:layout_constraintTop_toBottomOf="@+id/submitRatingButton"
+        app:layout_constraintVertical_bias="0.636" />
 
+>>>>>>>>> Temporary merge branch 2
     <EditText
         android:id="@+id/ModuleName"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:ems="10"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:includeFontPadding="false"
         android:inputType="textPersonName"
         android:text="Name"
+<<<<<<<<< Temporary merge branch 1
+=========
+        android:textAlignment="center"
+        android:textColor="#BF4A3F"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/ratingInfo"
+>>>>>>>>> Temporary merge branch 2
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_horizontal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,9 +22,11 @@ import com.google.firebase.database.ValueEventListener;
 public class ModulesNewPage extends AppCompatActivity {
     private Button review;
     private Button attendance;
+    private Button grade;
     DatabaseReference reff;
     EditText lectureName;
     EditText lectureEmail;
+    Button mSolutions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,10 +88,12 @@ public class ModulesNewPage extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 //startActivity(new Intent(ModulesNewPage.this, Review.class));
-                Intent jumpToAttendance = new Intent(ModulesNewPage.this, Review.class);
-                jumpToAttendance.putExtra("modulename",name);
+
+                Intent jumpToReview = new Intent(ModulesNewPage.this, Review.class);
+                jumpToReview.putExtra("modulename",name);
                 //jumpToAttendance.putExtra("modulenumber",module_number);
-                startActivity(jumpToAttendance);
+                startActivity(jumpToReview);
+
             }
 
         });
@@ -103,6 +107,28 @@ public class ModulesNewPage extends AppCompatActivity {
                 jumpToAttendance.putExtra("modulenumber",module_number);
                 Toast.makeText(ModulesNewPage.this, module_number, Toast.LENGTH_SHORT).show();
                 startActivity(jumpToAttendance);
+            }
+        });
+
+        
+        mSolutions = findViewById(R.id.SolutionsBtn);
+        mSolutions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent jumpToSolutions = new Intent(ModulesNewPage.this, SolutionsDownload.class);
+                jumpToSolutions.putExtra("module_name",name);
+                startActivity(jumpToSolutions);
+
+            }
+        });
+
+        grade = findViewById(R.id.GradeAnalyticsBtn);
+        grade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent jumpToGrade = new Intent(ModulesNewPage.this, GradeAnalytics.class);
+                jumpToGrade.putExtra("module_name", name);
+                startActivity(jumpToGrade);
             }
         });
 
@@ -124,9 +150,14 @@ public class ModulesNewPage extends AppCompatActivity {
                 Intent otherIntent = new Intent(getApplicationContext(), AlarmPage.class);
                 startActivity(otherIntent);
                 break;
+            case R.id.menuContactUs:
+                Intent anotherIntent = new Intent(getApplicationContext(), ContactPage.class);
+                startActivity(anotherIntent);
+                break;
         }
         return true;
     }
+
 
     private void disableEditText(EditText editText) {
         editText.setFocusable(false);

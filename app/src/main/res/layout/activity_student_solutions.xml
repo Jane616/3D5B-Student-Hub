@@ -8,9 +8,10 @@
 
     <TextView
         android:id="@+id/studentSol"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/assesment"
         android:gravity="center"
         android:text="Student Solutions"
         android:textColor="#050505"
@@ -21,17 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/uploadDoc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="Have a new solution? UPLOAD Here"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ScrollView
         android:id="@+id/moduleList"
         android:layout_width="407dp"
@@ -41,9 +31,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:layout_marginBottom="8dp"
         android:padding="6dp"
-        app:layout_constraintBottom_toTopOf="@+id/uploadDoc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/studentSol">
@@ -59,10 +47,11 @@
                 android:layout_height="45dp"
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
+                android:onClick="btn_action"
                 android:text="CEU33E04 Innovation and Entrepreneurship for Engineers"
                 android:textSize="16dp"
-                android:onClick="btn_action"
-                android:textStyle="bold" />
+                android:textStyle="bold|italic" />
+
             <TextView
                 android:id="@+id/m2"
                 android:layout_width="match_parent"
@@ -70,9 +59,9 @@
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
                 android:text="CSU33D01 Computer Networks"
-                android:textSize="16sp"
-                android:textStyle="bold"
- />
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
+
             <TextView
                 android:id="@+id/m3"
                 android:layout_width="match_parent"
@@ -80,9 +69,9 @@
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
                 android:text="CSU33D02 Microprocessor Systems I"
-                android:textSize="16sp"
-                android:textStyle="bold"
-/>
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
+
             <TextView
                 android:id="@+id/m4"
                 android:layout_width="match_parent"
@@ -90,9 +79,9 @@
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
                 android:text="CSU33D03 Microprocessor Systems II"
-                android:textSize="16sp"
-                android:textStyle="bold"
- />
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
+
             <TextView
                 android:id="@+id/m5"
                 android:layout_width="match_parent"
@@ -100,9 +89,9 @@
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
                 android:text="CSU33D04 Data Structures"
-                android:textSize="16sp"
-                android:textStyle="bold"
- />
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
+
             <TextView
                 android:id="@+id/m6"
                 android:layout_width="match_parent"
@@ -110,9 +99,9 @@
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
                 android:text="CSU33D06 Software Design Analysis"
-                android:textSize="16sp"
-                android:textStyle="bold"
- />
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
+
             <TextView
                 android:id="@+id/m7"
                 android:layout_width="match_parent"
@@ -120,9 +109,9 @@
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
                 android:text="EEU33C01 Signals and Systems"
-                android:textSize="16sp"
-                android:textStyle="bold"
- />
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
+
             <TextView
                 android:id="@+id/m8"
                 android:layout_width="match_parent"
@@ -130,9 +119,9 @@
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
                 android:text="EEU33C02 Digital Circuits"
-                android:textSize="16sp"
-                android:textStyle="bold"
- />
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
+
             <TextView
                 android:id="@+id/m9"
                 android:layout_width="match_parent"
@@ -140,9 +129,9 @@
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
                 android:text="EEU33C07 Digital Systems Design"
-                android:textSize="16sp"
-                android:textStyle="bold"
-/>
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
+
             <TextView
                 android:id="@+id/m10"
                 android:layout_width="match_parent"
@@ -150,9 +139,8 @@
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
                 android:text="EEU3E03 Probability and Statistics"
-                android:textSize="16sp"
-                android:textStyle="bold"
- />
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
 
             <TextView
                 android:id="@+id/m12"
@@ -161,9 +149,9 @@
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
                 android:text="MAU33E01 Engineering Mathematics V"
-                android:textSize="16sp"
-                android:textStyle="bold"
- />
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
+
             <TextView
                 android:id="@+id/m13"
                 android:layout_width="match_parent"
@@ -172,8 +160,7 @@
                 android:gravity="center_vertical"
                 android:text="CSU33D04 Operating Systems and Concurrent Systems"
                 android:textSize="16sp"
-                android:textStyle="bold"
- />
+                android:textStyle="bold|italic" />
 
         </LinearLayout>
     </ScrollView>

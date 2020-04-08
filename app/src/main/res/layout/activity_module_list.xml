@@ -8,29 +8,32 @@
 
     <TextView
         android:id="@+id/modulesTextView"
-        android:layout_width="404dp"
-        android:layout_height="61dp"
+        android:layout_width="389dp"
+        android:layout_height="59dp"
         android:layout_marginStart="186dp"
         android:layout_marginLeft="186dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="97dp"
         android:layout_marginRight="97dp"
-        android:background="#00DBB781"
+        android:background="@drawable/moduleb"
         android:clickable="false"
         android:gravity="center_horizontal|center_vertical"
         android:padding="4dp"
-        android:text="My Modules"
         android:textSize="32sp"
         android:textStyle="bold"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.636"
+<<<<<<<<< Temporary merge branch 1
+        app:layout_constraintHorizontal_bias="0.65"
+=========
+        app:layout_constraintHorizontal_bias="0.67"
+>>>>>>>>> Temporary merge branch 2
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="My Modules" />
 
     <ListView
-        android:id="@+id/modulesList"
+        android:id="@+id/moduleList"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -39,6 +42,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/androidback"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
