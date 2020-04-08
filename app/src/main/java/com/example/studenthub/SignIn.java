@@ -68,8 +68,8 @@ public class SignIn extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
 
 
-        mLastName=(EditText)findViewById(R.id.LastName);
-        mStudentNo=(EditText)findViewById(R.id.StudentID);
+        mLastName = (EditText) findViewById(R.id.LastName);
+        mStudentNo = (EditText) findViewById(R.id.StudentID);
 
         reff = FirebaseDatabase.getInstance().getReference().child("User");
 
@@ -179,7 +179,6 @@ public class SignIn extends AppCompatActivity {
          */
 
 
-
         mAuth = FirebaseAuth.getInstance();
 
         mEmail = (EditText) findViewById(R.id.emailTextView);
@@ -211,15 +210,40 @@ public class SignIn extends AppCompatActivity {
         mSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
 
-            // this is making the app crash
 
             public void onClick(View v) {
 
+                final String eml= mEmail.getText().toString().trim();
+                final String pwd= mPassword.getText().toString().trim();
+                final String firstName= mFirstName.getText().toString().trim();
+
+
                 ValidateEmail(mEmail);
 
+                if(TextUtils.isEmpty(pwd)) {
+                    Toast.makeText(SignIn.this, "Password cannot remain Empty!!", Toast.LENGTH_LONG).show();
+                    mPassword.requestFocus();
+                }
+                if((pwd).length()<6){
+                    Toast.makeText(SignIn.this,"Password length should be more than 6",Toast.LENGTH_LONG).show();
+                    mPassword.requestFocus();
+                }
 
-                if (isEmpty()) return;
-                inProgress(true);
+               /* if(TextUtils.isEmpty(eml)){
+                    Toast.makeText(SignIn.this,"Please enter the valid email id",Toast.LENGTH_LONG).show();
+                    mEmail.requestFocus();
+                }*/
+
+                if(TextUtils.isEmpty(firstName)){
+                    Toast.makeText(SignIn.this,"Please Enter Your Name",Toast.LENGTH_LONG).show();
+                    mFirstName.requestFocus();
+                }
+
+
+                // This part of the app is making it crash (Firebase authentication)
+
+
+               /* inProgress(true);
                 mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(), mPassword.getText().toString())
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
@@ -231,7 +255,7 @@ public class SignIn extends AppCompatActivity {
                                 String user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
                                 String first_name = mFirstName.getText().toString();
                                 reff.child(user_id).child("Name").setValue(first_name);
-                                Intent ModuleReg1= new Intent(SignIn.this, ModuleSelect.class);
+                                Intent ModuleReg1 = new Intent(SignIn.this, ModuleSelect.class);
                                 startActivity(ModuleReg1);
 
                             }
@@ -241,11 +265,11 @@ public class SignIn extends AppCompatActivity {
                         inProgress(false);
                         Toast.makeText(SignIn.this, "Sign Up failed!" + e.getMessage(), Toast.LENGTH_LONG).show();
                     }
-                });
+                });*/
             }
         });
 
-    }
+}
 
     private boolean ValidateEmail(EditText mEmail){
         String emailInput= mEmail.getText().toString();
@@ -259,13 +283,6 @@ public class SignIn extends AppCompatActivity {
     }
 
 
-
-
-
-
-
-
-
     private void inProgress(boolean x) {
         if (x) {
             mProgressBar.setVisibility(View.VISIBLE);
@@ -275,17 +292,8 @@ public class SignIn extends AppCompatActivity {
             mSignUp.setEnabled(true);
         }
     }
-
-    private boolean isEmpty() {
-        if (TextUtils.isEmpty(mEmail.getText().toString())) {
-            mEmail.setError("Required!");
-        }
-        if (TextUtils.isEmpty(mPassword.getText().toString())) {
-            mPassword.setError("Required!");
-        }
-        return false;
-    }
 }
+
 
 
 
