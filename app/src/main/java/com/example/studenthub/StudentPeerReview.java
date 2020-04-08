@@ -73,7 +73,7 @@ public class StudentPeerReview extends AppCompatActivity {
 
             }
         });
-
+        //Rating Bar
         SmileyRating smileRating=(SmileyRating)findViewById(R.id.smile_rating);
         smileRating.setSmileySelectedListener(new SmileyRating.OnSmileySelectedListener() {
 
