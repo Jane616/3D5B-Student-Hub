@@ -243,7 +243,7 @@ public class SignIn extends AppCompatActivity {
                 // This part of the app is making it crash (Firebase authentication)
 
 
-               /* inProgress(true);
+                inProgress(true);
                 mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(), mPassword.getText().toString())
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
@@ -265,7 +265,7 @@ public class SignIn extends AppCompatActivity {
                         inProgress(false);
                         Toast.makeText(SignIn.this, "Sign Up failed!" + e.getMessage(), Toast.LENGTH_LONG).show();
                     }
-                });*/
+                });
             }
         });
 
