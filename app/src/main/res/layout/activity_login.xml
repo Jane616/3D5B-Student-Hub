@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbackground"
+    android:background="@drawable/background"
     tools:context=".Login">
 
 
@@ -14,7 +14,28 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_below="@+id/ModuleNameText"
+        android:layout_alignEnd="@+id/ModuleNameText"
+        android:layout_alignRight="@+id/ModuleNameText"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="61dp"
+        android:layout_marginLeft="61dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="-3dp"
+        android:layout_marginRight="-3dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColorHint="#009688" />
 
 
     <EditText
@@ -26,36 +47,16 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="55dp"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="202dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginRight="65dp"
-        android:background="@drawable/assesment"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="279dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:background="#FFFFFF"
         android:focusable="true"
         android:hint="Enter Name"
 
         android:textColorHighlight="#00CEBA"
-        android:textColorHint="#009688" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="42dp"
-        android:layout_below="@+id/ModuleNameText"
-        android:layout_alignEnd="@+id/ModuleNameText"
-        android:layout_alignRight="@+id/ModuleNameText"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="-3dp"
-        android:layout_marginRight="-3dp"
-        android:background="@drawable/done1"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
         android:textColorHint="#009688" />
 
     <TextView
@@ -71,6 +72,8 @@
         android:layout_marginEnd="61dp"
         android:layout_marginRight="61dp"
         android:layout_marginBottom="-2dp"
+        android:layout_toEndOf="@+id/LoginText"
+        android:layout_toRightOf="@+id/LoginText"
         android:text="New Text"
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
@@ -88,58 +91,33 @@
         android:text="Attempts Left:"
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
-
+  
       <Button
         android:id="@+id/TeacherPage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Teacher Login" />
 
+   <Button
+        android:id="@+id/buttonAttended"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="-100dp"
+        android:layout_marginBottom="42dp"
+        android:layout_toStartOf="@+id/LoginText"
+        android:layout_toLeftOf="@+id/LoginText"
+        android:text="login" />
 
     <Button
         android:id="@+id/buttonMissed"
-        android:layout_width="99dp"
-        android:layout_height="45dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="79dp"
-        android:layout_marginRight="79dp"
-        android:layout_marginBottom="170dp"
-        android:background="@drawable/cancel"
-        android:textColor="#ffffff"
-        android:textSize="20dp" />
-
-    <Button
-        android:id="@+id/buttonAttended"
-        android:layout_width="98dp"
-        android:layout_height="42dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="173dp"
-        android:layout_toStartOf="@+id/buttonMissed"
-        android:layout_toLeftOf="@+id/buttonMissed"
-        android:background="@drawable/login"
-        android:textSize="20dp" />
-
-    <Button
-        android:id="@+id/btnSolutions"
         android:layout_width="wrap_content"
-        android:layout_height="10dp"
-        android:layout_below="@id/TeacherPage"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="300dp"
-        android:layout_marginRight="300dp"
-        android:layout_marginBottom="590dp"
-        android:minWidth="10dp"
-        android:minHeight="10dp"
-        android:text="Solutions" />
+        android:layout_marginLeft="-100dp"
+        android:layout_marginBottom="50dp"
+        android:layout_toEndOf="@+id/LoginText"
+        android:layout_toRightOf="@+id/LoginText"
+        android:text="Cancel" />
+
 </RelativeLayout>
