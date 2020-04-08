@@ -220,27 +220,12 @@ public class SignIn extends AppCompatActivity {
 
                 ValidateEmail(mEmail);
 
-                if(TextUtils.isEmpty(pwd)) {
-                    Toast.makeText(SignIn.this, "Password cannot remain Empty!!", Toast.LENGTH_LONG).show();
-                    mPassword.requestFocus();
-                }
-                if((pwd).length()<6){
-                    Toast.makeText(SignIn.this,"Password length should be more than 6",Toast.LENGTH_LONG).show();
-                    mPassword.requestFocus();
+
+                if (mEmail.getText().toString().isEmpty() || mPassword.getText().toString().isEmpty() || mFirstName.getText().toString().isEmpty()){
+                    Toast.makeText(SignIn.this, "One of the following fields is empty and must be completed: First Name, Email, Password", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
-               /* if(TextUtils.isEmpty(eml)){
-                    Toast.makeText(SignIn.this,"Please enter the valid email id",Toast.LENGTH_LONG).show();
-                    mEmail.requestFocus();
-                }*/
-
-                if(TextUtils.isEmpty(firstName)){
-                    Toast.makeText(SignIn.this,"Please Enter Your Name",Toast.LENGTH_LONG).show();
-                    mFirstName.requestFocus();
-                }
-
-
-                // This part of the app is making it crash (Firebase authentication)
 
 
                 inProgress(true);
