@@ -1,5 +1,5 @@
 # Student Hub
-A TCD Student App developed in CSU33D06 Software Design Analysis. 
+A TCD Student App developed in CSU33D06 Software Design Analysis by Group 1. 
 
 Students are able to register, login, select modules, find grade analytics, reviews, download or upload corse material, record deadline reminders and their attendance records. 
 
