@@ -9,6 +9,10 @@ import android.graphics.Color;
 import android.hardware.camera2.params.BlackLevelPattern;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -33,6 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.graphics.Color.BLACK;
+import static android.text.Spanned.*;
 
 public class SolutionsDownload extends AppCompatActivity {
     TextView SolutionsModuleName;
@@ -82,7 +87,7 @@ public class SolutionsDownload extends AppCompatActivity {
                 startActivity(toPeerReview);
             }
         };
-        sss.setSpan(clickableSpan2, 0, 22, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        sss.setSpan(clickableSpan2, 0, 22, SPAN_EXCLUSIVE_EXCLUSIVE);
         mPeerReview.setText(sss);
         mPeerReview.setMovementMethod(LinkMovementMethod.getInstance());
 
@@ -95,7 +100,7 @@ public class SolutionsDownload extends AppCompatActivity {
 
             }
         };
-        ss.setSpan(clickableSpan, 4, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(clickableSpan, 4, 5, SPAN_EXCLUSIVE_EXCLUSIVE);
         mTextView.setText(ss);
         mTextView.setMovementMethod(LinkMovementMethod.getInstance());
 
